@@ -1,0 +1,197 @@
+[
+  {
+    "id": "01",
+    "slug": "uuu-wave",
+    "name": "uuu",
+    "style": "Минимал / типографика",
+    "style_en": "Minimal typographic",
+    "colors": [
+      "#007FFF",
+      "#0D1B2E",
+      "#005CB3"
+    ],
+    "method": "screen",
+    "placement": "center",
+    "top": 70,
+    "note": "Три «u» из названия читаются как волна. 1 основной цвет + тёмный лок-ап.",
+    "w": 190,
+    "h": 150
+  },
+  {
+    "id": "02",
+    "slug": "manta-line",
+    "name": "Manta Line",
+    "style": "Line-art / тату-графика",
+    "style_en": "Single-line art",
+    "colors": [
+      "#0D1B2E",
+      "#007FFF"
+    ],
+    "method": "screen-fine",
+    "placement": "center",
+    "top": 65,
+    "note": "Манта одной непрерывной линией. Тонкая графика под татуировки владелицы; ширина линии 0,9 мм.",
+    "w": 170,
+    "h": 175
+  },
+  {
+    "id": "03",
+    "slug": "varsity-2016",
+    "name": "Varsity 2016",
+    "style": "Колледж / varsity",
+    "style_en": "Collegiate varsity",
+    "colors": [
+      "#007FFF",
+      "#0D1B2E",
+      "#FF8A00"
+    ],
+    "method": "screen-puff",
+    "placement": "center",
+    "top": 60,
+    "note": "Арочная надпись, манта как эмблема, год основания. Рекомендуем объёмную (puff) краску на буквах.",
+    "w": 200,
+    "h": 165
+  },
+  {
+    "id": "04",
+    "slug": "expedition",
+    "name": "Expedition 08°45′S",
+    "style": "Utility / gorpcore",
+    "style_en": "Technical utility",
+    "colors": [
+      "#0D1B2E",
+      "#007FFF",
+      "#FFFFFF"
+    ],
+    "method": "dtf",
+    "placement": "center",
+    "top": 45,
+    "note": "Техническая раскладка: координаты, маршрут, линейка вдоль бока. Мелкий текст — DTF или тонкая шелкография.",
+    "w": 200,
+    "h": 240
+  },
+  {
+    "id": "05",
+    "slug": "deep-bluuu-y2k",
+    "name": "deep bluuu",
+    "style": "Y2K / хром",
+    "style_en": "Y2K chrome",
+    "colors": [
+      "#007FFF",
+      "#0D1B2E",
+      "#66BDFF",
+      "#CCE9FF",
+      "#FFFFFF"
+    ],
+    "method": "dtg",
+    "placement": "center",
+    "top": 70,
+    "note": "Хромовый градиент, пузырьки, блики. Только цифровая печать (DTG/DTF) — градиенты.",
+    "w": 190,
+    "h": 135
+  },
+  {
+    "id": "06",
+    "slug": "sunset-crossing",
+    "name": "Sunset Crossing",
+    "style": "Ретро-сёрф 70-х",
+    "style_en": "70s surf retro",
+    "colors": [
+      "#CCE9FF",
+      "#99D3FF",
+      "#66BDFF",
+      "#007FFF",
+      "#0073E0",
+      "#005CB3",
+      "#003459",
+      "#FF8A00",
+      "#0D1B2E"
+    ],
+    "method": "dtg",
+    "placement": "center",
+    "top": 55,
+    "note": "Полосатый закат в круге, яхта на горизонте, ретро-леттеринг. 9 цветов — DTG/DTF или 6-цветная шелкография с упрощением.",
+    "w": 170,
+    "h": 205
+  },
+  {
+    "id": "07",
+    "slug": "manta-point-halftone",
+    "name": "Manta Point",
+    "scale": 0.9,
+    "style": "Стритвир / халфтон",
+    "style_en": "Streetwear halftone",
+    "colors": [
+      "#0D1B2E",
+      "#007FFF"
+    ],
+    "method": "screen",
+    "placement": "center",
+    "top": 55,
+    "note": "Крупный логотип-шрифт + манта из растровых точек (мин. точка 0,45 мм). 2 цвета шелкографии, точки печатаются поверх navy.",
+    "w": 180.0,
+    "h": 211.5
+  },
+  {
+    "id": "08",
+    "slug": "best-day-doodle",
+    "name": "Best Day",
+    "style": "Рукописный / дудл",
+    "style_en": "Hand-drawn doodle",
+    "colors": [
+      "#0D1B2E",
+      "#FF8A00",
+      "#007FFF"
+    ],
+    "method": "screen",
+    "placement": "center",
+    "top": 60,
+    "note": "Цитата из реальных отзывов, дудлы: солнце, волны, яхта, манта, 5 звёзд. 3 цвета, живой характер.",
+    "w": 170,
+    "h": 180
+  },
+  {
+    "id": "09",
+    "slug": "kelingking-flat",
+    "name": "Kelingking",
+    "style": "Flat-иллюстрация / постер",
+    "style_en": "Flat landscape poster",
+    "colors": [
+      "#E6F4FF",
+      "#F3E7D3",
+      "#99D3FF",
+      "#66BDFF",
+      "#339FFF",
+      "#007FFF",
+      "#0073E0",
+      "#005CB3",
+      "#0D1B2E",
+      "#003459",
+      "#FFFFFF"
+    ],
+    "method": "dtg",
+    "placement": "center",
+    "top": 55,
+    "note": "Открытка с видом на скалу-«тираннозавра» и пляж. 11 плашечных цветов — DTG/DTF.",
+    "w": 140,
+    "h": 195
+  },
+  {
+    "id": "10",
+    "slug": "tonal-bluuu",
+    "name": "Tonal BLUUU",
+    "style": "Премиум тон-в-тон",
+    "style_en": "Tone-on-tone premium",
+    "colors": [
+      "#FFFFFF",
+      "#007FFF",
+      "#99D3FF"
+    ],
+    "method": "puff",
+    "placement": "center",
+    "top": 80,
+    "note": "Белая объёмная (puff/HD) печать на белом — видна фактурой и тенью. Акцент: маленькая лазурная манта.",
+    "w": 200,
+    "h": 75
+  }
+]
