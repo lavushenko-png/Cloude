@@ -1,0 +1,62 @@
+"""Paged (A4 landscape) presentation version of the lookbook for PDF."""
+import json, base64, os
+from designs import PANTONE
+from copy_ru import COPY, METHOD_RU
+man = json.load(open('out/designs/manifest.json'))
+b64 = lambda p: base64.b64encode(open(p, 'rb').read()).decode()
+img = lambda p: 'data:image/' + ('png' if p.endswith('png') else 'jpeg') + ';base64,' + b64(p)
+f400 = b64('../site/PetrovSans-Regular.woff2'); f600 = b64('../site/PetrovSans-SemiBold.woff2')
+PAL = [('#007FFF', 'Bluuu Azure', 'основной'), ('#0073E0', 'Bluuu Blue', 'кнопки сайта'), ('#005CB3', 'Deep Blue', 'тени'), ('#0D1B2E', 'Night Navy', 'текст, тёмные секции'), ('#66BDFF', 'Sky', 'градиенты'), ('#CCE9FF', 'Ice', 'фон'), ('#FF8A00', 'Sunset Orange', 'акцент'), ('#F3E7D3', 'Sand', 'пляж')]
+chips = lambda cols: ''.join(f'<span class="chip"><i style="background:{c}"></i>{PANTONE.get(c,("?",))[0]}</span>' for c in cols)
+P = []
+foot = lambda n: f'<div class="ft"><span>Bluuu Merch Capsule · лукбук v1.0 · ноябрь 2026</span><span>{n}</span></div>'
+P.append(f'''<section class="page cover"><div class="l"><span class="eb">Bluuu Tours · Bali → Nusa Penida · мерч-капсула 2026</span><h1>Боди <em>Bluuu</em>.<br>10 принтов, которые хочется носить</h1><p class="lead">Коллекция для магазина Bluuu в Серангане: вещи покупают до или после тура на Нуса Пениду. Ни один дизайн не кричит логотипом — каждый рассказывает про день на воде: манты, скала Келингкинг, закат на обратном пути, координаты и цитаты из отзывов.</p><div class="facts"><span>Изделие <b>белое боди-майка, fine rib</b></span><span>База <b>образец с фото</b></span><span>Размеры <b>XS–L</b></span><span>Файлы <b>SVG · PDF · PNG 300 dpi</b></span></div></div><div class="r"><img src="{img('out/lookbook/img/hero.jpg')}"></div></section>''')
+pal = ''.join(f'<div class="sw"><i style="background:{h}"></i><b>{n}</b><span>{h}</span><small>{u}</small></div>' for h, n, u in PAL)
+P.append(f'''<section class="page"><span class="eb">01 · ДНК бренда с сайта bluuu.tours</span><h2>Лазурь, ночной navy и одна тёплая нота</h2><p class="lead">Палитра и шрифт взяты напрямую из кода сайта: CSS-переменные primary-50…950, тёмные фоны секций, янтарные звёзды рейтинга и фирменный шрифт Petrov Sans. Все арты набраны этим же шрифтом и переведены в кривые.</p>
+<div class="palgrid">{pal}</div>
+<div class="dna"><div><span class="type-demo">Bluuu</span><b>Petrov Sans</b><p>Геометрический гротеск сайта. Заголовок «Discover <i>Nusa Penida</i>» задаёт приём: прямой + курсив, белый + лазурь.</p></div><div><b>Мотивы</b><p>Манта, яхта, скала Келингкинг, гавань Серанган, широта 08°45′S, год основания 2016, рейтинг 4.9 и 15 000+ отзывов, фразы «captured by our guests», «best day of our Bali trip».</p></div><div><b>Тон</b><p>Premium, seamless, спокойный: много воздуха, мало элементов. В коллекции нет «кричащих» сувенирных композиций — только вещи, которые носятся как дизайнерская одежда.</p></div></div>{foot(2)}</section>''')
+P.append(f'''<section class="page"><span class="eb">02 · Изделие и зоны печати</span><h2>Белое боди-майка с тонкими бретелями</h2><div class="garment"><img src="{img('out/lookbook/img/sample-photo-sm.jpg')}"><div class="zones">
+<div><i>A</i><div><b>Центр груди — основная зона</b><p>До 200 × 240 мм. Верх арта на 45–80 мм ниже горловины, по линии центра переда. Все 10 дизайнов рассчитаны на эту зону и на размеры XS–L без перемасштабирования.</p></div></div>
+<div><i>B</i><div><b>Спинка, под горловиной</b><p>Логотип Bluuu 40 × 8,6 мм в лазури, 25 мм ниже горловины спинки. Единый для всей капсулы — тихая «подпись» бренда.</p></div></div>
+<div><i>C</i><div><b>Внутренняя печатная этикетка</b><p>Вместо вшивного ярлыка — печать 50 × 30 мм внутри спинки: логотип, размер, состав, уход, «Designed in Bali · Made in China».</p></div></div>
+<div><i>·</i><div><b>Ткань и посадка</b><p>Fine rib 92–95 % хлопок + 5–8 % эластан, 240–260 г/м², optic white; глубокий вырез спинки, высокий вырез ноги, кнопки в ластовице. Все краски — с эластичной добавкой под стрейч.</p></div></div></div></div>{foot(3)}</section>''')
+n = 4
+for m in man:
+    c = COPY[m['id']]
+    P.append(f'''<section class="page design"><div class="mock"><img src="{img(f"out/lookbook/img/mock-{m['id']}.jpg")}"></div><div class="info"><div class="eyebrow"><span class="num">{m['id']}</span><span class="tag">{c['tag']}</span></div><h2>{c['name']}</h2><p class="concept">{c['concept']}</p><p class="why"><b>Почему купят.</b> {c['why']}</p>
+<dl class="spec"><div><dt>Печать</dt><dd>{c['print']}</dd></div><div><dt>Размер арта</dt><dd>{m['w']:g} × {m['h']:g} мм</dd></div><div><dt>Положение</dt><dd>центр груди, {m['top']} мм от горловины</dd></div><div><dt>Цвета</dt><dd class="chips">{chips(m['colors'])}</dd></div><div><dt>Файл</dt><dd class="mono">BLU-BS-{m['id']}-{m['slug']}.svg / .pdf / -300dpi.png</dd></div></dl>
+<div class="art"><img src="{img(f"out/lookbook/img/art-{m['id']}.png")}"></div></div>{foot(n)}</section>''')
+    n += 1
+rows = ''.join(f"<tr><td>{m['id']}</td><td>{COPY[m['id']]['name']}</td><td>{COPY[m['id']]['tag']}</td><td>{m['w']:g}×{m['h']:g}</td><td>{len(m['colors'])}</td><td>{METHOD_RU[m['method']]}</td></tr>" for m in man)
+P.append(f'''<section class="page"><span class="eb">04 · Сводка</span><h2>Что, где и как печатать</h2><div class="sum"><table><thead><tr><th>№</th><th>Дизайн</th><th>Стиль</th><th>Арт, мм</th><th>Цветов</th><th>Метод</th></tr></thead><tbody>{rows}</tbody></table>
+<div class="cols"><div class="pick"><b>Первые сэмплы — 4 дизайна</b><p>01 uuu, 02 Manta Line, 07 Manta Point, 05 deep bluuu: закрывают четыре вкуса (минимал, арт, стрит, Y2K) и три технологии печати — по сэмплам сразу видно качество фабрики.</p></div><div><b>Вторая волна</b><p>03 Varsity, 09 Kelingking, 08 Best Day — после первых продаж. 04, 06, 10 держим как лимитированные дропы к высокому сезону.</p></div><div><b>Цена и варианты</b><p>Розница 35–45 USD в магазине и на борту. Второй колорвей: navy-база с инверсией цветов для 01, 07 и 10. Тот же арт 09 идёт на открытку и магнит.</p></div></div></div>{foot(n)}</section>''')
+n += 1
+P.append(f'''<section class="page"><span class="eb">05 · Следующие шаги</span><h2>От файла до полки</h2><ol class="steps"><li>Отправить фабрике тех-пак (PDF) и ZIP с артами. Запросить strike-off (пробные оттиски) на реальной ткани по каждому цвету.</li><li>Утвердить цвет по Pantone/HEX на оттисках: лазурь 007FFF — самый капризный, проверить при дневном свете.</li><li>Получить по одному пред-продакшн образцу (размер S) четырёх первых дизайнов; тест: 5 стирок при 30°, растяжение 30 % без трещин.</li><li>Съёмка образцов на борту и в магазине; предзаказ в WhatsApp-рассылке после тура.</li><li>Тираж по размерной сетке XS–L, старт 50–100 шт. на дизайн.</li></ol>{foot(n)}</section>''')
+css = f'''
+@font-face{{font-family:'Petrov Sans';font-weight:400;src:url(data:font/woff2;base64,{f400}) format('woff2')}}
+@font-face{{font-family:'Petrov Sans';font-weight:600;src:url(data:font/woff2;base64,{f600}) format('woff2')}}
+@page{{size:A4 landscape;margin:0}} *{{box-sizing:border-box}}
+body{{margin:0;font-family:'Petrov Sans',Inter,system-ui,sans-serif;color:#0D1B2E;background:#fff;font-size:11.5px;line-height:1.45}}
+.page{{width:297mm;height:210mm;padding:14mm 16mm 12mm;page-break-after:always;position:relative;overflow:hidden;background:#F3F7FB}}
+.ft{{position:absolute;left:16mm;right:16mm;bottom:7mm;display:flex;justify-content:space-between;font-family:'Space Mono',ui-monospace,monospace;font-size:7.5px;letter-spacing:.08em;color:#4F6174;text-transform:uppercase}}
+.eb{{display:block;font-family:'Space Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#0073E0;margin-bottom:3mm}}
+h1{{font-size:44px;line-height:1;margin:4mm 0 6mm;font-weight:600;letter-spacing:-.01em}} h1 em{{font-style:italic;color:#007FFF}}
+h2{{font-size:26px;line-height:1.1;margin:0 0 4mm;font-weight:600}} p{{margin:0}} .lead{{font-size:13.5px;color:#4F6174;max-width:150mm;margin-bottom:5mm}}
+.cover{{display:grid;grid-template-columns:1.05fr .95fr;gap:12mm;padding:14mm 16mm}} .cover .l{{display:flex;flex-direction:column;justify-content:center}} .cover .r img{{width:100%;height:182mm;object-fit:cover;border-radius:5mm}}
+.facts{{display:flex;flex-wrap:wrap;gap:2mm 8mm;font-family:'Space Mono',monospace;font-size:8.5px;color:#4F6174}} .facts b{{color:#0D1B2E;font-weight:400}}
+.palgrid{{display:grid;grid-template-columns:repeat(8,1fr);gap:3mm;margin-bottom:5mm}} .sw{{background:#fff;border:1px solid #D5E2EE;border-radius:3mm;padding:3mm;display:grid;gap:.5mm;font-size:9px}} .sw i{{display:block;height:16mm;border-radius:2mm;margin-bottom:1.5mm}} .sw b{{font-weight:600}} .sw span{{font-family:'Space Mono',monospace;font-size:8px;color:#4F6174}} .sw small{{color:#4F6174}}
+.dna{{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}} .dna>div{{background:#fff;border:1px solid #D5E2EE;border-radius:3mm;padding:5mm;display:grid;gap:1.5mm;align-content:start}} .dna b{{font-weight:600;font-size:12px}} .dna p{{color:#4F6174;font-size:10.5px}} .type-demo{{font-size:34px;font-weight:600;color:#007FFF;line-height:1}}
+.garment{{display:grid;grid-template-columns:.62fr 1.38fr;gap:8mm;align-items:start}} .garment img{{width:100%;height:150mm;object-fit:cover;border-radius:4mm}}
+.zones{{display:grid;gap:3mm}} .zones>div{{display:grid;grid-template-columns:10mm 1fr;gap:4mm;background:#fff;border:1px solid #D5E2EE;border-radius:3mm;padding:4mm 5mm}} .zones i{{font-style:normal;font-family:'Space Mono',monospace;font-size:9px;background:#E6F4FF;color:#0073E0;border-radius:2mm;height:10mm;display:grid;place-items:center}} .zones b{{font-weight:600;font-size:12px}} .zones p{{color:#4F6174;font-size:10.5px}}
+.design{{display:grid;grid-template-columns:148mm 1fr;gap:10mm;padding:12mm 16mm 12mm 12mm}} .mock img{{width:148mm;height:162mm;object-fit:cover;border-radius:4mm;display:block}}
+.info{{display:grid;gap:3mm;align-content:start}} .eyebrow{{display:flex;gap:3mm;align-items:center}} .num{{font-family:'Space Mono',monospace;font-size:9px;color:#fff;background:#007FFF;border-radius:2mm;padding:1mm 2.5mm}} .tag{{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#4F6174}}
+.concept{{font-size:12.5px}} .why{{font-size:11px;color:#4F6174}} .why b{{color:#0D1B2E;font-weight:600}}
+.spec{{margin:1mm 0 0;display:grid;gap:1.6mm;border-top:1px solid #D5E2EE;padding-top:3mm}} .spec div{{display:grid;grid-template-columns:26mm 1fr;gap:3mm;font-size:10.5px}} .spec dt{{color:#4F6174}} .spec dd{{margin:0}}
+.chips{{display:flex;flex-wrap:wrap;gap:1.5mm}} .chip{{display:inline-flex;align-items:center;gap:1.5mm;font-size:9px;border:1px solid #D5E2EE;border-radius:99px;padding:.4mm 2.2mm .4mm 1mm;background:#fff}} .chip i{{width:3.4mm;height:3.4mm;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.1)}}
+.art img{{height:46mm;max-width:100%;border:1px solid #D5E2EE;border-radius:2.5mm;background:#fff}} .mono{{font-family:'Space Mono',monospace;font-size:8.5px}}
+.sum table{{width:100%;border-collapse:collapse;font-size:10.5px;background:#fff;border-radius:3mm;overflow:hidden;margin-bottom:5mm}} .sum th,.sum td{{text-align:left;padding:2.2mm 3mm;border-bottom:1px solid #D5E2EE}} .sum th{{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#4F6174;font-weight:400}}
+.cols{{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}} .cols>div{{background:#fff;border:1px solid #D5E2EE;border-radius:3mm;padding:4mm 5mm}} .cols b{{display:block;font-weight:600;margin-bottom:1mm}} .cols p{{font-size:10.5px;color:#4F6174}} .pick{{border-color:#007FFF!important}}
+ol.steps{{margin:0;padding:0;list-style:none;display:grid;gap:3mm;counter-reset:s;max-width:200mm}} ol.steps li{{display:grid;grid-template-columns:10mm 1fr;gap:4mm;align-items:center;background:#fff;border:1px solid #D5E2EE;border-radius:3mm;padding:4mm 5mm;font-size:12px}} ol.steps li::before{{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:'Space Mono',monospace;font-size:9px;background:#E6F4FF;color:#0073E0;border-radius:2mm;height:10mm;display:grid;place-items:center}}
+'''
+html = f'<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Bluuu Merch Capsule — лукбук</title><style>{css}</style></head><body>{"".join(P)}</body></html>'
+open('out/lookbook/lookbook-print.html', 'w').write(html); print('print lookbook pages', len(P))
