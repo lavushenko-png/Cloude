@@ -84,6 +84,7 @@ td.k { font-weight: 600; }
   font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 13pt;
 }
 .step .body { flex: 1; min-width: 0; }
+.step.flow { break-inside: auto; page-break-inside: auto; }
 .step h4 { margin: 2px 0 4px; color: var(--accent); font-size: 11pt; }
 .step p:last-child, .step ul:last-child { margin-bottom: 0; }
 
@@ -658,7 +659,7 @@ td.k { font-weight: 600; }
 
   <h3>Procedure</h3>
 
-  <div class="step"><div class="n">1</div><div class="body">
+  <div class="step flow"><div class="n">1</div><div class="body">
     <h4>Identify the old paint: 30-second solvent rub test</h4>
     <ul>
       <li>On each batch, pick a hidden spot (back panel, under a handle, inside a pole cup). Wet a white rag with <strong>nitro thinner / lacquer thinner</strong> (cellulose thinner) and rub firmly for 30 seconds.</li>
@@ -669,7 +670,7 @@ td.k { font-weight: 600; }
     </ul>
   </div></div>
 
-  <div class="step"><div class="n">2</div><div class="body">
+  <div class="step flow"><div class="n">2</div><div class="body">
     <h4>Prepare the old paint (both batches)</h4>
     <ul>
       <li>Remove all loose, flaking, cracked or blistered paint with a scraper and sander back to a firmly bonded edge. Feather every edge with P120 so no step can be felt with a fingertip.</li>
@@ -680,7 +681,7 @@ td.k { font-weight: 600; }
     </ul>
   </div></div>
 
-  <div class="step"><div class="n">3</div><div class="body">
+  <div class="step flow"><div class="n">3</div><div class="body">
     <h4>Fiberglass (GRP) and fiberglass-skinned cabinets: extra steps</h4>
     <ul>
       <li><strong>Epoxy primer is mandatory on every area of exposed gelcoat or glass.</strong> Gelcoat is smooth, non-porous and may still carry mould-release wax; nothing else bonds to it reliably.</li>
@@ -711,7 +712,7 @@ td.k { font-weight: 600; }
     </ul>
   </div></div>
 
-  <div class="step"><div class="n">6</div><div class="body">
+  <div class="step flow"><div class="n">6</div><div class="body">
     <h4>Two mandatory test areas before the batch</h4>
     <ul>
       <li>Make <strong>one test area on each substrate type</strong>: one painted-plywood cabinet and one fiberglass cabinet, in a hidden zone (back panel, under a handle, behind the connector plate), about 150 x 150 mm each, through the full system: prep, degrease, epoxy primer (mist plus full coat where the old paint is solvent-sensitive), sand, topcoat.</li>
@@ -723,7 +724,7 @@ td.k { font-weight: 600; }
   </div></div>
 
   <h3>System table: layer by layer</h3>
-  <table>
+  <table class="allow-break">
     <thead><tr><th style="width:16%">Layer</th><th style="width:42%">Batch 1: plywood with old paint</th><th>Batch 2: fiberglass / fiberglass-skinned, old paint</th></tr></thead>
     <tbody>
       <tr><td class="k">0 Identify</td><td>Nitro thinner rub test. Hard: key and prime. Soft: remove loose, isolate sound areas with mist-coat primer.</td><td>Same rub test on the paint. Where gelcoat is exposed, treat as gelcoat regardless of the paint result.</td></tr>
