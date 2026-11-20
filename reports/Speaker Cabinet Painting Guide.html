@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Paint Professional Loudspeaker Cabinets: A Practical Guide</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+
+:root {
+  --ink: #1f2326;
+  --accent: #3a3f45;
+  --accent-2: #5b6269;
+  --amber: #e0a100;
+  --amber-ink: #7a5a00;
+  --line: #cfd3d7;
+  --zebra: #f3f4f6;
+  --panel: #f6f7f8;
+  --muted: #5f666d;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  font-size: 10pt;
+  line-height: 1.4;
+  color: var(--ink);
+  background: #ffffff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+h1, h2, h3, h4 { color: var(--accent); line-height: 1.2; margin: 0 0 0.4em; break-after: avoid; page-break-after: avoid; }
+h1 { font-size: 26pt; font-weight: 700; }
+h2 { font-size: 17pt; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-bottom: 0.7em; }
+h3 { font-size: 12.5pt; font-weight: 700; margin-top: 1.1em; }
+h4 { font-size: 10.8pt; font-weight: 700; margin-top: 0.9em; color: var(--accent-2); }
+p { margin: 0 0 0.6em; }
+ul, ol { margin: 0 0 0.7em 1.25em; padding: 0; }
+li { margin-bottom: 0.22em; }
+strong { color: var(--ink); }
+a { color: var(--accent); text-decoration: none; word-break: break-all; }
+
+.section { page-break-before: always; break-before: page; }
+.secnum {
+  display: inline-block; background: var(--accent); color: #fff; font-weight: 700;
+  padding: 1px 9px; border-radius: 2px; margin-right: 9px; font-size: 13pt; vertical-align: 2px;
+}
+.lead { font-size: 11pt; color: var(--accent-2); margin-bottom: 0.9em; }
+
+table {
+  width: 100%; border-collapse: collapse; font-size: 9pt; margin: 0.5em 0 1em;
+  break-inside: avoid; page-break-inside: avoid;
+}
+table.allow-break { break-inside: auto; page-break-inside: auto; }
+th { background: var(--accent); color: #fff; text-align: left; padding: 5px 7px; font-weight: 600; vertical-align: bottom; }
+td { padding: 5px 7px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr:nth-child(even) td { background: var(--zebra); }
+tr { break-inside: avoid; page-break-inside: avoid; }
+td.k { font-weight: 600; }
+
+.callout {
+  border-left: 5px solid var(--accent); background: var(--panel);
+  padding: 8px 12px; margin: 0.75em 0; break-inside: avoid; page-break-inside: avoid;
+}
+.callout .label {
+  display: block; font-weight: 700; text-transform: uppercase; font-size: 8.6pt;
+  letter-spacing: 0.08em; margin-bottom: 2px; color: var(--accent);
+}
+.callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+.callout.warning { border-left-color: var(--amber); background: #fff8e1; }
+.callout.warning .label { color: var(--amber-ink); }
+.callout.tip { border-left-color: var(--accent-2); background: #f8f9fa; }
+.callout.tip .label { color: var(--accent-2); }
+
+.step {
+  display: flex; gap: 12px; border: 1px solid var(--line); border-radius: 3px;
+  padding: 9px 12px 9px 10px; margin: 0.55em 0; break-inside: avoid; page-break-inside: avoid;
+  background: #fff;
+}
+.step .n {
+  flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff;
+  font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 13pt;
+}
+.step .body { flex: 1; min-width: 0; }
+.step h4 { margin: 2px 0 4px; color: var(--accent); font-size: 11pt; }
+.step p:last-child, .step ul:last-child { margin-bottom: 0; }
+
+.est {
+  display: inline-block; background: #e9ebee; border-radius: 2px; padding: 0 4px;
+  font-size: 8.3pt; color: var(--accent-2); font-weight: 700; vertical-align: 1px;
+}
+.small { font-size: 9pt; color: var(--muted); }
+.muted { color: var(--muted); }
+
+.card { border: 1px solid var(--line); border-radius: 3px; padding: 10px 12px; margin: 0.6em 0; break-inside: avoid; page-break-inside: avoid; background: #fff; }
+.card h4 { margin-top: 0; color: var(--accent); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+.checklist { list-style: none; margin-left: 0; }
+.checklist li { position: relative; padding-left: 1.7em; margin-bottom: 0.3em; }
+.checklist li::before {
+  content: ""; position: absolute; left: 0; top: 0.18em; width: 0.95em; height: 0.95em;
+  border: 1.6px solid var(--accent); border-radius: 2px; background: #fff;
+}
+
+/* Cover */
+.cover { min-height: 250mm; display: flex; flex-direction: column; justify-content: space-between; }
+.cover .band { background: var(--accent); color: #fff; padding: 22px 26px; border-radius: 3px; }
+.cover .band h1 { color: #fff; margin-bottom: 8px; }
+.cover .band .sub { font-size: 13pt; color: #e3e6e9; }
+.cover .band .kicker { font-size: 9.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: #c9cdd2; margin-bottom: 14px; }
+.swatches { display: flex; gap: 14px; margin-top: 16px; }
+.swatch { flex: 1; border: 1px solid #9aa0a6; border-radius: 3px; overflow: hidden; }
+.swatch .chip { height: 34mm; }
+.swatch .cap { padding: 7px 10px; font-size: 9.3pt; background: #fff; border-top: 1px solid var(--line); }
+.swatch .cap b { display: block; font-size: 10.5pt; color: var(--accent); }
+.cover .meta { display: flex; justify-content: space-between; align-items: flex-end; border-top: 2px solid var(--accent); padding-top: 10px; font-size: 9.5pt; }
+.cover .meta .date { font-size: 12pt; font-weight: 700; color: var(--accent); }
+
+/* TOC */
+.toc ol { list-style: none; margin-left: 0; }
+.toc li { padding: 4px 0; border-bottom: 1px dotted var(--line); display: flex; gap: 10px; }
+.toc li .no { flex: 0 0 2.2em; font-weight: 700; color: var(--accent); }
+.toc li.sub { padding-left: 2.6em; border-bottom: none; font-size: 9.5pt; color: var(--muted); }
+
+/* Quick reference card */
+.qr { border: 2px solid var(--accent); border-radius: 4px; padding: 8px 12px; font-size: 8.8pt; line-height: 1.3; }
+.qr h3 { margin: 0.3em 0 0.1em; font-size: 10pt; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.qr table { font-size: 8.5pt; margin: 0.2em 0 0.4em; }
+.qr td { padding: 2px 5px; }
+.qr .callout { padding: 5px 10px; }
+
+.ladder { display: flex; gap: 8px; margin: 0.6em 0 1em; }
+.ladder .rung { flex: 1; padding: 8px 10px; border-radius: 3px; color: #fff; font-size: 9.3pt; }
+.ladder .rung b { display: block; font-size: 10pt; margin-bottom: 2px; }
+.rung.r1 { background: #2f3234; } .rung.r2 { background: #3a3f45; } .rung.r3 { background: #5b6269; } .rung.r4 { background: #7d848b; }
+
+.sources ol { font-size: 8.9pt; margin-left: 1.6em; }
+
+/* Compact one-page summary */
+.summary { font-size: 9.3pt; line-height: 1.33; }
+.summary h3 { margin-top: 0.75em; margin-bottom: 0.3em; font-size: 11.5pt; }
+.summary .callout { padding: 6px 10px; margin: 0.5em 0; }
+.summary li { margin-bottom: 0.12em; }
+.summary table { margin: 0.3em 0 0.6em; font-size: 8.8pt; }
+.summary td, .summary th { padding: 4px 6px; }
+.summary ol { margin-bottom: 0; }
+.sources li { margin-bottom: 0.3em; }
+.glossary dt { font-weight: 700; color: var(--accent); margin-top: 0.4em; }
+.glossary dd { margin: 0 0 0.2em 0; }
+.glossary { font-size: 9.6pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ COVER -->
+<section class="cover">
+  <div>
+    <div class="band">
+      <div class="kicker">Paint shop working document</div>
+      <h1>How to Paint Professional Loudspeaker Cabinets</h1>
+      <div class="sub">A Practical Guide: dark grey matte textured finish on birch plywood cabinets</div>
+    </div>
+
+    <h3 style="margin-top:22px">Target colour: dark grey, matte, textured</h3>
+    <p class="small">Primary specification is RAL 7016. The two alternatives are acceptable if RAL 7016 cannot be mixed locally. Screen and print rendering of these swatches is approximate: always approve colour against a physical RAL card in daylight.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#383E42"></div><div class="cap"><b>RAL 7016 Anthracite Grey</b>Primary. Order as matt or dead matt, gloss 10 GU or less at 60&deg;.</div></div>
+      <div class="swatch"><div class="chip" style="background:#2F3234"></div><div class="cap"><b>RAL 7021 Black Grey</b>Alternative 1. Darker, hides scuffs best, closest to industry black.</div></div>
+      <div class="swatch"><div class="chip" style="background:#474A50"></div><div class="cap"><b>RAL 7024 Graphite Grey</b>Alternative 2. Lighter, shows dust less, shows chalking more.</div></div>
+    </div>
+
+    <div class="callout warning" style="margin-top:20px">
+      <span class="label">Read this first</span>
+      <p>This guide condenses a research report on how professional loudspeaker makers (Funktion-One, d&amp;b audiotechnik, L-Acoustics, JBL, Meyer Sound, Martin Audio and others) finish their cabinets, plus the working practice of smaller builders. Most of the sources were read through search-engine excerpts, not full documents. <strong>Every key figure in this guide (film thickness, drying time, spray settings, mixing ratio, temperature limits) must be checked against the technical data sheet (TDS) of the actual product you buy.</strong> Where the TDS and this guide disagree, the TDS wins. Figures marked <span class="est">ESTIMATE</span> are calculations or shop rules of thumb, not published values.</p>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div>
+      <div class="date">November 2026</div>
+      <div class="small">Revision 1. Scope: birch (or other hardwood) plywood cabinets, new or previously painted. Painters with a normal spray shop, no plural-component polyurea rig. Includes an Indonesia sourcing and climate section.</div>
+    </div>
+    <div class="small" style="text-align:right">Units: metric, with imperial in brackets<br>Colour reference: RAL Classic</div>
+  </div>
+</section>
+
+<!-- ============================================================ TOC -->
+<section class="section toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><span class="no">1</span><span>Purpose and one-page summary</span></li>
+    <li><span class="no">2</span><span>Why speaker cabinets are painted this way</span></li>
+    <li><span class="no">3</span><span>The three methods and how to choose</span></li>
+    <li class="sub">3.1 Decision table &nbsp;&middot;&nbsp; 3.2 Product tiers &nbsp;&middot;&nbsp; 3.3 Hot, humid climate notes</li>
+    <li><span class="no">4</span><span>Method A step by step: 1K water-based acrylic texture paint (primary method)</span></li>
+    <li><span class="no">5</span><span>Method B step by step: 2K polyurethane textured coating</span></li>
+    <li><span class="no">6</span><span>Method C outline: specifying sprayed polyurea to an applicator</span></li>
+    <li><span class="no">7</span><span>Edges, corners, grilles and hardware</span></li>
+    <li><span class="no">8</span><span>Quality control checklist and in-house tests</span></li>
+    <li><span class="no">9</span><span>Repair and touch-up procedure</span></li>
+    <li><span class="no">10</span><span>Common mistakes that cause failure</span></li>
+    <li><span class="no">11</span><span>Quick reference card (one page)</span></li>
+    <li><span class="no">12</span><span>Sourcing and climate: Indonesia</span></li>
+    <li class="sub">12.1 Tiered shopping list &nbsp;&middot;&nbsp; 12.2 Indonesia recipe for dark grey matte &nbsp;&middot;&nbsp; 12.3 Climate rules &nbsp;&middot;&nbsp; 12.4 Tinting centres and wording &nbsp;&middot;&nbsp; 12.5 Imported paint fallback</li>
+    <li><span class="no">A</span><span>Appendix A: Evidence notes, what each major brand confirms</span></li>
+    <li><span class="no">B</span><span>Appendix B: Glossary</span></li>
+    <li><span class="no">C</span><span>Appendix C: Sources</span></li>
+  </ol>
+
+  <h3>How this guide is organised</h3>
+  <p>Sections 1 to 3 tell you what we want and why. Section 4 is the main procedure and is the one the shop will normally follow. Sections 5 and 6 are for the two tougher methods, if the shop has the equipment or a specialist applicator is available. Sections 7 to 10 apply to every method. Section 11 is a one-page card to pin on the wall of the spray room. Section 12 lists what can be bought in Indonesia, gives the local recipe for dark grey matte, and sets the climate rules for a hot, humid shop.</p>
+
+  <h3>Three kinds of statement in this guide</h3>
+  <table>
+    <thead><tr><th style="width:24%">Label</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Confirmed</td><td>Stated by the coating maker in a data sheet, or by a loudspeaker maker in a spec sheet or manual.</td></tr>
+      <tr><td class="k">Community</td><td>Reported by builders and rental companies on trade forums. Consistent across several countries, but not tested in a laboratory.</td></tr>
+      <tr><td class="k"><span class="est">ESTIMATE</span></td><td>Calculated by us from published inputs, or a shop rule of thumb. Check on your own test panel.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ 1 -->
+<section class="section summary">
+  <h2><span class="secnum">1</span>Purpose and one-page summary</h2>
+
+  <h3>What we want</h3>
+  <p>A <strong>dark grey, matte, textured</strong> finish on birch plywood loudspeaker cabinets that survives rental and touring use: truck loading, stacking, dragging on concrete, rain at load-in and hot humid storage. It should <strong>scuff rather than chip</strong>, hide small scratches in its texture, and be <strong>repairable in-house</strong> with a roller.</p>
+
+  <h3>The three acceptable methods, ranked</h3>
+  <table>
+    <thead><tr><th style="width:8%">Rank</th><th style="width:30%">Method</th><th>Summary</th><th style="width:22%">Use when</th></tr></thead>
+    <tbody>
+      <tr><td class="k">A</td><td><strong>1K water-based acrylic texture paint</strong><br><span class="small">Warnex, Tuff Cab Pro, DuraTex, Armacab class</span></td><td>Sprayed or rolled directly on bare sanded plywood, no primer. Three to four coats, about 120 &micro;m dry. Low hazard, repairable, moderately hard. <strong>Primary recommendation for this shop.</strong></td><td>Any spray shop. Rental and install stock. In-house repairs wanted.</td></tr>
+      <tr><td class="k">B</td><td><strong>2K polyurethane textured coating</strong><br><span class="small">U-POL Raptor class bed-liner, or a 2K PU texture topcoat</span></td><td>Over a 2K PU or epoxy sealer. Two coats by Schutz gun. Harder and thicker than A. Contains isocyanates: supplied-air respirator and extraction required.</td><td>Shop has a booth, supplied air and trained sprayers. Heavier touring use.</td></tr>
+      <tr><td class="k">C</td><td><strong>Hot-sprayed polyurea by a specialist applicator</strong><br><span class="small">Line-X, Rhino, Penn Guard, Chemthane class, 1 to 1.5 mm</span></td><td>Elastomer skin about ten times thicker than A, plus a pigmented matt topcoat in RAL 7016. Toughest, heaviest and most expensive. Repairs only by re-spray.</td><td>Flagship touring boxes. Applicator within reach. Budget allows.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Colour specification</h3>
+  <div class="callout">
+    <span class="label">Specification</span>
+    <ul>
+      <li><strong>Colour:</strong> RAL 7016 Anthracite Grey (primary). Acceptable alternatives: RAL 7021 Black Grey, RAL 7024 Graphite Grey. Do not mix shades within one set of cabinets.</li>
+      <li><strong>Gloss:</strong> matt. When ordering tinted paint specify <strong>"matt" or "dead matt", gloss 10 GU or less at 60&deg;</strong> (ISO 2813). Texture scatters light, so a textured coat reads matte anyway, but a smooth satin repair patch will shine: order matt regardless.</li>
+      <li><strong>Texture and reference:</strong> fine to medium "orange peel" spatter, even and identical across a set. Keep a physical RAL 7016 card in the shop and approve the first test panel against it in daylight.</li>
+    </ul>
+  </div>
+  <div class="callout warning">
+    <span class="label">Warning: grey chalks in sunlight on the wrong chemistry</span>
+    <p>Standard polyurea and PU bed-liners use <strong>aromatic</strong> isocyanates, which fade and chalk under UV. Barely visible on black, on grey it shows as a pale, dusty surface within months outdoors. For cabinets that see sun, topcoat any aromatic polyurea or PU (Methods B and C) with a <strong>pigmented aliphatic PU or water-based acrylic topcoat in RAL 7016 matt</strong>. Method A acrylics are UV stable and need no topcoat.</p>
+  </div>
+
+  <h3>Non-negotiable rules</h3>
+  <ol>
+    <li><strong>Water-based texture paint goes on bare, sanded wood only</strong>, or on the same water-based paint. Never over old PU, polyurea, solvent, cellulose or 2K paint, primer or undercoat: it flakes.</li>
+    <li><strong>Never thin coats.</strong> Three to four full coats (or two heavy spray passes to about 120 &micro;m dry). "Thin light coats won't do the job."</li>
+    <li><strong>Round every outside edge</strong> to 6 to 13 mm (1/4 to 1/2 in) radius before painting. Sharp edges chip first.</li>
+    <li><strong>Seal filler patches</strong> and screw-hole filler before painting. Do not prime whole panels for Method A.</li>
+    <li><strong>Work at 12 to 25 &deg;C</strong> (54 to 77 &deg;F), moderate humidity. Hot climate: shade, surface below 30 &deg;C, air movement.</li>
+    <li><strong>No stacking, packing or hardware fitting before 24 hours.</strong> No touring before full cure, 4 to 7 days.</li>
+    <li><strong>One test panel per batch:</strong> same ply, prep, paint and day. Label it, keep it, adhesion-test it at 7 days.</li>
+    <li><strong>Isocyanate products (Methods B and C) only with supplied-air breathing apparatus</strong>, extraction and trained staff; nobody else in the room.</li>
+  </ol>
+</section>
+
+<!-- ============================================================ 2 -->
+<section class="section">
+  <h2><span class="secnum">2</span>Why speaker cabinets are painted this way</h2>
+  <p class="lead">A short account of what the industry does, why thick textured coatings work, and which parts of this are confirmed and which are community knowledge.</p>
+
+  <h3>What the professional brands use</h3>
+  <p>Where manufacturers disclose their chemistry, it falls into three families:</p>
+  <table>
+    <thead><tr><th style="width:26%">Family</th><th style="width:40%">Brands that confirm it</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Sprayed polyurea</td><td>d&amp;b audiotechnik (PCP, "Polyurea Cabinet Protection"), Adamson IS-Series, CODA, KV2, Danley, RCF TT, dBTechnologies VIO, Martin Audio CDD-WR, Turbosound Flashline "TourTough", Wharfedale Pro "Tough-Tone", Void "TourCoat" (dealer wording), Funktion-One black "PU" option (brochure says polyurea)</td><td>Two-part elastomer sprayed hot from a plural-component rig. Gels in seconds. Roughly 0.5 to 1.5 mm thick. Colour is a separate topcoat: d&amp;b paints RAL 9005 over the polyurea, Danley puts a 2K PU colour coat over two polyurea coats.</td></tr>
+      <tr><td class="k">2K polyurethane textured paint</td><td>L-Acoustics (2K PU base, 1K water-based PU top for UV and scratch protection; top-coat detail from one excerpt only), EAW "roadcoat", Martin Audio TORUS, Martin Audio CDD Marine (PU plus UV topcoat), HK Audio LINEAR 9 / COSMO</td><td>Two-pack isocyanate-cured paint sprayed with texture. Harder than acrylic, thinner than polyurea.</td></tr>
+      <tr><td class="k">1K water-based acrylic texture paint</td><td>Funktion-One violet and all RAL colours ("RALcode water based finishes"; community says OEM Warnex), Turbosound Aspect (Warnecke &amp; B&ouml;hm water-based, no primer on bare wood, from the service manual), HK Audio LINEAR 7 ("Warnex acrylic coating")</td><td>Acrylic dispersion sprayed in two passes to about 120 &micro;m dry, or rolled. No primer on birch ply or MDF. The same paint is sold in 1 litre tins for touch-up.</td></tr>
+      <tr><td class="k">Undisclosed trade names</td><td>Meyer Sound ("sealing primer and finishing topcoat", one coat inside, two outside), JBL "DuraFlex" (aliphatic top layer; JBL suggests "truck bed liner" as a substitute), Electro-Voice "EVCoat"</td><td>Chemistry not published. JBL's own hints point to an elastomeric liner type.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Why a thick, textured, elastic coating resists damage</h3>
+  <ul>
+    <li><strong>Thickness times toughness, not hardness.</strong> A 1 to 1.5 mm polyurea skin (Shore D about 55, elongation 80 to 200 percent on published liner data sheets) spreads a point load and springs back. A 0.12 mm acrylic film has far less material to lose before wood shows. This is why polyurea is the top of every durability ranking.</li>
+    <li><strong>Hard thin films crack on wood.</strong> Plywood moves with humidity. Epoxies, 2K clearcoats and powder-type films are hard but brittle. JBL explicitly warns not to use epoxy paints on its wooden cabinets because they crack.</li>
+    <li><strong>Texture hides damage.</strong> A matte spatter texture conceals fine scratches and makes scuffs less visible. It also lets a roller repair blend in. Every brand uses texture for this reason, not only for looks.</li>
+    <li><strong>Sealed substrate.</strong> Touring brands use exterior or marine birch with D4 glue, coat inside and out on weather versions, and treat raw wood before assembly (Meyer). A coating cannot protect plywood that swells under it.</li>
+    <li><strong>Edges and cases.</strong> No touring brand publishes an edge radius. They rely on the elastomer wrapping the edge, recessed handles, and flight cases or padded covers for transport. For a thin acrylic coat, the edge radius matters much more.</li>
+  </ul>
+
+  <h3>What is confirmed and what is not</h3>
+  <table>
+    <thead><tr><th style="width:50%">Confirmed by manufacturers</th><th>Community knowledge or inference</th></tr></thead>
+    <tbody>
+      <tr><td>Polyurea, 2K PU and water-based acrylic are all in current professional use (brand spec sheets, Appendix A).</td><td>Which paint brand each factory buys. Resellers sell Warnex as "d&amp;b" and "L-Acoustics" touch-up paint, which tells us what is convenient for repair, not what the factory sprays.</td></tr>
+      <tr><td>Warnex TDS: 70 &micro;m dry per pass, 120 &micro;m in two passes; nozzle 1.5 to 2.0 mm at 30 to 40 cm; dust-dry 15 to 20 min, handle 2 to 3 h, pack 1 day, through-dry 4 days at 20 &deg;C; no primer on birch ply or MDF.</td><td>Consumption of about 2 to 2.5 kg per 12-inch two-way cabinet (one forum user) and "four coats by roller to get a good finish".</td></tr>
+      <tr><td>Tuff Cab: bonds best to bare timber, no primer, 12 to 25 &deg;C, 2 to 3 m&sup2;/kg for a rough finish, first coat may be thinned 50:50 with water.</td><td>Durability ranking: polyurea &gt; 2K PU &gt; Warnex, DuraTex, Armacab, HIFIDECO &gt; Tuff Cab, Aldcroft. Consistent across UK, German, Russian and US forums, but no independent abrasion test exists.</td></tr>
+      <tr><td>U-POL Raptor: 2K urethane, mix 3:1, pot life 60 min at 20 &deg;C, apply by Schutz or HVLP gun; air-fed respirator recommended.</td><td>Raptor "takes about 7 days to achieve full hardness" and "won't work very well over Tuff Cab".</td></tr>
+      <tr><td>Aromatic bed-liners fade and chalk in UV; makers sell aliphatic topcoats (Rhino, Line-X, VFI).</td><td>Edge radius values 6 to 13 mm come from a kit supplier's finishing guide and user reports; no manufacturer publishes one.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <span class="label">Important gap</span>
+    <p><strong>No loudspeaker maker and no water-based paint maker publishes scratch, abrasion (Taber), hardness (Shore, pencil) or adhesion (cross-hatch) figures for cabinet coatings.</strong> Published tests are IP ratings, salt spray and UV only. That is why Section 8 asks the shop to run its own simple adhesion and scuff test on every test panel. Your test panel is the only durability data you will have.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 3 -->
+<section class="section">
+  <h2><span class="secnum">3</span>The three methods and how to choose</h2>
+
+  <h3>3.1 Decision table</h3>
+  <table class="allow-break">
+    <thead><tr><th style="width:16%"></th><th style="width:28%">Method A: 1K water-based acrylic texture</th><th style="width:28%">Method B: 2K PU textured (Raptor class)</th><th>Method C: sprayed polyurea by applicator</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Typical products</td><td>Warnex Strukturlack 1K, Tuff Cab Pro, Acry-Tech DuraTex, Penn-Elcom Armacab, HIFIDECO CY-689, Bucotur, Tekton 77</td><td>U-POL Raptor (tintable), Raptor-type 2K urethane liners, 2K PU texture topcoats from industrial paint suppliers</td><td>Line-X, Rhino Linings, ArmorThane franchises; Penn-Elcom Penn Guard; Chemline Chemthane; VFI; Elastopol</td></tr>
+      <tr><td class="k">Chemistry</td><td>Acrylic dispersion, dries by water evaporation and coalescence. No isocyanates.</td><td>Isocyanate-cured polyurethane, two components, chemical cure.</td><td>Isocyanate plus amine, hot plural-component spray, gels in 4 to 20 seconds.</td></tr>
+      <tr><td class="k">Dry film</td><td>About 120 &micro;m total (confirmed, Warnex). Texture peaks higher.</td><td>Several hundred &micro;m in two coats <span class="est">ESTIMATE</span>, check TDS.</td><td>1 to 1.5 mm (JBL states 1.5 mm; generic practice 0.5 to 1 mm minimum).</td></tr>
+      <tr><td class="k">Weight added, 12-inch two-way</td><td>0.3 to 0.45 kg <span class="est">ESTIMATE</span></td><td>About 1 kg <span class="est">ESTIMATE</span></td><td>2.5 to 3.3 kg <span class="est">ESTIMATE</span>; 6 kg or more on a double-18 sub</td></tr>
+      <tr><td class="k">Durability (community ranking)</td><td>Good. Scuffs grey at corners, wears through on edges with hard use. "Not quite touring grade" (Tuff Cab maker).</td><td>Better. Harder and thicker. "Still better than Warnex or Tuff Cab, but worth springing for proper Line-X or PU."</td><td>Best. "Nothing will outlast a two-component polyurea coating." Rough, holds dirt.</td></tr>
+      <tr><td class="k">Equipment</td><td>Pressure pot or pressure-cup gun, nozzle 1.5 to 2.0 mm; or hopper gun 4 to 6 mm; or honeycomb texture roller. Closed system for Warnex.</td><td>Schutz (underbody) gun or Raptor gun, compressor, spray booth with extraction, supplied-air respirator.</td><td>Heated plural-component rig (Graco Reactor class, about 240 bar, heated hoses) and impingement-mix gun. Not for this shop: outsource.</td></tr>
+      <tr><td class="k">Safety</td><td>Ventilation, nitrile gloves, goggles when spraying. Skin sensitiser (biocides, H317). Low-VOC, not zero-VOC.</td><td>Isocyanates: supplied-air respirator for spraying, gloves, coveralls, extraction, booth clearance time, nobody else in the room. EU: REACH diisocyanate training.</td><td>Same hazards at the applicator's shop. Your staff only handle cured cabinets.</td></tr>
+      <tr><td class="k">Material cost per 12-inch cabinet <span class="est">ESTIMATE</span></td><td>Tuff Cab Pro about &pound;25 to 40; Warnex about &euro;50 to 80 at 1 kg pricing (less in 12 kg tins); DuraTex about US$97 per gallon, maker claims under US$0.75/sq ft</td><td>Higher than A (forum consensus). Get a local quote for a tintable kit plus sealer.</td><td>US$150 to 200 per cabinet (US shop quote, 2015); about 980 RUB/m&sup2; (Russian quote). Roughly 3 to 8 times Method A.</td></tr>
+      <tr><td class="k">Cure before use</td><td>Handle 2 to 3 h, stack 24 h, full cure 4 to 7 days (Tuff Cab: up to two weeks).</td><td>Touch dry 20 to 30 min, handle 24 h, full hardness about 7 days.</td><td>Tack-free in seconds, full cure 10 to 24 h, topcoat per its TDS.</td></tr>
+      <tr><td class="k">Repairability</td><td>Excellent. Sand P80, re-roll or stipple the panel with the same paint.</td><td>Fair. Can be re-sprayed, but texture and gloss mismatch show.</td><td>Poor in the field. Patch with a brushable polyurea or PU; invisible repair needs re-spray by the applicator.</td></tr>
+      <tr><td class="k">Colour and UV</td><td>Tintable to RAL (Warnex sold in RAL 7016; Tuff Cab in RAL shades; DuraTex white tint base). Acrylic is UV stable; no topcoat needed.</td><td>Tintable kits exist. Check whether aromatic or aliphatic; outdoors use an aliphatic pigmented topcoat in RAL 7016 matt.</td><td>Base polyurea usually aromatic and black. Colour must be a pigmented aliphatic or water-based topcoat in RAL 7016 matt.</td></tr>
+      <tr><td class="k">Hot humid climate (28 to 34 &deg;C, 70 to 90 % RH)</td><td>Workable with care. High humidity slows water evaporation badly; heat skins the surface. Shade, fans, longer intervals, 48 h before stacking. See 3.3.</td><td>Pot life drops sharply with heat; humidity can cause pinholes and gassing in PU. Mix small batches, spray early in the day.</td><td>Least sensitive to humidity during spray, but substrate must be dry. Applicator controls conditions.</td></tr>
+      <tr><td class="k">Best for</td><td>Rental and install stock, club boxes, anything repaired in-house. <strong>Default choice.</strong></td><td>Heavier touring use where the shop already runs 2K paint safely.</td><td>Flagship touring cabinets where weight and cost are accepted.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.2 Product tiers (the durability ladder)</h3>
+  <p>Four language communities (UK, Germany, Russia, USA) and the manufacturer data agree on the same ladder. The ranking is opinion plus data sheets; nobody has published a side-by-side abrasion test.</p>
+  <div class="ladder">
+    <div class="rung r1"><b>Tier 1: hot-spray polyurea / PU hybrid</b>Line-X, Rhino, Penn Guard, Chemthane. 1 to 1.5 mm. Specialist only.</div>
+    <div class="rung r2"><b>Tier 2: 2K polyurethane</b>U-POL Raptor, Trimite-type 2K PU. Isocyanate controls needed.</div>
+    <div class="rung r3"><b>Tier 3: professional 1K water-based</b>Warnex, DuraTex, Armacab, HIFIDECO. Spray or roller.</div>
+    <div class="rung r4"><b>Tier 4: budget 1K water-based</b>Tuff Cab Standard, Aldcroft. Roller. Needs more frequent recoat.</div>
+  </div>
+  <div class="callout tip">
+    <span class="label">Tip: choosing within Method A</span>
+    <p>Prefer a product the maker sells as a loudspeaker cabinet paint and that states "no primer on bare wood" (Warnex, Tuff Cab, DuraTex, Armacab). Tuff Cab Pro (satin-matt) is closer to Warnex than Tuff Cab Standard (gloss). If only a general-purpose local acrylic texture paint is available, it may still work, but <strong>you must prove adhesion and hardness on an offcut first</strong> (Section 8), because its adhesion to bare ply and its hardness are unknown.</p>
+  </div>
+
+  <h3>3.3 Hot, humid climate notes (general)</h3>
+  <p>The data sheets quote drying times at 20 &deg;C and 65 % RH. At 28 to 34 &deg;C and 70 to 90 % RH the behaviour changes. Section 12.3 gives the Indonesia-specific limits and supplier details; the general rules are:</p>
+  <ul>
+    <li><strong>Water-based paint (A):</strong> water leaves the film slowly when the air is already saturated. Expect dust-dry and recoat times two to three times longer <span class="est">ESTIMATE</span>. At the same time, a hot surface above about 30 &deg;C skins over before the film underneath is dry, which traps water and weakens the coat. Paint in shade or indoors, never in direct sun, keep air moving with fans (not aimed at wet paint), and run a dehumidifier in the drying room if you have one. Allow 48 h before stacking and 7 days before touring. Store paint at 15 to 25 &deg;C, never in the sun, never frozen.</li>
+    <li><strong>2K PU (B):</strong> pot life halves roughly for every 10 &deg;C rise <span class="est">ESTIMATE</span>, so 60 min at 20 &deg;C becomes about 30 min at 30 &deg;C. Isocyanate reacts with moisture, which can cause pinholes and bubbles in humid air. Mix small quantities, spray in the coolest part of the day, keep the cabinet and the paint at room temperature before use.</li>
+    <li><strong>Polyurea (C):</strong> the reaction is so fast that humidity matters less, but moisture in the plywood will cause blisters and poor adhesion. Deliver cabinets dry (wood moisture below about 12 % by meter <span class="est">ESTIMATE</span>) and stored indoors.</li>
+    <li><strong>All methods:</strong> plywood takes up moisture in humid storage and swells. Seal end grain and filler, and do not paint cabinets that have been standing in a damp or open store.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ 4 -->
+<section class="section">
+  <h2><span class="secnum">4</span>Method A step by step: 1K water-based acrylic texture paint</h2>
+  <p class="lead">Primary procedure for an ordinary paint shop. Products of the Warnex, Tuff Cab Pro, DuraTex or Armacab class. Read the product TDS before the first job and write the product's own figures into the quick reference card (Section 11).</p>
+
+  <div class="callout">
+    <span class="label">Rule</span>
+    <p>Water-based texture paint bonds to <strong>bare, sanded, dust-free wood</strong>. It does not bond reliably to primers, acrylic undercoats, filler, glue squeeze-out, wax, old solvent paint, PU or polyurea. Every preparation step below exists to give the paint bare keyed wood, and only bare keyed wood.</p>
+  </div>
+
+  <h3>Stage 1: Inspection and stripping</h3>
+
+  <div class="step"><div class="n">1</div><div class="body">
+    <h4>Inspect the cabinet</h4>
+    <ul>
+      <li>Check the plywood is dry and stored indoors. If you have a pin moisture meter, aim for below 12 % <span class="est">ESTIMATE</span>. Reject cabinets with delaminated plies, soft or swollen panels, or open joints: repair the woodwork first.</li>
+      <li>Look for glue squeeze-out along joints, wax or oil marks, pencil, and screw heads standing proud. Note voids and chipped plies on edges. All of these must go.</li>
+      <li>Decide: <strong>new bare plywood</strong> (go to Step 3) or <strong>previously painted</strong> (Step 2).</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">2</div><div class="body">
+    <h4>Previously painted cabinets: identify the old finish and strip if needed</h4>
+    <p><strong>Shop test for the old paint</strong> <span class="est">ESTIMATE</span>: on a hidden spot (inside a handle pocket, under the connector plate) rub firmly for 30 seconds with a rag wetted with isopropyl alcohol or methylated spirits. A water-based acrylic texture paint softens and transfers colour onto the rag. A cured 2K PU, polyurea or solvent paint does not move. Gloss, a smooth hard shell, or a "rubbery" 1 mm skin also mean a non-acrylic finish.</p>
+    <ul>
+      <li><strong>Old finish is sound water-based texture paint of the same class:</strong> wash with warm water and a little detergent, rinse, let dry fully. Scuff the whole surface with P80 to remove gloss and loose paint. Feather chipped areas to bare wood. Go to Step 5 (filling). No stripping needed. This is what Turbosound's manual describes: "paint may be applied successfully on top of existing coats".</li>
+      <li><strong>Old finish is PU, polyurea, solvent, cellulose, 2K, unknown, or flaking:</strong> strip to bare wood. Use a belt sander with P40 to P60, then P80. On thick elastomer skins use a heat gun and scraper first, then sand. Do not sand through the face veneer; stop when wood shows. Chemical strippers are reported as "completely useless" on these finishes and leave residues: avoid them.</li>
+      <li>If in doubt after stripping, paint an offcut or one hidden panel, cure 7 days and run the adhesion test (Section 8) before committing the whole set.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">3</div><div class="body">
+    <h4>Remove hardware and mask</h4>
+    <ul>
+      <li>Remove handles, corners, feet, rigging hardware, pole cups, connector plates, grilles, badges and drivers. Bag and label the hardware per cabinet.</li>
+      <li>Plug every threaded insert and screw hole with a short screw, a plastic plug or a tight wad of masking tape. Paint in a thread will stop the screw.</li>
+      <li>Close driver cut-outs from inside with card or a blanking board taped from the inside, so the cut-out edge gets painted but no paint goes inside the box.</li>
+      <li>Mask gasket faces and any machined mating faces (connector plate rebate, amplifier module rebate) that need a flat seal. Use a good quality masking tape and press the edges down; texture paint is thick and creeps under loose tape.</li>
+      <li>Mask the back of the baffle only if the driver gasket needs bare wood. In most cabinets the baffle face is painted.</li>
+    </ul>
+  </div></div>
+
+  <h3>Stage 2: Woodwork preparation</h3>
+
+  <div class="step"><div class="n">4</div><div class="body">
+    <h4>Round the edges: 6 to 13 mm radius</h4>
+    <ul>
+      <li>Route all outside cabinet edges with a round-over bit: <strong>13 mm (1/2 in) radius on the main cabinet edges</strong>, <strong>6 mm (1/4 in) around front and back frames</strong> where a larger radius would cut into rebates. These are the values a loudspeaker kit supplier publishes for textured black finishes; no touring manufacturer publishes a figure. The 90-degree edges are "the most vulnerable, where paint seemed to chip most easily".</li>
+      <li>Use a sharp bit and a steady feed; birch ply chips on round-overs if the bit is dull or the ply has voids. Fill any voids exposed by routing (Step 5).</li>
+      <li>Where a router cannot reach, hand-sand to at least a 3 mm radius <span class="est">ESTIMATE</span>. Never leave a knife edge.</li>
+      <li>Rounding also hides butt joints, which "tend to crack paint finishes".</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">5</div><div class="body">
+    <h4>Fill voids, screw holes and chipped edges</h4>
+    <ul>
+      <li>Fill ply voids, countersunk screw heads, chipped edge plies and open joints with a two-part polyester or epoxy wood filler. Overfill slightly, let it cure fully, sand flush.</li>
+      <li>Texture paint hides sanding scratches but <strong>does not hide holes, steps or dents</strong>. A bed-liner (Method B or C) "shows every imperfection". Fill properly now.</li>
+      <li>Remove all glue squeeze-out with a sharp chisel and sandpaper. Warnex-class paint "does not hold on glue".</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">6</div><div class="body">
+    <h4>Sand: P80 then P120, no finer than about P150 to 180</h4>
+    <ul>
+      <li>Sand all surfaces with P80, then P120, with a belt or orbital sander. Sand edges and end grain by hand along the grain.</li>
+      <li><strong>Do not go finer than P150 to P180.</strong> The paint needs a mechanical key. Factory practice is P80 to P120, and the thick paint hides the scratches. German users go as coarse as P60 to P80 for Warnex.</li>
+      <li>MDF parts: sand off the dense, waxy surface skin or the paint will not grip.</li>
+      <li>Any oily hand prints: wipe with water and a little detergent, rinse, dry. No solvent wipe is needed on bare wood.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">7</div><div class="body">
+    <h4>Remove all dust</h4>
+    <ul>
+      <li>Vacuum every surface, including inside handle pockets and cut-outs. Blow out with compressed air away from the spray area, then vacuum again.</li>
+      <li>Wipe with a lint-free cloth lightly damp with clean water and let the wood dry for 30 minutes. Do not use oily tack cloths or solvent wipes before water-based paint.</li>
+      <li>Dust under the first coat is the most common cause of patchy adhesion. Paint within a few hours of sanding, in a clean area.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">8</div><div class="body">
+    <h4>Seal filler patches only</h4>
+    <ul>
+      <li>Brush <strong>thinned PVA wood glue (about 1 part PVA to 1 part water)</strong> or <strong>thinned paint</strong> over every filler patch and filled screw hole only. Let it dry, then knock back with P120 so it is not glossy. Solvent-based filler in particular must be sealed or it shows as a dull, poorly adhered patch.</li>
+      <li>Optional: a thin wipe of the same thinned PVA on exposed end-grain plywood edges to even out absorption. Keep it thin and sand it; a thick PVA film is itself a poor base for paint.</li>
+      <li><strong>Do not prime or PVA-seal whole panels.</strong> Warnex, Tuff Cab and DuraTex are specified to go on bare birch ply or MDF with no primer. Warnex is reported to hold poorly on primers and acrylics.</li>
+      <li>If you are using a <strong>different local acrylic texture paint</strong>, paint an offcut with and without a thinned first coat, cure 7 days, and run the adhesion test (Section 8) before deciding whether any sealer is needed.</li>
+    </ul>
+  </div></div>
+
+  <h3>Stage 3: Painting</h3>
+
+  <div class="callout warning">
+    <span class="label">Warning: temperature and humidity</span>
+    <p>Work at <strong>12 to 25 &deg;C</strong> (54 to 77 &deg;F) air and surface temperature. Below 12 &deg;C the paint dries very slowly and may not film properly. Above 25 &deg;C the surface skins before the film has levelled. In a hot climate: paint in shade or indoors, never in direct sun, keep the cabinet surface below 30 &deg;C (touch test: it should feel cool, not warm), keep air moving, and expect every drying time to be longer in high humidity. Bring paint and cabinets to room temperature the night before. Paint that has frozen is ruined and will never bond.</p>
+  </div>
+
+  <div class="step"><div class="n">9</div><div class="body">
+    <h4>Test panel (mandatory) and texture trial</h4>
+    <ul>
+      <li>Prepare an offcut of the same plywood, at least 300 x 300 mm (12 x 12 in), with one routed edge, one filled screw hole, sanded P80 to P120 exactly like the cabinets.</li>
+      <li>Paint it first, with every coat, at the same time as the cabinets. Write on the back: date, product, batch number, number of coats, method (roller or gun and settings), temperature.</li>
+      <li>Use it to set the texture: adjust roller pressure or gun settings on the panel until the texture matches the approved sample. Compare colour with the RAL 7016 card in daylight.</li>
+      <li>Keep the panel. Test it at 7 days (Section 8). Keep one approved panel as the reference for texture and colour for all future batches.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">10</div><div class="body">
+    <h4>First coat: thinned sealer coat, if the TDS permits</h4>
+    <ul>
+      <li>The first coat soaks into the wood and evens out absorption. Apply it with a brush or short-pile roller, working it into end grain, edges and handle pockets.</li>
+      <li><strong>Tuff Cab:</strong> the maker allows the first coat thinned 50:50 with water. <strong>DuraTex Roller Grade:</strong> do not dilute; use Spray Grade if a thinner product is needed. <strong>Warnex:</strong> thin only with deionised water and only if your TDS permits; for spraying, users insist "do not thin". Follow your TDS.</li>
+      <li>Let the first coat dry until it is dry to the touch and no longer cool: 30 to 60 minutes at 20 &deg;C, 2 to 4 hours in a cool or humid room.</li>
+      <li>Do not sand between coats of the same paint (DuraTex and Warnex: no intermediate sanding). Only knock off dust nibs with a light hand pass of P180 if needed.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">11</div><div class="body">
+    <h4>Texture coats: two to three further coats</h4>
+    <p><strong>Roller method</strong> (suits any shop, best for small batches and repairs):</p>
+    <ul>
+      <li>Use a <strong>honeycomb or coarse open-cell foam texture roller</strong>, 100 mm (4 in) for edges and small panels, 180 to 230 mm for large panels. A plain foam roller gives "sand in the paint"; a long-pile roller gives a soft stipple. Test on the panel.</li>
+      <li>Load the roller heavily. Roll in two or three crossing directions, wait about 30 seconds, then roll once lightly in one direction to flatten air bubbles and even the texture.</li>
+      <li>Paint one face at a time, edges first, then the face. Keep a wet edge. Suspend or support the cabinet so you can paint the bottom and feet area; paint the bottom first, then turn.</li>
+      <li>Wrap the roller in a plastic bag between coats so it does not dry out.</li>
+    </ul>
+    <p><strong>Spray method</strong> (factory texture, faster for batches):</p>
+    <ul>
+      <li>Use a <strong>pressure pot or pressure-cup gun</strong> with a <strong>1.5 to 2.0 mm nozzle</strong> (or an underbody/Schutz-type gun), spraying from <strong>30 to 40 cm</strong> (12 to 16 in). A gravity gun needs a 2 mm or larger set-up and gives little texture. A drywall hopper gun with 4 to 6 mm nozzle at low pressure works for DuraTex Spray Grade. Set pot and atomising pressure per the TDS; start low and raise until the paint breaks into even droplets.</li>
+      <li>Keep the system <strong>closed</strong>: the paint skins quickly in an open pot and the skin blocks the nozzle.</li>
+      <li>The factory "dimple" texture is <strong>two passes 15 to 20 minutes apart</strong>: first an even wetter pass for coverage, then a drier "spatter" pass with lower air pressure or higher fluid flow to throw larger droplets. Spray the second pass from the same distance, moving steadily; dwell makes blotches.</li>
+      <li>Do not thin to make a small gun work. A user who added 25 % water got endless drying and low film build.</li>
+    </ul>
+    <p><strong>Both methods:</strong> wait until each coat is dry to the touch before the next (dust-dry 15 to 20 minutes; recoat typically 1 to 3 hours depending on temperature and humidity). Apply <strong>two or three texture coats</strong> after the sealer coat until the texture is dense and no wood grain shows through on close inspection.</p>
+  </div></div>
+
+  <div class="step"><div class="n">12</div><div class="body">
+    <h4>Extra coat on edges and corners</h4>
+    <p>After the last full coat, go round every outside edge, corner and handle-pocket lip with a loaded 100 mm texture roller or a stipple brush and lay one more coat on the edges only. Edges always end up thinner than faces, and they take the hits. Blend the stipple 30 to 50 mm onto the face so there is no visible line.</p>
+  </div></div>
+
+  <div class="step"><div class="n">13</div><div class="body">
+    <h4>Check film build and consumption</h4>
+    <ul>
+      <li>Target <strong>about 70 &micro;m dry for a single textured pass and about 120 &micro;m dry total</strong> (Warnex TDS). Three to four roller coats of a Tuff Cab or DuraTex class paint reach a similar or higher build.</li>
+      <li>Coverage for a rough texture is roughly <strong>2 to 3 m&sup2; per kg per coat</strong> (Tuff Cab); a French Warnex distributor quotes about 1.5 m&sup2;/kg. Plan on 2 m&sup2;/kg.</li>
+      <li>Weigh the tin before and after the job. A 12-inch two-way cabinet of about 1.5 to 2 m&sup2; outside area should use roughly <strong>2 to 2.5 kg of paint in total</strong> <span class="est">ESTIMATE</span>. If you used half that, the coats were too thin: add another.</li>
+      <li>A wet-film comb can be used on a smooth spot (for example inside a handle pocket) to confirm the per-coat wet film the TDS quotes.</li>
+    </ul>
+  </div></div>
+
+  <h3>Stage 4: Drying, curing and inspection</h3>
+
+  <div class="step"><div class="n">14</div><div class="body">
+    <h4>Drying and cure schedule</h4>
+    <table>
+      <thead><tr><th>Stage</th><th>At 20 &deg;C, 65 % RH (Warnex TDS)</th><th>Hot, humid shop <span class="est">ESTIMATE</span></th><th>What you may do</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Dust-dry</td><td>15 to 20 min</td><td>30 to 60 min</td><td>Next spray pass; move out of the dusty area.</td></tr>
+        <tr><td class="k">Handle / assembly</td><td>2 to 3 h</td><td>4 to 8 h</td><td>Carry carefully by the inside, fit nothing yet.</td></tr>
+        <tr><td class="k">Stack / pack</td><td>24 h minimum</td><td>48 h</td><td>Refit hardware, stack with cloth or foam sheets between cabinets, pack in covers.</td></tr>
+        <tr><td class="k">Full cure</td><td>4 days (Warnex); Tuff Cab "a couple of weeks"</td><td>7 days or more</td><td>Touring, dragging, flight cases, outdoor use.</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>Forced drying at about <strong>60 &deg;C</strong> is permitted for Warnex (check your TDS). Do not force-dry above the TDS figure and do not put a wet coat straight into heat: let it dust-dry first.</li>
+      <li>In humid conditions use fans for air exchange and a dehumidifier in the drying room if available. Keep cabinets separated on battens so air reaches every face.</li>
+      <li>Cabinets stacked face to face overnight before cure have "stuck together into a single block". Do not do it.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">15</div><div class="body">
+    <h4>Inspection before release</h4>
+    <ul class="checklist">
+      <li>Colour matches the approved reference panel and the RAL 7016 card in daylight.</li>
+      <li>Texture is even over all faces and edges; no bald patches, runs, sags or roller lines; no wood grain visible.</li>
+      <li>Edges and corners fully covered; no thin or shiny edges.</li>
+      <li>No paint in threaded inserts, on gasket faces or inside the box; masking removed cleanly, no ragged edge.</li>
+      <li>No dust nibs or embedded fibres larger than the texture itself.</li>
+      <li>Surface dry and not tacky after 24 h; a firm thumb press leaves no mark.</li>
+      <li>Test panel labelled and stored; 7-day adhesion and scuff test booked (Section 8).</li>
+      <li>Hardware refitted only after 24 h (48 h in humid conditions); handles and corners tight, connector plate sealed.</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- ============================================================ 5 -->
+<section class="section">
+  <h2><span class="secnum">5</span>Method B step by step: 2K polyurethane textured coating</h2>
+  <p class="lead">For a shop that already sprays two-pack paint safely: booth with extraction, supplied-air respirators, trained staff. Products of the U-POL Raptor class (tintable 2K urethane bed-liner) or a 2K PU texture topcoat from an industrial paint supplier.</p>
+
+  <div class="callout warning">
+    <span class="label">Warning: isocyanates</span>
+    <p>All 2K polyurethane hardeners contain isocyanates, a potent cause of occupational asthma. Spraying produces a mist that a cartridge respirator does not reliably stop. <strong>For spraying: supplied-air (airline) breathing apparatus for everyone in the booth, during spraying and during the booth clearance time.</strong> A cartridge respirator is acceptable only for rolling or brushing. Nitrile gloves, coveralls with hood, eye protection. Extraction running. Nobody else in the room. Measure and post the booth clearance time. In the EU and Northern Ireland, since 24 August 2023, REACH (Regulation (EU) 2020/1149) requires documented training before professional use of products with more than 0.1 % diisocyanates; UK HSE additionally expects health surveillance for sprayers. Follow your local rules.</p>
+  </div>
+
+  <h3>Adhesion rules for Method B</h3>
+  <div class="callout">
+    <span class="label">Rule</span>
+    <ul>
+      <li><strong>Never apply water-based texture paint over 2K PU or polyurea.</strong> It will flake. Tuff Cab over polyurethane "will never bond properly".</li>
+      <li><strong>Never apply 2K PU over uncured or old water-based texture paint.</strong> Raptor "won't work very well over Tuff Cab". Strip water-based paint to bare wood first.</li>
+      <li><strong>Never apply the liner over bare, unsealed plywood.</strong> Reports of bed-liner that "acts as a kind of shell and can start to separate" come from unsealed, unkeyed cabinets. Seal first.</li>
+      <li><strong>Never apply the liner wet-on-wet over fresh primer</strong> unless the TDS allows it. Let the sealer cure and sand it for a key.</li>
+    </ul>
+  </div>
+
+  <div class="step"><div class="n">1</div><div class="body">
+    <h4>Woodwork preparation</h4>
+    <p>Carry out Section 4, Steps 1 to 7: inspect, strip if needed, remove and mask hardware, round edges 6 to 13 mm, fill, sand P80 to P120, remove dust. Fill more carefully than for Method A: a bed-liner "will show every imperfection", including screw holes.</p>
+  </div></div>
+
+  <div class="step"><div class="n">2</div><div class="body">
+    <h4>Seal the plywood with a 2K PU or epoxy sealer</h4>
+    <ul>
+      <li>Apply one or two coats of a <strong>2K polyurethane sealer/primer or a 2K epoxy primer</strong> to all surfaces and edges, per its TDS. Builders who seal "with a polyurethane 2-component paint before Line-X" report the best results; an epoxy sealer between fresh paint and the liner "prevents lifting".</li>
+      <li>Let the sealer cure per TDS (usually overnight), then <strong>sand with P180 to P240</strong> to a uniform matt key and remove dust. Recoat within the sealer's maximum recoat window; if you miss it, sand again.</li>
+      <li>Do not use a 1K water-based primer under 2K PU.</li>
+      <li><strong>Previously painted cabinets with a sound 2K or PU finish:</strong> degrease, sand P120 to P180 to matt, remove dust, and apply the liner. No sealer needed unless bare wood shows; spot-prime bare patches.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">3</div><div class="body">
+    <h4>Tint to dark grey</h4>
+    <ul>
+      <li>Use the <strong>tintable version</strong> of the liner. Have your paint supplier mix a compatible solvent-based tinter or basecoat to <strong>RAL 7016</strong> and add it at the ratio the liner TDS allows (commonly up to about 10 % of the base <span class="est">ESTIMATE</span>, check TDS). Or order the liner factory-tinted to RAL 7016 if the supplier offers it.</li>
+      <li>Ask for <strong>matt</strong>. Textured liners dry to a low sheen; if the test panel is too glossy, use a matting additive approved by the maker or plan a matt topcoat (Step 7).</li>
+      <li>Spray a test card, let it dry, compare with the RAL 7016 card in daylight before mixing the batch.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">4</div><div class="body">
+    <h4>Mix</h4>
+    <ul>
+      <li>Raptor class: <strong>3 parts base to 1 part hardener by volume</strong>. Add tinter, close, shake or stir for two minutes. Use only the hardener supplied for the product.</li>
+      <li><strong>Pot life 60 minutes at 20 &deg;C.</strong> At 30 &deg;C expect about half that <span class="est">ESTIMATE</span>. Mix only what you will spray in 30 minutes.</li>
+      <li>Keep cabinets, base and hardener at room temperature; cold material sprays coarse, hot material gels in the gun.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">5</div><div class="body">
+    <h4>Spray two coats</h4>
+    <ul>
+      <li>Use a <strong>Schutz (underbody) gun</strong> or the maker's liner gun on a compressor with a regulator. Air pressure controls texture: higher pressure gives a finer texture, lower pressure a coarser one. Set it on the test panel first; typical range 2.5 to 4 bar <span class="est">ESTIMATE</span>, check TDS.</li>
+      <li>Spray from about 40 to 50 cm, steady passes, 50 % overlap. Edges and corners first, then faces. Do not dwell: the material builds fast and sags.</li>
+      <li>Let the first coat become tacky-dry (typically 30 to 60 minutes at 20 &deg;C, check TDS), then apply the second coat. Two coats normally reach several hundred micrometres dry <span class="est">ESTIMATE</span>; confirm the TDS figure and check the panel with a thickness gauge if you have one.</li>
+      <li>Overspray is sticky and stains anything it lands on. Mask the booth and everything in it.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">6</div><div class="body">
+    <h4>Cure</h4>
+    <ul>
+      <li>Touch dry in 20 to 30 minutes. Handle after 24 hours. <strong>Full hardness about 7 days.</strong> Refit hardware after 24 to 48 hours; tour after 7 days.</li>
+      <li>Do not stack face to face before 48 hours. Ventilate the drying area; the smell is solvent and residual isocyanate.</li>
+      <li>Clean guns immediately with the solvent the TDS names. Cured material does not dissolve.</li>
+    </ul>
+  </div></div>
+
+  <div class="step"><div class="n">7</div><div class="body">
+    <h4>UV topcoat for outdoor cabinets</h4>
+    <p>Ask the supplier whether the liner is <strong>aromatic or aliphatic</strong>. Most bed-liner products are aromatic and will chalk and lighten in sunlight, which is very visible on grey. For cabinets used outdoors, apply a <strong>pigmented aliphatic 2K PU topcoat in RAL 7016 matt</strong> (or a water-based acrylic topcoat the liner maker approves) after the liner has cured per its recoat window. Sand lightly or follow the TDS for recoat adhesion. Indoor-only cabinets can skip the topcoat.</p>
+  </div></div>
+
+  <div class="step"><div class="n">8</div><div class="body">
+    <h4>Test panel and inspection</h4>
+    <p>Same as Method A, Steps 9 and 15: a test panel through every stage including sealer, labelled and kept; adhesion and scuff test at 7 days (Section 8). Inspect for colour, even texture, full edge coverage, no sags, no pinholes (a sign of moisture or too-thick wet coats), no paint in threads.</p>
+  </div></div>
+</section>
+
+<!-- ============================================================ 6 -->
+<section class="section">
+  <h2><span class="secnum">6</span>Method C outline: specifying sprayed polyurea to an applicator</h2>
+  <p class="lead">The shop does not spray polyurea itself. It prepares the cabinets, writes the specification, hands them over, and checks them on return. The applicator is a truck bed-liner franchise or an industrial polyurea contractor with a heated plural-component rig.</p>
+
+  <h3>What to ask the applicator for</h3>
+  <table>
+    <thead><tr><th style="width:26%">Item</th><th>Specification to write in the order</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Material</td><td>Two-component <strong>sprayed polyurea</strong> (pure polyurea or polyurea/polyurethane hybrid). A hybrid is acceptable only if sprayed with texture, as its own suppliers advise. Ask for the product name and TDS. Avoid one-component roll-on liners: they are a different, softer class.</td></tr>
+      <tr><td class="k">Primer / sealer</td><td>A 2K PU or epoxy sealer on the plywood before the polyurea, per the polyurea maker's substrate guide for wood. Polyurea sprayed on raw, unsealed plywood can delaminate as a shell. Ask what they will use and when they will sand it.</td></tr>
+      <tr><td class="k">Thickness</td><td><strong>1.0 to 1.5 mm dry film</strong> (40 to 60 mils), applied in at least two passes. Not thinner than 1 mm anywhere, including edges. Ask for a thickness check with a gauge or a witness coupon.</td></tr>
+      <tr><td class="k">Texture</td><td>Medium texture, even, same on all faces. Ask to see a textured sample and approve it before the batch. Standard truck-bed texture is coarse and "holds dirt"; ask for the finer setting.</td></tr>
+      <tr><td class="k">Corners and edges</td><td>Full coverage on all outside edges, corners and handle-pocket lips, without build-up that would stop handles seating. Inside corners of rebates and pockets without pinholes or bridging.</td></tr>
+      <tr><td class="k">Colour and topcoat</td><td>Base polyurea may be black or grey. <strong>Topcoat: pigmented aliphatic polyurea, polyaspartic or 2K PU in RAL 7016 matt (gloss 10 GU or less at 60&deg;)</strong>, applied within the polyurea's recoat window. Colour is a topcoat over the elastomer, exactly as d&amp;b and Danley do; do not accept "we will tint the polyurea" as the only colour source for outdoor cabinets.</td></tr>
+      <tr><td class="k">Masking</td><td>Confirm who masks. Polyurea covers everything it touches. The shop should mask and plug (see below); the applicator confirms and adds their own masking.</td></tr>
+      <tr><td class="k">Interior</td><td>Normally exterior only. For weather-protected cabinets, Adamson sprays the interior as well to make a complete seal. Decide and specify.</td></tr>
+      <tr><td class="k">Documents</td><td>TDS and SDS of polyurea, primer and topcoat; applied thickness record; batch numbers. Keep with the job file.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What the shop prepares before handing over</h3>
+  <ul class="checklist">
+    <li>Cabinets fully assembled, glued and screwed; glue squeeze-out removed.</li>
+    <li>All outside edges rounded 6 to 13 mm. Polyurea bridges poorly over knife edges and peel starts there.</li>
+    <li>All voids, screw heads and chipped plies filled and sanded flush. Polyurea telegraphs every defect.</li>
+    <li>Surfaces sanded P80 to P120, dust removed. Ask the applicator whether they prefer the sealer applied by you or by them.</li>
+    <li>Hardware removed and kept; every threaded insert plugged with a screw or plastic plug; driver cut-outs blanked from inside; gasket faces and connector rebates masked with tape that will survive heat and solvent.</li>
+    <li>Wood dry (below about 12 % moisture <span class="est">ESTIMATE</span>) and delivered covered. Polyurea over damp wood blisters.</li>
+    <li>One offcut panel of the same ply delivered with the batch, for the applicator to spray as your test panel.</li>
+    <li>Reference colour card (RAL 7016) and an approved texture sample attached to the order.</li>
+  </ul>
+
+  <h3>What to check on return</h3>
+  <ul class="checklist">
+    <li>Thickness record provided; spot-check with a gauge if available. Press a fingernail into an edge: it should feel like a thick rubber skin, not a thin paint film.</li>
+    <li>No lifting, bubbles or hollow sound when tapped, especially at edges and corners. A hollow "shell" means poor adhesion to the wood.</li>
+    <li>Even texture, no bare or thin spots, no drips in handle pockets.</li>
+    <li>Colour and gloss match the RAL 7016 card and the approved sample; topcoat continuous with no polyurea showing through.</li>
+    <li>Threads clear, gasket faces clean, masking lines sharp; no coating inside the cabinet unless ordered.</li>
+    <li>Hardware fits: handles, corners and connector plates seat flat on the thick coating; countersinks may need re-cutting.</li>
+    <li>Cross-hatch adhesion test on the returned test panel (Section 8).</li>
+    <li>Weigh one cabinet before and after if weight matters for rigging: expect <strong>2.5 to 3.3 kg added on a 12-inch top</strong> <span class="est">ESTIMATE</span>.</li>
+  </ul>
+
+  <div class="callout tip">
+    <span class="label">Tip</span>
+    <p>Polyurea is near-waterproof. Any chip at a corner lets water into the plywood, and the water cannot dry back out through the skin. Repair chips on polyurea cabinets quickly (Section 9) and keep the edge-protection hardware fitted.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 7 -->
+<section class="section">
+  <h2><span class="secnum">7</span>Edges, corners, grilles and hardware</h2>
+
+  <h3>Why edges fail first</h3>
+  <p>Paint pulls thin over a sharp edge as it dries, so the film on a 90-degree edge is a fraction of the film on the face. The edge is also what hits the floor, the truck and the next cabinet. On thin acrylic texture paint the result is a chip that exposes wood; on a thick elastomer it is the point where peeling starts. Butt joints under the paint also move and "tend to crack paint finishes". Every method in this guide therefore starts with the same geometry work.</p>
+
+  <table>
+    <thead><tr><th style="width:26%">Measure</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Edge radius</td><td>Route 13 mm (1/2 in) on main cabinet edges and 6 mm (1/4 in) around front and back frames. Hand-sand at least 3 mm where a router cannot reach <span class="est">ESTIMATE</span>.</td></tr>
+      <tr><td class="k">Extra coat on edges</td><td>After the last full coat, stipple or roll one extra coat on all edges, corners and handle lips, blended 30 to 50 mm onto the face (Method A, Step 12). For Method C, specify "not thinner than 1 mm on edges".</td></tr>
+      <tr><td class="k">Corner protectors</td><td>Fit stamped steel or ABS speaker corners (ball or flat type) on cabinets that are stacked and trucked. Choose corners that fit a rounded edge; standard sharp-cornered hardware often "is a bad fit" on a routed round-over. Pre-drill, use the correct screw length so deep inserts do not split the panel, and fit them only after cure. Combine with rubber feet or glides.</td></tr>
+      <tr><td class="k">Handles</td><td>Recessed handles (as on JBL VTX) keep hardware inside the envelope. Paint inside the pocket. Fit the handle after cure with a thin gasket or sealant bead if the cabinet is used outdoors.</td></tr>
+      <tr><td class="k">Grilles</td><td>Do not paint the grille with cabinet paint. Steel grilles should be <strong>powder-coated</strong> (polyester or epoxy-polyester hybrid, about 60 to 100 &micro;m) in a matching dark grey; zinc-plate or use stainless steel before powder for outdoor or coastal use. Back the grille with acoustically transparent black cloth or foam. Powder coating is an oven process for metal parts and is sent out, not done in the paint shop.</td></tr>
+      <tr><td class="k">Connector plates and amp modules</td><td>Mask the rebate and the gasket face. Refit with the gasket; for outdoor cabinets use a recessed plate and a bead of neutral-cure sealant around the rebate, never over the connectors.</td></tr>
+      <tr><td class="k">Threaded inserts, rigging points, pole cups</td><td>Plug before painting. After cure, run a tap or the correct bolt through every thread before fitting hardware. Paint in a rigging thread is a safety issue, not a cosmetic one.</td></tr>
+      <tr><td class="k">Feet and glides</td><td>Fit after cure. Large-diameter rubber feet or wheelboards keep the bottom edge off wet floors.</td></tr>
+      <tr><td class="k">Covers and cases</td><td>Touring brands rely on padded covers and flight cases with aluminium edging more than on the paint. Soft covers for the first week after painting protect the still-curing film.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="label">Rule</span>
+    <p><strong>Reinstall hardware only after cure:</strong> 24 hours minimum, 48 hours in humid conditions, 7 days before the cabinets go on the road. Screwing a corner into soft paint cracks the film around every screw.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 8 -->
+<section class="section">
+  <h2><span class="secnum">8</span>Quality control checklist and in-house tests</h2>
+  <p class="lead">No manufacturer publishes abrasion or adhesion figures for these coatings. The shop's own test panel is the only durability data. Run these checks on every batch and keep the records with the job.</p>
+
+  <div class="grid3">
+    <div class="card">
+      <h4>Before painting</h4>
+      <ul class="checklist">
+        <li>TDS of the exact product read; figures copied into the reference card.</li>
+        <li>Paint batch within shelf life, stored 15 to 25 &deg;C, never frozen.</li>
+        <li>Old finish identified; stripped if not water-based (Method A) or not 2K (Method B).</li>
+        <li>Edges rounded 6 to 13 mm.</li>
+        <li>Filler cured, flush, sealed with thinned PVA or paint.</li>
+        <li>Sanded P80 to P120; no glue, wax or pencil; dust removed.</li>
+        <li>Hardware off, threads plugged, cut-outs blanked, gasket faces masked.</li>
+        <li>Air and surface 12 to 25 &deg;C; shade; RH noted.</li>
+        <li>Test panel prepared from the same ply.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>During painting</h4>
+      <ul class="checklist">
+        <li>Texture and colour approved on the test panel before the first cabinet.</li>
+        <li>First coat worked into edges and end grain.</li>
+        <li>Each coat dry to the touch before the next; no recoating over a cool, damp film.</li>
+        <li>Two or three texture coats; no visible grain.</li>
+        <li>Extra coat on all edges.</li>
+        <li>Paint weight used per cabinet recorded (target 2 to 2.5 kg per 12-inch top <span class="est">ESTIMATE</span>).</li>
+        <li>Closed pot kept closed; gun cleaned with water promptly (Method A).</li>
+        <li>Method B: pot life respected, PPE and extraction in use, clearance time observed.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>After painting</h4>
+      <ul class="checklist">
+        <li>24 h: dry, not tacky, thumb press leaves no mark.</li>
+        <li>Colour and texture match the reference panel in daylight.</li>
+        <li>Edges fully covered; no shiny or thin edges.</li>
+        <li>Masking removed cleanly; threads clear; no paint inside.</li>
+        <li>Hardware refitted after 24 to 48 h with correct screws.</li>
+        <li>7 days: adhesion and scuff test on the panel passed and recorded.</li>
+        <li>Cabinets stored on battens, separated, 7 days before touring.</li>
+        <li>Job sheet filed: product, batch, coats, weights, temperatures, test results.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Test 1: Cross-hatch adhesion test (ASTM D3359 style)</h3>
+  <p>Do this on the test panel after 7 days of cure, on a face and across the routed edge if possible. On a previously painted cabinet, do it on the test panel made from the stripped cabinet, or in a hidden spot.</p>
+  <ol>
+    <li>With a sharp blade and a steel rule, cut six parallel cuts about 20 mm long through the coating to the wood, <strong>2 mm apart</strong> (the spacing for films of 50 to 125 &micro;m). Cut six more at 90 degrees to make a lattice. For thick coatings (Method B and C), make a single <strong>X-cut</strong> instead: two 40 mm cuts crossing at about 30 to 45 degrees.</li>
+    <li>Brush the lattice lightly to remove loose flakes.</li>
+    <li>Apply a strip of strong pressure-sensitive tape (a semi-transparent 25 mm filament or office tape of the type the standard specifies, not masking tape) over the cuts, press down firmly with a fingertip for 90 seconds and rub with a pencil eraser so it grips the texture.</li>
+    <li>Within 90 seconds, pull the tape off in one smooth motion at close to 180 degrees.</li>
+    <li>Rate the lattice: <strong>5B</strong> no coating removed; <strong>4B</strong> small flakes at the intersections, less than 5 % of the area; <strong>3B</strong> flaking along edges and at intersections, 5 to 15 %; <strong>2B</strong> 15 to 35 %; <strong>1B</strong> 35 to 65 %; <strong>0B</strong> worse. For the X-cut, 5A no peeling, 4A trace peeling at the intersection, 3A jagged removal along the cuts up to 1.6 mm, lower grades for more.</li>
+  </ol>
+  <div class="callout">
+    <span class="label">Acceptance</span>
+    <p><strong>Pass: 4B or 5B (4A or 5A for the X-cut).</strong> 3B is marginal: check preparation and recoat the batch's edges. 2B or worse: the coating is not bonded; find the cause (old paint under it, dust, primer, glue, frozen paint, too cold) and strip and redo. Texture makes rating harder: judge how much of the lattice squares lifted, not whether the tape pulled off texture peaks.</p>
+  </div>
+
+  <h3>Test 2: Wet adhesion (humid-climate check)</h3>
+  <p>Stand one corner of the test panel in 20 mm of clean water for 24 hours, dry the surface, and repeat the cross-hatch test on the soaked area within 10 minutes. A drop of more than one grade compared with the dry area means the paint, the sealer or the plywood edge sealing is not suitable for humid or outdoor use.</p>
+
+  <h3>Test 3: Scuff and chip test (in-house, not a standard)</h3>
+  <p>Use the same method every time so results are comparable between products and batches. <span class="est">ESTIMATE</span></p>
+  <ol>
+    <li><strong>Scuff:</strong> wrap a 1 kg weight (a flat steel block) in a fresh grey non-woven abrasive pad (Scotch-Brite type) and drag it 20 strokes of 150 mm over the panel under its own weight. Record: texture intact, texture polished flat, or wood showing. Then do the same with a strip of P120 paper. A good acrylic texture coat polishes but does not show wood after 20 strokes with the pad; 2K PU and polyurea show less change.</li>
+    <li><strong>Edge chip:</strong> drop a 500 g steel ball or a 500 g hammer head from 500 mm onto the routed edge of the panel, three times at different spots. Record: dent only, crack, or chip with wood exposed. Compare against the kept reference panel.</li>
+    <li><strong>Coin scratch:</strong> drag the edge of a coin across the face with firm hand pressure. A pass is a grey mark that wipes off or a flattened texture, not a cut to wood.</li>
+  </ol>
+  <p>Write the results on the back of the panel. When trying a new product or a new local supplier, run Tests 1 to 3 on panels of the current product and the candidate side by side before changing.</p>
+</section>
+
+<!-- ============================================================ 9 -->
+<section class="section">
+  <h2><span class="secnum">9</span>Repair and touch-up procedure</h2>
+
+  <h3>Method A cabinets (water-based texture paint)</h3>
+  <div class="step"><div class="n">1</div><div class="body">
+    <h4>Clean and sand the damage</h4>
+    <p>Wash the area with water and a little detergent, rinse, dry. Sand the chip and 20 to 30 mm around it with <strong>P80</strong>, feathering the edges of the old paint so there is no step. <strong>Do not sand finer than P80</strong>: the repair paint needs a key. Remove dust with a damp cloth.</p>
+  </div></div>
+  <div class="step"><div class="n">2</div><div class="body">
+    <h4>Fill and seal if wood is damaged</h4>
+    <p>Crushed corners and gouges: fill with two-part filler, sand flush, re-form the radius, seal the filler with thinned PVA or thinned paint and let it dry. Bare end grain: one thin brushed coat of paint as a sealer first.</p>
+  </div></div>
+  <div class="step"><div class="n">3</div><div class="body">
+    <h4>Re-texture with the same paint</h4>
+    <ul>
+      <li>Use the <strong>same product, same colour, ideally the same batch</strong> kept from the original job. Keep 1 litre per cabinet set in a sealed tin at 15 to 25 &deg;C for repairs.</li>
+      <li>Small chips: <strong>stipple</strong> with a stiff brush or a 50 to 100 mm texture mini-roller, two or three coats, each dry to the touch before the next. Feather each coat a little further into the surrounding texture.</li>
+      <li>Where the surrounding texture is already thick, use a <strong>short-pile roller</strong> so you do not build a lump.</li>
+      <li>Large areas or a whole face: sand the whole face with P80 and re-roll the complete panel. Only a complete panel will be invisible; a patch in the middle of a face will show in low light however well it is done.</li>
+    </ul>
+  </div></div>
+  <div class="step"><div class="n">4</div><div class="body">
+    <h4>Cure before use</h4>
+    <p>24 hours before the cabinet is stacked or cased, 4 to 7 days before hard use. Expect a repair on an aged cabinet to differ slightly in colour, sheen and texture: faded or dirty old paint next to fresh paint. Clean the whole cabinet first so the difference is smallest.</p>
+  </div></div>
+
+  <h3>Method B cabinets (2K PU textured)</h3>
+  <ul>
+    <li>Sand the damage and 30 mm around it with P120 to P180, feather, fill bare wood with 2K filler, spot-seal with 2K PU or epoxy primer, let it cure and sand.</li>
+    <li>Mix a small quantity of the same liner, tinted as the original, and <strong>spray with the Schutz gun through a card mask</strong> with a soft edge, or stipple with a brush for very small chips. Two light coats. Full isocyanate PPE applies even for small repairs that are sprayed.</li>
+    <li>Texture and sheen mismatch is normal on PU repairs. For a visible face, re-coat the whole face. Re-apply the matt aliphatic topcoat on outdoor cabinets.</li>
+    <li>Never touch up 2K PU with water-based texture paint: it will flake off within weeks.</li>
+  </ul>
+
+  <h3>Method C cabinets (polyurea)</h3>
+  <ul>
+    <li>Repair chips <strong>quickly</strong>: water that enters through a chip cannot dry out through the skin, and the plywood will swell and delaminate under an intact-looking finish.</li>
+    <li>Cut back any loose or lifted skin to firmly bonded material with a sharp knife. Dry the wood (fan, days if needed). Fill deep damage with 2K epoxy filler.</li>
+    <li>Field patch: a <strong>brushable or cartridge two-component polyurea or 2K PU repair compound</strong> from the polyurea maker, worked into the hole slightly proud, textured with a stipple brush before it gels, then the matt aliphatic topcoat in RAL 7016. The patch will be visible.</li>
+    <li>Invisible repair means a return to the applicator for a re-spray of the face or the whole cabinet. EAW states plainly that its textured roadcoat "will make it difficult to blend touch-up paint". Plan for this when choosing Method C.</li>
+  </ul>
+
+  <div class="callout tip">
+    <span class="label">Tip</span>
+    <p>Whatever the method, keep a <strong>repair kit per cabinet set</strong>: 1 litre of the paint (or a small liner kit and hardener with a long shelf life), the RAL card, a 100 mm texture roller, a stipple brush, P80 and P120 paper, filler, thinned PVA, and the job sheet with batch numbers.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 10 -->
+<section class="section">
+  <h2><span class="secnum">10</span>Common mistakes that cause failure</h2>
+  <p class="lead">These are the failures that recur in every builder community. Most "this paint is rubbish" reports trace back to one of them.</p>
+  <table class="allow-break">
+    <thead><tr><th style="width:28%">Mistake</th><th style="width:34%">What happens</th><th>Do this instead</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Water-based paint over old solvent, PU, polyurea or 2K paint without stripping</td><td>Looks fine for weeks, then "will never bond properly and will gradually flake off" in sheets.</td><td>Identify the old finish (Section 4, Step 2). Strip to bare wood by sanding or heat. Only recoat over the same water-based class.</td></tr>
+      <tr><td class="k">Primer, acrylic undercoat or PVA over the whole cabinet under texture paint</td><td>Warnex-class paint "does not hold on primers or acrylics"; sheets lift at the primer interface.</td><td>Bare sanded wood. Seal filler patches only.</td></tr>
+      <tr><td class="k">Thin coats, or paint thinned to suit a small gun</td><td>Low film build, grain shows, wears through at edges in months; thinned paint takes forever to dry.</td><td>Three to four full coats or two heavy spray passes; use a pressure pot, Schutz or hopper gun; weigh the paint used.</td></tr>
+      <tr><td class="k">Cold shop, cold or frozen stock</td><td>Below 12 &deg;C the film does not form properly. Paint that has frozen "is ruined and will never hold".</td><td>12 to 25 &deg;C; store paint 15 to 25 &deg;C; bring paint and cabinets to room temperature overnight.</td></tr>
+      <tr><td class="k">Painting in direct sun or on a hot surface, or in very high humidity</td><td>Surface skins while the film under it is wet: trapped water, poor coalescence, blisters, soft paint; or the film never dries and blocks when stacked.</td><td>Shade or indoors; surface below 30 &deg;C; fans; longer intervals; 48 h before stacking in humid conditions.</td></tr>
+      <tr><td class="k">Unsealed MDF or plywood edges and unsealed filler</td><td>End grain soaks up paint and water; filler patches show dull and lift.</td><td>Seal filler with thinned PVA or paint; thin PVA wipe on end grain; sand MDF skin.</td></tr>
+      <tr><td class="k">Sharp edges</td><td>Paint pulls thin over the edge; chips at the first knock; peel starts there on elastomers.</td><td>Round to 6 to 13 mm before painting; extra coat on edges; corner protectors after cure.</td></tr>
+      <tr><td class="k">Glue squeeze-out, wood dust or wax under the paint</td><td>Paint sits "relatively loose" and lifts in patches along joints.</td><td>Chisel and sand off glue; sand MDF skin; vacuum and damp-wipe before painting.</td></tr>
+      <tr><td class="k">Stacking, casing or fitting hardware before cure</td><td>Cabinets "stuck together into a single block"; screw holes crack the soft film; texture prints flat.</td><td>24 h minimum before stacking (48 h humid); hardware after 24 to 48 h; touring after 4 to 7 days.</td></tr>
+      <tr><td class="k">No test panel</td><td>Wrong texture, wrong colour, or poor adhesion discovered on twenty finished cabinets.</td><td>One panel per batch, painted first, kept and tested at 7 days.</td></tr>
+      <tr><td class="k">Wrong roller</td><td>Plain foam gives "sand in the paint"; a long-pile roller gives a soft, uneven stipple that polishes flat.</td><td>Honeycomb or coarse open-cell texture roller; test on the panel; same roller type for repairs.</td></tr>
+      <tr><td class="k">Recoating Warnex without a key</td><td>A later coat applied months on, without sanding, sits loose.</td><td>Scuff with P80 before any recoat on cured paint.</td></tr>
+      <tr><td class="k">Bed-liner (Method B or C) over raw, unsealed or unsanded plywood</td><td>Liner forms a shell that "can start to separate and possibly rattle over time"; every flaw shows through.</td><td>2K PU or epoxy sealer, sanded; fill everything; key the surface.</td></tr>
+      <tr><td class="k">Epoxy paint as the finish on a wooden cabinet</td><td>Hard film cracks as the plywood moves (JBL's own warning).</td><td>Epoxy only as a thin sealer under a flexible topcoat, or not at all.</td></tr>
+      <tr><td class="k">Aromatic bed-liner in grey used outdoors</td><td>Chalks and lightens in months; grey shows it far more than black.</td><td>Aliphatic pigmented topcoat in RAL 7016 matt, or Method A acrylic.</td></tr>
+      <tr><td class="k">Spraying 2K PU with a cartridge mask</td><td>Isocyanate sensitisation, occupational asthma; mist passes the cartridge.</td><td>Supplied-air respirator, extraction, clearance time, training. Or stay with Method A.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ 11 -->
+<section class="section">
+  <h2><span class="secnum">11</span>Quick reference card</h2>
+  <p class="small">Pin this page in the spray room. Fill in the product's own TDS figures in the right-hand column of each table before the first job.</p>
+
+  <div class="qr">
+    <div class="grid2">
+      <div>
+        <h3>Colour and finish</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Colour</td><td>RAL 7016 Anthracite Grey (alt. RAL 7021, RAL 7024)</td></tr>
+            <tr><td class="k">Gloss</td><td>Matt / dead matt, 10 GU or less at 60&deg;</td></tr>
+            <tr><td class="k">Texture</td><td>Fine to medium spatter, as reference panel</td></tr>
+            <tr><td class="k">Outdoor, Methods B/C</td><td>Pigmented aliphatic or water-based topcoat RAL 7016 matt</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Preparation (all methods)</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Edge radius</td><td>13 mm main edges, 6 mm frames (1/2 in, 1/4 in)</td></tr>
+            <tr><td class="k">Sanding</td><td>P80 then P120; never finer than P150 to 180</td></tr>
+            <tr><td class="k">Filler</td><td>2K filler, flush, sealed with thinned PVA or paint</td></tr>
+            <tr><td class="k">Primer (Method A)</td><td>None on bare ply or MDF</td></tr>
+            <tr><td class="k">Sealer (Method B/C)</td><td>2K PU or epoxy, cured, sanded P180 to 240</td></tr>
+            <tr><td class="k">Old paint</td><td>Water-based over water-based only; otherwise strip to wood</td></tr>
+            <tr><td class="k">Hardware</td><td>Off; threads plugged; cut-outs blanked; gaskets masked</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Method A: coats and film</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Coats</td><td>1 sealer coat (thinned if TDS permits) + 2 to 3 texture coats + edge coat</td></tr>
+            <tr><td class="k">Spray passes</td><td>2 passes, 15 to 20 min apart, 1.5 to 2.0 mm nozzle, 30 to 40 cm, closed pot</td></tr>
+            <tr><td class="k">Roller</td><td>Honeycomb / coarse foam texture roller, 100 mm edges</td></tr>
+            <tr><td class="k">Dry film</td><td>About 70 &micro;m per pass, about 120 &micro;m total</td></tr>
+            <tr><td class="k">Coverage</td><td>2 to 3 m&sup2;/kg per coat, textured</td></tr>
+            <tr><td class="k">Consumption</td><td>2 to 2.5 kg per 12-inch two-way cabinet <span class="est">EST</span></td></tr>
+            <tr><td class="k">Your TDS says</td><td>______________________________</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Method C: polyurea (outsourced)</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Specify</td><td>2-part polyurea, 1 to 1.5 mm, 2 passes, sealed ply, textured, aliphatic matt topcoat RAL 7016</td></tr>
+            <tr><td class="k">Check</td><td>Thickness record, no hollow spots, threads clear, colour vs card</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Conditions</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Temperature</td><td>12 to 25 &deg;C (54 to 77 &deg;F); surface below 30 &deg;C</td></tr>
+            <tr><td class="k">Humidity</td><td>Moderate; in high RH double all drying times, use fans</td></tr>
+            <tr><td class="k">Sun</td><td>Never in direct sun</td></tr>
+            <tr><td class="k">Indonesia</td><td>RH 80 to 85 % max; 25 to 35 &deg;C; surface 3 &deg;C above dew point; late morning or afternoon; AC or dehumidified drying room</td></tr>
+            <tr><td class="k">Paint storage</td><td>15 to 25 &deg;C, never frozen, closed tin</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Drying and cure</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Dust-dry</td><td>15 to 20 min (A); 20 to 30 min (B)</td></tr>
+            <tr><td class="k">Recoat</td><td>When dry to the touch, 1 to 3 h (A); tacky, 30 to 60 min (B)</td></tr>
+            <tr><td class="k">Handle</td><td>2 to 3 h (A); 24 h (B)</td></tr>
+            <tr><td class="k">Stack / hardware</td><td>24 h min; 48 h humid</td></tr>
+            <tr><td class="k">Full cure / touring</td><td>4 to 7 days (A); 7 days (B); topcoat TDS (C)</td></tr>
+            <tr><td class="k">Forced drying</td><td>About 60 &deg;C for Warnex, check TDS</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Method B: 2K PU</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Mix</td><td>3 : 1 base : hardener (Raptor class); tinter per TDS</td></tr>
+            <tr><td class="k">Pot life</td><td>60 min at 20 &deg;C; about 30 min at 30 &deg;C <span class="est">EST</span></td></tr>
+            <tr><td class="k">Gun</td><td>Schutz / liner gun, 2 coats, pressure sets texture</td></tr>
+            <tr><td class="k">PPE</td><td>Supplied-air respirator, nitrile gloves, coveralls, extraction, nobody else in room</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Tests at 7 days</h3>
+        <table>
+          <tbody>
+            <tr><td class="k">Cross-hatch</td><td>2 mm lattice (or X-cut), tape, pull at 180&deg;; pass 4B/5B</td></tr>
+            <tr><td class="k">Wet</td><td>24 h water soak, repeat cross-hatch, max 1 grade drop</td></tr>
+            <tr><td class="k">Scuff</td><td>1 kg pad, 20 strokes; coin scratch; 500 g from 500 mm on edge</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="callout warning" style="margin:10px 0 0">
+      <span class="label">Eight rules</span>
+      <p>Bare wood for water-based &middot; Never thin coats &middot; Round the edges &middot; Seal the filler &middot; 12 to 25 &deg;C, shade &middot; 24 h before stacking, 4 to 7 days before touring &middot; Test panel every batch &middot; Isocyanates only with supplied air</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDONESIA_SECTION -->
+<!-- ============================================================ 12 -->
+<section class="section">
+  <h2><span class="secnum">12</span>Sourcing and climate: Indonesia</h2>
+  <p class="lead">What can actually be bought in Indonesia, how to get a dark grey matte textured finish from it, and how to adapt the procedures of Sections 4 and 5 to 28 to 34 &deg;C and 70 to 90 % relative humidity.</p>
+
+  <div class="callout warning">
+    <span class="label">Prices and listings</span>
+    <p>Every IDR price below was <strong>seen on 2026-11-19 in marketplace search excerpts</strong> (Tokopedia, Shopee, BigGo). The listing pages themselves could not be opened, so stock, seller location and current price must be <strong>verified on the live page before ordering</strong>. Conversions use about IDR 16,000 per USD 1. <strong>[DEDICATED]</strong> means a product sold specifically as speaker-cabinet texture paint; <strong>[REPURPOSED]</strong> means a building, automotive or industrial coating used outside its intended purpose.</p>
+  </div>
+
+  <h3>12.1 Tiered shopping list</h3>
+  <table class="allow-break">
+    <thead><tr><th style="width:18%">Tier / product</th><th style="width:18%">Type</th><th style="width:22%">Pack and price (IDR, seen 2026-11-19, verify)</th><th style="width:16%">Where</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td colspan="5" style="background:#e9ebee;font-weight:700;color:#3a3f45">Tier 1: local speaker texture paints [DEDICATED], black only. Base for Route 1.</td></tr>
+      <tr><td class="k">Vircan "cat texture box speaker"</td><td>1K, applied undiluted, marketed "anti air". Resin not published; behaviour described matches a water-based acrylic emulsion.</td><td>1 kg / 1 L: 75,000 (LENGKAP AJA, 586 in stock), 80,000 (Natz), 99,500 (Elrumiskot); about 92,000 on BigGo</td><td>Tokopedia; Toko Sentra Warna sells "Vircan original"</td><td>Most common brand; YouTube tutorials exist. Black ("hitam") only. No TDS found. Indana blog: apply thick and even first, then texture with brush or roller.</td></tr>
+      <tr><td class="k">Caldera "cat box speaker, jet black"</td><td>As Vircan; resin not published</td><td>About 89,900 (seller lapak195, 4.8 rating, 619 sold)</td><td>Shopee Indonesia</td><td>Black only. Sold interchangeably with Vircan in repacked jerrycans.</td></tr>
+      <tr><td class="k">Prismatik "cat tekstur berpasir"</td><td>As above; label says sand-textured</td><td>1.5 kg tub about 96,521; 1.15 kg repack listings</td><td>Tokopedia Shop (TikTok Shop)</td><td>Marketed with a flight-case image, slogan "Lebih hitam, lebih kuat". Black only. No TDS found.</td></tr>
+      <tr><td class="k">Dexa texture paint</td><td>As above</td><td>1 L / 1 kg, price not captured</td><td>Tokopedia (Ian Shop Elektronik)</td><td>Sold alongside Vircan; same class.</td></tr>
+      <tr><td colspan="5" style="background:#e9ebee;font-weight:700;color:#3a3f45">Tier 2: water-based texture wall paints [REPURPOSED]. Last-resort texture base; coarser and softer than cabinet paint.</td></tr>
+      <tr><td class="k">Avian Avitex Tekstur TX-100</td><td>Water-based acrylic "kamprot" texture, matt, ready to use</td><td>5 kg and 25 kg; price not captured</td><td>Avian dealers, marketplaces</td><td>Maker states 2 to 3 m&sup2;/kg per coat, dry 1 to 2 h. Grey availability not stated.</td></tr>
+      <tr><td class="k">Propan DECOR DTX-250 / DTX-280</td><td>Acrylic emulsion with weather-resistant filler</td><td>Price not captured</td><td>Propan dealers</td><td>Brochures list white: a candidate tint base, untested.</td></tr>
+      <tr><td class="k">Norden Texturoll, Tekskam, Boxer kamprot</td><td>Roll-on texture wall paints</td><td>Norden 1 kg 81,150 to 20 kg 1,396,300; Tekskam light grey 5 kg 201,450; Boxer 5 kg about 291,873</td><td>Tokopedia</td><td>Only "light grey" found; still needs a dark topcoat.</td></tr>
+      <tr><td colspan="5" style="background:#e9ebee;font-weight:700;color:#3a3f45">Tier 3: 2K polyurethane topcoats and sealers [REPURPOSED, industrial]. Route 2. Isocyanate PPE applies.</td></tr>
+      <tr><td class="k">Jotun Hardtop XP</td><td>2K aliphatic acrylic PU, high gloss by default, made by PT Jotun Indonesia</td><td>5 L set (4.55 L A + 0.45 L B): RAL 9005 1,002,000 (jotunpaintos); RAL 7038 1,245,000 (panama); RAL 7046 2.5 L 998,000; custom colour 5 L about 1,133,465 (internation-4)</td><td>Tokopedia; Jotun MCI dealers</td><td>Pot life 1.5 h at 23 &deg;C. Gloss: must be matted (Eco Matt / XPL variant, availability unconfirmed, or matting additive tested on panel). No RAL 7016 listing found; tint to order.</td></tr>
+      <tr><td class="k">Jotun Hardtop AX</td><td>2K aliphatic acrylic PU, "MCI tintable", 1,700+ colours incl. RAL</td><td>4.5 L set RAL 7047 1,557,000 (kalopsiastores); 5 L set 1,375,000 (sumberjayapaint); 20 L RAL 7038 4,715,000</td><td>Tokopedia; Jotun MCI dealers</td><td>The easiest product to get tinted to RAL 7016 at a dealer. Glossy: same matting note.</td></tr>
+      <tr><td class="k">Propan DURATEX 2K PU DRX 890 WB</td><td>2K <strong>water-based</strong> acrylic PU with polyisocyanate hardener, low sheen, colour per colour card</td><td>Price not captured</td><td>Propan dealers, Propan Multicolor Center</td><td>Marketed as a 15-year exterior wall coating; 2 to 3 coats at about 30 &micro;m each, thinned about 1:10 with water. Closest local analogue to a water-based 2K PU cabinet topcoat. Still isocyanate.</td></tr>
+      <tr><td class="k">Propan PU Top Coat PUL-91; Matting Solution MS-21</td><td>2K PU wood topcoat (clear gloss / semi / doff); matting additive</td><td>PUL-91 2 kg set 192,000; MS-21 152,000 per litre</td><td>Tokopedia (tokocatpropan)</td><td>Clear only; useful as a 2K sealer on bare ply and as a matting reference. Confirm MS-21 compatibility before adding to any Jotun product.</td></tr>
+      <tr><td class="k">Nippon nax 2200 2K epoxy primer grey</td><td>2K epoxy primer (automotive)</td><td>1 L set with hardener; price not captured</td><td>Tokopedia (gjfonline)</td><td>Sealer for bare ply under Route 2 (Section 5, Step 2). Hartwell Poly Surfacer 4:1 also listed.</td></tr>
+      <tr><td colspan="5" style="background:#e9ebee;font-weight:700;color:#3a3f45">Tier 4: bed-liner [REPURPOSED]</td></tr>
+      <tr><td class="k">U-POL Raptor</td><td>2K urethane liner, tintable</td><td>No Indonesian retail price found. Overseas: 4 L tintable kit USD 112 to 190, 1 L USD 69</td><td>Reported importer: Qmax Army Indonesia (auto media, year unclear)</td><td>Ask the importer for a bed-liner kit quote. Herculiner, Durabak: no Indonesian source.</td></tr>
+      <tr><td colspan="5" style="background:#e9ebee;font-weight:700;color:#3a3f45">Tier 5: polyurea applicators (Route 3)</td></tr>
+      <tr><td class="k">Spray-polyurea contractors</td><td>Plural-component (Graco-type) rigs, waterproofing trade</td><td>No verified IDR per m&sup2;; expect a minimum mobilisation charge</td><td>Kimia Konstruksi (Jabodetabek, Bandung, Surabaya, Semarang, Yogyakarta); PT Alpha Tunas Mandiri (Jakarta); jasawaterproofing.id / PT Niaga Artha Chemcons (Bekasi); Morillo Coatings (Jakarta, Surabaya); Jasa Insulasi (Tangerang, Graco rigs); WIP</td><td>All roof and tank oriented. None advertises aliphatic or coloured topcoats or small objects. No Line-X franchise; Rhino's Indonesian master distributor not identified.</td></tr>
+      <tr><td colspan="5" style="background:#e9ebee;font-weight:700;color:#3a3f45">Supporting materials (all Tokopedia unless stated)</td></tr>
+      <tr><td class="k">Filler, glue, abrasives</td><td>Propan Impra Wood Filler WF-115 / WP-117 (opaque finishing); Fox PVAc white glue; sandpaper</td><td>Impra 1 kg 57,000 to 86,000; Fox 700 g 28,700, 10 kg 443,000; sandpaper rolls 12,000 to 15,449 per metre, Toho 120/240 sheets 5-pack 54,900</td><td>Tokopedia, Ace / Ruparupa</td><td>Impra Aqua AWF-911 is the water-based filler. Seal filler with thinned Fox PVA as in Section 4, Step 8.</td></tr>
+      <tr><td class="k">Rollers and guns</td><td>"Roller kamprot" sponge texture rollers; hopper texture guns 4/6/8 mm; 2 L pressure-tank gun 2.5 to 4.0 mm; HVLP guns</td><td>Kamprot roller 8 in 46,500 to 56,000, 9 in Kamproll 78,000; plastic hopper 225,000; WENXING hopper 3 L 648,257; PO 6 L hopper 1,420,000; Lippro F-75G HVLP 168,000</td><td>Tokopedia</td><td>No true honeycomb roller found locally: test the kamprot sponge roller on the panel. The 2 L pressure-tank gun with 2.5 to 4 mm nozzle is the nearest thing to the Warnex pressure-cup set-up.</td></tr>
+      <tr><td class="k">PPE</td><td>3M 6200 half mask + 6001 organic-vapour cartridges; 3M Versaflo / supplied-air</td><td>6200 mask 70,000 to 95,000; 6001 pair 100,000 to 187,500; full set 258,000; Versaflo and supplied-air hose: 3M Indonesia catalogue, no price</td><td>Tokopedia; 3M Indonesia distributors</td><td>Half mask is for mixing and roller work only. Spraying any 2K product needs supplied air, ordered through a 3M distributor, not a marketplace.</td></tr>
+      <tr><td class="k">Hardware</td><td>Iron speaker corners, large black ball corners, box handles, mesh grilles</td><td>Corner 3,350; ball corner 11,500; handle 35,000; grilles 16,000 to 28,000</td><td>Tokopedia (Surabaya and Jakarta sellers)</td><td>Penn Elcom hardware has no Indonesian distributor; nearest hubs Kuala Lumpur and Hong Kong.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="label">Local texture paint versus the Warnex / Tuff Cab class</span>
+    <p>Vircan, Caldera, Prismatik and Dexa cost about <strong>IDR 75,000 to 100,000 per kg (USD 5 to 6)</strong>, roughly a quarter to a fifth of Armacab (about IDR 360,000 per litre in the UK) or Warnex. They are applied undiluted and marketed as water-resistant final coats, which fits the 1K water-based acrylic class. But <strong>no maker name, TDS, resin type, solids, hardness or coverage is published, no grey exists, and no durability reports beyond marketplace ratings were found</strong>. Treat them as "probably Warnex-class, unproven". The test panel, cross-hatch and scuff tests of Section 8 are mandatory before the first batch, and the first batch should be a small one.</p>
+  </div>
+
+  <h3>12.2 The Indonesia recipe for dark grey matte</h3>
+  <p>Every dedicated local texture paint is black. Dark grey therefore has to come from a <strong>topcoat over a textured black base</strong> (or from a tinted 2K system). Three routes, in order of preference for an ordinary shop:</p>
+
+  <div class="card">
+    <h4>Route 1 (default): local black texture base + tinted matte water-based acrylic topcoat in RAL 7016</h4>
+    <ol>
+      <li><strong>Prepare and texture</strong> exactly as Section 4 (Steps 1 to 13) using Vircan, Caldera or Prismatik class paint as the texture base: bare sanded ply, filler sealed, no primer, undiluted (the local guidance says no thinning), kamprot roller or hopper gun, three coats plus the edge coat. Treat the black base as the protective, scratch-hiding layer.</li>
+      <li><strong>Cure the base</strong> at least 48 hours in a dry room (7 days is better) before topcoating. Wipe clean, scuff lightly with a grey non-woven pad to dull any sheen, remove dust with a damp cloth.</li>
+      <li><strong>Topcoat</strong> with a <strong>tinted exterior-grade 100 % acrylic water-based paint, RAL 7016, matt ("doff")</strong>, mixed at a Jotun, Nippon or Dulux tinting centre (12.4). Two coats by kamprot roller or by the same texture gun at a finer setting, each dry to the touch before the next. The topcoat follows the texture and makes it slightly softer; a heavier second coat gives a finer look, a lighter one keeps more texture. Set this on the test panel.</li>
+      <li><strong>Cure</strong> 48 hours before stacking, 7 to 14 days before touring (water-based acrylics in this climate reach full hardness slowly; general guidance says 14 to 30 days).</li>
+    </ol>
+    <div class="callout warning" style="margin:8px 0 0">
+      <span class="label">Adhesion caveat and mandatory test panel</span>
+      <p>This route stacks two different water-based acrylics of unknown formulation. Acrylic on acrylic normally bonds well, but it is not guaranteed. <strong>Make a test panel through all steps, cure 7 days, and pass the cross-hatch (4B or better), the 24-hour wet soak and the scuff test (Section 8) before painting any cabinet.</strong> Also note that a wall-paint topcoat is softer than a cabinet texture paint: hard scuffs will show the black base through the grey. That is cosmetic, the black base is still protecting the wood, and the fix is a quick re-roll of the topcoat (Section 9). Alternatives to try on panels: ask the Vircan or Caldera seller for a custom grey batch (small producers, unverified), or tint a white texture base such as Propan DTX white; neither has been confirmed to work.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Route 2 (tougher): sealed, textured base + 2K PU topcoat tinted to RAL 7016 matt</h4>
+    <ol>
+      <li><strong>Seal</strong> the bare ply with a 2K epoxy primer (Nippon nax 2200 or similar) or a 2K PU sealer (Propan PUL-91 clear), cured and sanded P180 to P240, as in Section 5, Step 2.</li>
+      <li><strong>Build the texture in the 2K system itself.</strong> Preferred: apply the first coat of the 2K topcoat thick through a Schutz gun, hopper gun or kamprot roller to create the texture, then one or two normal coats for colour and sheen. A textured 2K primer coat (the sealer sprayed heavy at low air pressure) is the other option. Set texture on the panel first.</li>
+      <li><strong>Topcoat product, two choices:</strong><br>
+        (a) <strong>Propan DURATEX 2K PU DRX 890 WB</strong>: water-based 2K acrylic PU, low sheen, tinted per Propan colour card at a Propan Multicolor Center. Two to three coats. Lower solvent load and inherently low sheen make it the easier choice for a matte result.<br>
+        (b) <strong>Jotun Hardtop XP or AX</strong> tinted to RAL 7016 at a Jotun MCI dealer. Both are glossy by default: ask for the matt variant (Hardtop Eco Matt or XPL; Indonesian availability unconfirmed) or a dealer-approved matting additive, and prove the sheen on the panel (target 10 GU or less at 60&deg;, or visually dead matt next to the RAL card). Pot life 1.5 h at 23 &deg;C, shorter in heat.</li>
+      <li><strong>Alternative base</strong> if you must use the local black water-based texture under the 2K: cure it at least 7 days, scuff, and prove adhesion on a panel first. A hard 2K film over a soft 1K base is the combination that fails most often; the test panel decides.</li>
+      <li><strong>Cure</strong> per the TDS; 24 h before handling, 48 h before stacking, 7 days before touring; keep RH below 85 % until walk-on dry or the 2K will blush and lose gloss uniformity.</li>
+    </ol>
+    <div class="callout warning" style="margin:8px 0 0">
+      <span class="label">Isocyanate PPE</span>
+      <p>Every product in this route, including the water-based DRX 890 WB, cures with a polyisocyanate hardener. Isocyanate 2K is sold freely in Indonesia with no purchase restriction, so the control is entirely on the shop: <strong>supplied-air respirator for spraying</strong> (3M Versaflo or airline hood through a 3M distributor; marketplace half masks are for mixing and roller work only), enclosed and extracted spray area, run the extraction after spraying, nobody else in the room, nitrile gloves, coveralls. Section 5 applies in full.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Route 3 (optional): polyurea applicator</h4>
+    <p>Use only if a contractor can <strong>prove</strong>, with a sprayed sample on your plywood offcut: a sealer or primer system for plywood, 1 to 1.5 mm in two passes, an even medium texture, and a <strong>pigmented aliphatic or water-based grey topcoat in RAL 7016 matt</strong> that passes the cross-hatch test. The contractors found are roof and tank waterproofers; none advertises small-object work, coloured topcoats or UV-stable systems, and no price per m&sup2; could be verified. Expect a minimum charge and the weight penalty of Section 3. Specify the job as in Section 6.</p>
+  </div>
+
+  <h3>12.3 Climate rules for Indonesia</h3>
+  <table class="allow-break">
+    <thead><tr><th style="width:28%">Rule</th><th>Figure and source</th><th style="width:32%">In practice</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Relative humidity</td><td>Water-based: RH not above <strong>80 %</strong> (Propan TDS) to <strong>85 %</strong> (Jotun, Teknos: drying slows above 85 %; near 100 % water will not evaporate). 2K PU: 10 to 85 % and no exposure above 85 % before walk-on dry or blushing occurs (Jotun Hardtop XP guide).</td><td>Buy a hygrometer and an infrared thermometer for the shop. Do not start a coat when RH reads above 80 %.</td></tr>
+      <tr><td class="k">Temperature</td><td><strong>25 to 35 &deg;C</strong> air (Propan TDS). The 12 to 25 &deg;C window of UK products is unrealistic here; what matters is that the cabinet surface stays <strong>below about 30 &deg;C</strong> and out of sun.</td><td>Shade or indoors; paint and cabinets stored in the shade overnight; never a cabinet that has stood in the sun.</td></tr>
+      <tr><td class="k">Dew point margin</td><td>Substrate at least <strong>3 &deg;C above the dew point</strong> (Jotun). At 30 &deg;C and 85 % RH the dew point is about 27 &deg;C <span class="est">ESTIMATE</span>: a cabinet at 28 &deg;C in the morning is barely 1 &deg;C above it, so moisture condenses on it.</td><td>Spray in the late morning or afternoon once the air has warmed and dried, never at dawn. Check with an infrared thermometer against a dew-point table or app.</td></tr>
+      <tr><td class="k">Season and time of day</td><td>Dry-season days (in Java roughly May to October <span class="est">ESTIMATE</span>, check locally) and mid-day to afternoon slots give the lowest RH. Rainy days and early mornings routinely exceed 85 % RH.</td><td>Schedule painting runs in the dry season where possible; on wet-season days paint only in a conditioned room.</td></tr>
+      <tr><td class="k">Drying room</td><td>Air conditioning dehumidifies as it cools; a dedicated dehumidifier does the same without cooling. Use <strong>exhaust-only</strong> ventilation so humid outside air is not pulled over wet paint (PPG).</td><td>Cure cabinets in an air-conditioned or dehumidified room on battens with air moving around them, not in an open workshop.</td></tr>
+      <tr><td class="k">Longer cure</td><td>Water-based acrylics skin fast at 30 to 34 &deg;C but through-dry slowly in humid air; full cure of water-based acrylic is quoted at 14 to 30 days in general guidance. 2K PU pot life halves roughly per 10 &deg;C rise <span class="est">ESTIMATE</span>.</td><td>Recoat only when the previous coat is dry to the touch and no longer cool; 48 h before stacking; 7 to 14 days before touring; mix 2K in small batches.</td></tr>
+      <tr><td class="k">Storage</td><td>Warnex storage limit 15 to 30 &deg;C; local tins have no stated limit.</td><td>Keep all paint out of sun and below 30 &deg;C; lids tight; water-based tins used within months in this climate (mould and settling).</td></tr>
+      <tr><td class="k">Coastal sites</td><td>Local paint makers note humidity and salt problems in coastal Indonesia; touring brands upgrade to stainless hardware for sea air.</td><td>Stainless or zinc-plated corners and screws, powder-coated or stainless grilles, sealed connector plates for cabinets used near the sea.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>12.4 Tinting centres and exactly what to ask for</h3>
+  <p>Dealer tinting machines in Indonesia: <strong>Jotun Multicolor Industry (MCI)</strong> for Hardtop XP/AX and Jotun exterior acrylics (a Jotun "Maxima" multicolor centre operates in Indonesia; Tokopedia sellers jotunpaintos and internation-4 list MCI custom colours), <strong>Nippon Paint CCPro (Colour Creations Pro)</strong>, <strong>Dulux Colour Solutions</strong>, and <strong>Propan Multicolor Center</strong>. One Jakarta retailer, Sumber Jaya Paint Brothers, advertises all four systems in one shop. Bring the physical RAL 7016 card, ask for a drawdown or a sample tin first, and have the whole set's paint mixed in one batch.</p>
+  <table class="allow-break">
+    <thead><tr><th style="width:22%">For</th><th style="width:39%">Say (English)</th><th>Say (Bahasa Indonesia)</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Route 1 topcoat</td><td>"Exterior-grade, 100 % acrylic, water-based paint, tinted to <strong>RAL 7016</strong>, <strong>matt / dead matt</strong>, for a textured surface, same batch for the whole order."</td><td>"Cat akrilik water-based kualitas eksterior, warna <strong>RAL 7016 abu-abu tua</strong>, finishing <strong>doff</strong> (bukan semi doff), untuk permukaan tekstur kulit jeruk, satu batch untuk semua kaleng."</td></tr>
+      <tr><td class="k">Route 2, Jotun</td><td>"Jotun Hardtop XP (or AX), tinted via MCI to <strong>RAL 7016</strong>, <strong>matt</strong> finish: Hardtop Eco Matt or XPL if available, otherwise the approved matting method; hardener and thinner included; TDS and application guide printed."</td><td>"Jotun Hardtop XP / AX, warna RAL 7016 lewat mesin MCI, finishing doff: kalau ada Hardtop Eco Matt atau XPL; sertakan hardener, thinner, TDS dan panduan aplikasi."</td></tr>
+      <tr><td class="k">Route 2, Propan</td><td>"Propan DURATEX 2K PU DRX 890 WB, colour matched to RAL 7016, low sheen, with hardener, plus the DRX 890 TDS."</td><td>"Propan DURATEX 2K PU DRX 890 WB, warna disamakan dengan RAL 7016, low sheen / doff, lengkap dengan hardener dan TDS."</td></tr>
+      <tr><td class="k">Local texture base</td><td>"Texture paint for speaker boxes, black, 1 kg tins, same brand and batch; is a dark grey available to order?"</td><td>"Cat tekstur box speaker warna hitam, kaleng 1 kg, merek dan batch sama; apakah bisa pesan warna abu-abu tua / abu-abu gelap?"</td></tr>
+      <tr><td class="k">Useful words</td><td colspan="2">abu-abu tua / abu-abu gelap = dark grey &middot; doff / dop = matt &middot; semi doff = satin &middot; tekstur kulit jeruk = orange-peel texture &middot; tekstur kamprot = sand texture &middot; cat tembok = wall paint &middot; eksterior = exterior grade &middot; hardener = hardener &middot; satu batch = one batch</td></tr>
+    </tbody>
+  </table>
+
+  <h3>12.5 Imported paint fallback</h3>
+  <p>No Indonesian dealer or marketplace listing for Warnex, Tuff Cab, DuraTex, Armacab or HIFIDECO was found. If an imported reference product is wanted, for example to calibrate the test panels or for a small premium batch:</p>
+  <table>
+    <thead><tr><th style="width:24%">Channel</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td class="k">SVI (Suara Visual Indonesia), Jakarta</td><td>Adam Hall Group's exclusive Indonesian distributor since November 2022 (LD Systems, Cameo, Palmer; also EV and Dynacord). Warnex sits in the Adam Hall Hardware catalogue (article 0131 family / 74.91.004.3, 1 kg and 12 kg). Ask SVI for a special order; no evidence they stock it. Earlier Adam Hall partner: PT Citra Intirama.</td></tr>
+      <tr><td class="k">Penn Elcom Sdn. Bhd., Puchong, Selangor (Malaysia)</td><td>Nearest Penn Elcom hub (Malaysia, Singapore, Thailand). Armacab 1 L black about &pound;17.87, 5 L about &pound;100.86 UK web price; Warnex 1 kg (MG-9714S) listed on Penn Elcom regional sites. Penn Elcom asks unlisted countries to contact them directly.</td></tr>
+      <tr><td class="k">Parcel forwarding</td><td>Thomann (Warnex 1 kg about EUR 33, 12 kg tin) ships to 140+ countries; forwarders such as ColisExpat advertise Thomann-to-Indonesia. Parts Express (DuraTex) and Blue Aran (Tuff Cab): shipping to Indonesia not confirmed. Benchmark transit: about 12 working days.</td></tr>
+      <tr><td class="k">Customs</td><td>Warnex SDS section 14: not dangerous goods (ADR, IMDG, IATA), so ordinary courier freight; ship the SDS with the parcel. Consignments over USD 3 and up to USD 1,500: flat 7.5 % import duty plus 11 % VAT on CIF value (PMK 199/2019 and later revisions; verify the current rule).</td></tr>
+      <tr><td class="k">Landed cost <span class="est">ESTIMATE</span></td><td>One 1 kg can: product EUR 20 to 33 + shipping EUR 30 to 60 + duty and VAT, roughly <strong>IDR 1 to 1.5 million per kg landed</strong>, against IDR 75,000 to 100,000 for a local tin. A 12 kg tin brings the per-kg cost down but still several times the local price. Imports therefore make sense only for reference samples or small premium batches, not for routine production.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ APPENDIX A -->
+<section class="section">
+  <h2><span class="secnum">A</span>Appendix A: Evidence notes</h2>
+  <p class="lead">What each major brand confirms about its cabinet finish, condensed from manufacturer spec sheets, manuals and brochures, with the level of the source. "Manufacturer" means the brand's own document; "press" or "dealer" means a trade publication or distributor; "community" means forum reports.</p>
+
+  <table class="allow-break">
+    <thead><tr><th style="width:17%">Brand</th><th style="width:20%">Substrate</th><th>Coating, as stated</th><th style="width:16%">Source level</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Funktion-One</td><td>Birch ply 15 to 18 mm</td><td>"Ultra-durable black PU coating or RALcode water based finishes" (F132, V132). Evolution brochure and Vero user guide name the black option as polyurea. Violet and RAL colours are water-based; community says OEM Warnex sprayed without primer. IP55 install versions use the PU-coated finish. 1 L water-based touch-up paint sold by dealers.</td><td>Manufacturer; brand of paint is community</td></tr>
+      <tr><td class="k">d&amp;b audiotechnik</td><td>Marine plywood</td><td>"Impact and weather protected PCP (Polyurea Cabinet Protection) finish"; standard "polyurea coated cabinet with a top coat in RAL 9005", optional RAL colours; WR IP54/55, SWR for sea water. Colour is a topcoat over the polyurea.</td><td>Manufacturer</td></tr>
+      <tr><td class="k">L-Acoustics</td><td>Exterior-grade Baltic birch, D4 glue</td><td>Base coat "bi-component polyurethane"; top coat "mono-component waterbased polyurethane" for UV and scratch protection (from one search excerpt, verify). Coated both sides. Salt spray 48 h ISO 9227; UV 800 W at 50 &deg;C for 10 days. Standard colour Pantone 426 C dark grey brown.</td><td>Manufacturer; topcoat detail to verify</td></tr>
+      <tr><td class="k">Meyer Sound</td><td>Multi-ply birch</td><td>"Sealing primer and a finishing topcoat", one coat inside, two outside; raw-wood treatment before assembly; "slightly textured black finish"; tested IP-55 and SAE J2334. Chemistry not named.</td><td>Manufacturer</td></tr>
+      <tr><td class="k">JBL Professional</td><td>18 mm 11-ply Baltic birch</td><td>"DuraFlex" with an aliphatic top layer; epoxy paints "can crack on wooden cabinets"; water-based paint adheres less well to DuraFlex. WRC: extra-thick DuraFlex; WRX: 1.5 mm fibreglass. Harman suggests "truck bed liner" as a substitute. "Simply painting a non-weather-resistant speaker is NOT acceptable protection for outdoor use."</td><td>Manufacturer</td></tr>
+      <tr><td class="k">Adamson</td><td>Marine-grade birch</td><td>"Two-part polyurea coating"; weatherised IS-Series applies the same polyurea inside; IP55; RAL colours on demand.</td><td>Manufacturer</td></tr>
+      <tr><td class="k">Martin Audio</td><td>Birch / poplar multi-laminate</td><td>CDD-WR "polyurea finish" with zinc-plated powder-coated grille, IP54; TORUS "durable textured PU paint"; CDD Marine "tough polyurethane paint with a UV resistant topcoat", 1600 h UV ISO 4892-2; legacy AM "textured high-density polyurethane" inside and out.</td><td>Manufacturer / press</td></tr>
+      <tr><td class="k">Turbosound</td><td>Birch 15 / 18 mm</td><td>Aspect series: "industry-standard Warnecke and Bohm water-based paint", "a primer coat is not required on bare wood". Flashline: "black TourTough finish" (press: Line-X polyurea, Chemthane UV topcoat, Isothane primer; unverified).</td><td>Manufacturer; TourTough stack is press</td></tr>
+      <tr><td class="k">Void Acoustics</td><td>Birch 18 mm</td><td>"TourCoat" described by dealers and user guide as textured polyurea; 200+ RAL colours; one spec sheet says polyurethane.</td><td>Manufacturer / dealer</td></tr>
+      <tr><td class="k">Danley</td><td>13-ply Baltic birch</td><td>"Polyurea coating"; custom colours "contain two base coats of PolyUrea and top coated with high performance two component polyurethane"; grey UV-resistant option.</td><td>Manufacturer</td></tr>
+      <tr><td class="k">RCF / dBTechnologies</td><td>Baltic birch</td><td>"Special polyurea paint" (TT series); "black polyurea finish" (VIO S118).</td><td>Manufacturer</td></tr>
+      <tr><td class="k">CODA, KV2</td><td>Birch, D4 glue</td><td>"Polyurea coating", IP54 (CODA); "Polyurea hard-coat, abrasion-resistant and UV-stable", IP55 certified (KV2).</td><td>Manufacturer</td></tr>
+      <tr><td class="k">EAW</td><td>Baltic birch</td><td>"Roadcoat", a "textured polyurethane coating"; texture "will make it difficult to blend touch-up paint".</td><td>Manufacturer</td></tr>
+      <tr><td class="k">HK Audio</td><td>Birch / MDF</td><td>LINEAR 7: "Warnex acrylic coating"; LINEAR 9 and COSMO: "resistant PU coating".</td><td>Manufacturer / dealer</td></tr>
+      <tr><td class="k">Electro-Voice</td><td>13-ply plywood</td><td>"EVCoat" (interior), PI (indirect weather), FG fibreglass (direct weather). Chemistry not named.</td><td>Manufacturer / distributor</td></tr>
+      <tr><td class="k">Wharfedale Pro</td><td>Plywood</td><td>Replaced "sand-based Rhino Rock" with "polyurea-based Tough-Tone" across the range.</td><td>Press</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Coating makers and liner data (for scale)</h3>
+  <table class="allow-break">
+    <thead><tr><th style="width:24%">Product</th><th>Published data</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Warnex Strukturlack 1K (Warnecke &amp; B&ouml;hm)</td><td>Water-thinnable acrylate dispersion; 54 % solids; density 1.232 g/cm&sup3;; viscosity 900 to 1400 mPa&middot;s; no primer on MDF or birch ply; pressure pot, nozzle 1.5 to 2.0 mm, 30 to 40 cm; 70 &micro;m dry per pass, 120 &micro;m in two passes 15 to 20 min apart; dust-dry 15 to 20 min, assembly 2 to 3 h, pack 1 day, through-dry 4 days at 20 &deg;C / 65 % RH; forced drying about 60 &deg;C; skin sensitiser H317; EN 374 gloves. Sold in RAL 7016, RAL 9010, black.</td></tr>
+      <tr><td class="k">Tuff Cab / Tuff Cab Pro (Blue Aran, UK)</td><td>Water-based acrylic, 40 to 50 % solids; bonds best to bare timber, no primer; first coat may be thinned 50:50; 2 to 3 m&sup2;/kg rough; 12 to 25 &deg;C; shelf life 6 to 18 months; Pro version satin-matt and more scratch resistant; maker: "not quite touring grade".</td></tr>
+      <tr><td class="k">DuraTex (Acry-Tech, USA)</td><td>Self-priming water-based texture coating, roller and spray grades; do not dilute roller grade; work above 18 &deg;C (65 &deg;F); no sanding between coats; adheres to painted surfaces if sanded.</td></tr>
+      <tr><td class="k">Armacab (Penn-Elcom, UK)</td><td>Water-based acrylic urethane, UV stable; spray, roller or hand; 4.6 m&sup2;/L at 200 &micro;m, 2.3 m&sup2;/L at 400 &micro;m.</td></tr>
+      <tr><td class="k">U-POL Raptor</td><td>2K urethane; 3:1; pot life 60 min at 20 &deg;C; Schutz or HVLP gun; tintable kits; air-fed respirator recommended; community: touch dry 20 to 30 min, full hardness about 7 days.</td></tr>
+      <tr><td class="k">Rhino HardLine 11-55 / 21-55-120</td><td>Shore D 55; tensile 2400 to 2700 psi; tear 400 to 500 pli; elongation 80 to 90 %; Taber 25 to 30 mg per 1000 cycles (ASTM D4060). Example of what a polyurea liner data sheet publishes; no equivalent exists for any speaker paint.</td></tr>
+      <tr><td class="k">Penn Guard (Penn-Elcom)</td><td>Two-part polyurea for speaker cabinets, cure 4 to 12 seconds, zero VOC, "special equipment required".</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================ APPENDIX B -->
+<section class="section">
+  <h2><span class="secnum">B</span>Appendix B: Glossary</h2>
+  <dl class="glossary">
+    <dt>1K / 2K</dt><dd>One-component paint (dries from the tin) versus two-component paint (base plus hardener, cures by chemical reaction, has a pot life).</dd>
+    <dt>Acrylic dispersion (water-based texture paint)</dt><dd>Acrylic resin particles in water; the film forms as the water leaves and the particles fuse. Low hazard, UV stable, repairable, softer than 2K systems.</dd>
+    <dt>Aliphatic / aromatic</dt><dd>Two families of isocyanate. Aromatic (MDI, TDI) is cheap and fast but fades and chalks in sunlight; aliphatic (HDI, IPDI) is light-stable. Bed-liners are mostly aromatic; UV topcoats are aliphatic.</dd>
+    <dt>Chalking</dt><dd>Breakdown of the paint surface under UV into a loose, pale powder. Very visible on grey.</dd>
+    <dt>Cross-hatch (ASTM D3359 / ISO 2409)</dt><dd>Adhesion test: a lattice is cut through the coating, tape is applied and pulled off, and the amount of coating removed is graded (5B best to 0B worst).</dd>
+    <dt>D4 glue (EN 204)</dt><dd>Highest water-resistance class for wood adhesives; used in exterior and marine plywood specified by touring brands.</dd>
+    <dt>DFT</dt><dd>Dry film thickness, in micrometres (&micro;m) or mils (1 mil = 25.4 &micro;m). Texture paint about 120 &micro;m; polyurea 1000 to 1500 &micro;m.</dd>
+    <dt>Dust-dry / handle / through-dry</dt><dd>Stages of drying: dust no longer sticks; the part can be carried; the film has reached its final hardness. Only through-dry paint should go on the road.</dd>
+    <dt>GU (gloss units)</dt><dd>Reflectance measured by a gloss meter, usually at 60 degrees (ISO 2813). Matt is roughly 10 GU or less; satin 20 to 35; gloss above 70.</dd>
+    <dt>Honeycomb roller</dt><dd>Open-cell foam roller with a coarse honeycomb structure that leaves a spatter texture. The standard roller for speaker cabinet paint.</dd>
+    <dt>Hopper gun</dt><dd>Gravity-fed texture gun with a large (4 to 8 mm) nozzle, used for drywall texture and for spray-grade cabinet paint.</dd>
+    <dt>IP rating (IEC 60529)</dt><dd>Ingress protection code; IP54/55 is dust-protected and resistant to splashing or jetted water. It says nothing about scratch resistance.</dd>
+    <dt>Isocyanate</dt><dd>Reactive component of polyurethane and polyurea hardeners. Potent respiratory sensitiser; spraying requires supplied-air respiratory protection and, in the EU, documented training (REACH Regulation 2020/1149).</dd>
+    <dt>MDF</dt><dd>Medium-density fibreboard. Has a dense, waxy surface skin that must be sanded off before painting; edges are very absorbent.</dd>
+    <dt>PCP</dt><dd>"Polyurea Cabinet Protection", d&amp;b audiotechnik's name for its sprayed polyurea finish; also used by KV2.</dd>
+    <dt>Plural-component rig</dt><dd>Heated, high-pressure pump that meters two components and mixes them in the gun. Required for polyurea. Not shop equipment.</dd>
+    <dt>Polyurea</dt><dd>Elastomer from an isocyanate and an amine; gels in seconds, forms a thick rubbery skin. The toughest cabinet finish in current use.</dd>
+    <dt>Polyurethane (PU)</dt><dd>Polymer from an isocyanate and a polyol; slower cure; used as 2K textured paint, sealers and topcoats. Note that Funktion-One's "PU coating" is described in its own brochure as polyurea.</dd>
+    <dt>Pot life</dt><dd>Time after mixing a 2K product during which it can still be sprayed. Shorter in heat.</dd>
+    <dt>Pressure pot / pressure-cup gun</dt><dd>Spray equipment that pushes thick paint to the gun under air pressure instead of relying on gravity or suction. Needed for viscous texture paint.</dd>
+    <dt>RAL</dt><dd>European colour standard. RAL 7016 Anthracite Grey, 7021 Black Grey, 7024 Graphite Grey, 9005 Jet Black.</dd>
+    <dt>Schutz gun</dt><dd>Underbody-coating gun with a screw-on 1 litre bottle and a large nozzle; the standard gun for bed-liner products and usable for texture paint.</dd>
+    <dt>SDS / TDS</dt><dd>Safety data sheet (hazards, PPE) and technical data sheet (application, drying, thickness). The TDS of the product you buy overrides this guide.</dd>
+    <dt>Sealer coat</dt><dd>First thin coat that soaks into wood or filler to even out absorption, so later coats bond and build evenly.</dd>
+    <dt>Spatter (texture) coat</dt><dd>A spray pass with the gun set to throw coarse droplets, giving the dimpled "orange peel" surface.</dd>
+    <dt>VOC</dt><dd>Volatile organic compounds. Water-based texture paints are low-VOC (not zero: Warnex contains 6 to 9 % glycol ethers) and need ventilation when sprayed.</dd>
+  </dl>
+</section>
+
+<!-- ============================================================ APPENDIX C -->
+<section class="section sources">
+  <h2><span class="secnum">C</span>Appendix C: Sources</h2>
+  <p class="small">Selected from the research notes behind this guide. Most were read through search-engine excerpts; confirm figures against the live document before relying on them. Grouped by topic.</p>
+
+  <h3>Water-based texture paints</h3>
+  <ol>
+    <li>Warnex Strukturlack 1K technical data sheet WB74-1 (DE/EN): <a href="https://powerpreis24.de/mediafiles/Datenblaetter/warneke/TDS_WB_74-1_WARNEX_Strukturlack_1K_DE-EN.pdf">powerpreis24.de/.../TDS_WB_74-1_WARNEX_Strukturlack_1K_DE-EN.pdf</a></li>
+    <li>Warnex processing data sheet (drying schedule, two-pass texture), Thomann-hosted: <a href="https://images.thomann.de/pics/prod/208234_datenblatt.pdf">images.thomann.de/pics/prod/208234_datenblatt.pdf</a></li>
+    <li>Warnex brochure and application notes (pressure tank, closed system, 60 &deg;C drying): <a href="https://en.toutlehautparleur.com/media/catalog/product/datasheet/warnecke/WARNEX.pdf">en.toutlehautparleur.com/.../WARNEX.pdf</a></li>
+    <li>Warnex Strukturlack 1K safety data sheet, Adam Hall: <a href="https://adamhall.s3.amazonaws.com/media/MARKEN/WARNEX/0131WHI/0131WHI_WARNEX%20Strukturlack_Technisches_Datenblatt_de.pdf">adamhall.s3.amazonaws.com/.../0131WHI_WARNEX Strukturlack_Technisches_Datenblatt_de.pdf</a></li>
+    <li>Warnex 1 kg RAL 7016 grey listing (French distributor): <a href="https://en.toutlehautparleur.com/warnex-1kg-professional-paint-pot-grey-ral-7016-textured-special-for-enclosures-honeycomb-roller-application.html">en.toutlehautparleur.com/warnex-1kg-...-grey-ral-7016-...</a></li>
+    <li>Blue Aran blog, Tuff Cab Loudspeaker Paint (application guide, temperatures, coverage): <a href="https://blog.bluearan.co.uk/?p=88">blog.bluearan.co.uk/?p=88</a></li>
+    <li>TuffCab hints 1, surface preparation: <a href="https://tuffcab.com/hints.php?infopage=1">tuffcab.com/hints.php?infopage=1</a></li>
+    <li>TuffCab hints 2, ready to start painting (PVA on filler, no bond to polyurea or solvent paints): <a href="https://tuffcab.com/hints.php?infopage=2">tuffcab.com/hints.php?infopage=2</a></li>
+    <li>Tuff Cab safety data sheet: <a href="https://www.bluearan.co.uk/sales/misc/pdfs/C33-27PDFHS.pdf">bluearan.co.uk/sales/misc/pdfs/C33-27PDFHS.pdf</a></li>
+    <li>Acry-Tech, Applying DuraTex Tips &amp; Tricks: <a href="https://cdn.shopify.com/s/files/1/1639/9445/files/Applying-DuraTex-Tips-Tricks-1.pdf">cdn.shopify.com/.../Applying-DuraTex-Tips-Tricks-1.pdf</a></li>
+    <li>Parts Express, DuraTex Spray Grade 1 gal (price, product description): <a href="https://parts-express.com/Acry-Tech-DuraTex-Black-1-Gal-Spray-Grade-Cabinet-Coating-260-102">parts-express.com/Acry-Tech-DuraTex-Black-1-Gal-Spray-Grade-Cabinet-Coating-260-102</a></li>
+    <li>Penn-Elcom, product spotlight Armacab (coverage, roller advice): <a href="https://www.penn-elcom.com/us/blog/product-spotlight-armacab-textured-speaker-cabinet-paint.html">penn-elcom.com/us/blog/product-spotlight-armacab-textured-speaker-cabinet-paint.html</a></li>
+    <li>The Loudspeaker Kit, DIY speaker finishing guide, textured black (edge radius 13 mm / 6 mm): <a href="https://www.theloudspeakerkit.com/assets/files/LSK%20DIY%20speaker%20finishing%20guide%20-%20textured%20black.pdf">theloudspeakerkit.com/.../LSK DIY speaker finishing guide - textured black.pdf</a></li>
+  </ol>
+
+  <h3>2K polyurethane, polyurea and liner data</h3>
+  <ol start="14">
+    <li>U-POL Raptor technical data sheet (3:1, pot life): <a href="https://u-pol.com/wp-content/uploads/RLBAL-TDS-EN.pdf">u-pol.com/wp-content/uploads/RLBAL-TDS-EN.pdf</a></li>
+    <li>U-POL Raptor UP4801 TDS (respiratory protection): <a href="https://u-pol.com/wp-content/uploads/UP4801-TDS.pdf">u-pol.com/wp-content/uploads/UP4801-TDS.pdf</a></li>
+    <li>BodyShop Business, Tough and Durable Sprayed-On Bedliner (aromatic vs aliphatic): <a href="https://www.bodyshopbusiness.com/tough-and-durable-sprayed-on-bedliner/">bodyshopbusiness.com/tough-and-durable-sprayed-on-bedliner/</a></li>
+    <li>Rhino Linings, Rhino Shine Ultra aliphatic topcoat: <a href="https://liners.rhinolinings.com/en/products/rhino-shine-ultra">liners.rhinolinings.com/en/products/rhino-shine-ultra</a></li>
+    <li>Rhino HardLine 11-55 TDS (Shore D, tensile, tear, elongation): <a href="https://rhinolinings.com/download/108/liners-data-sheets/3688/tds-hardline-11-55.pdf">rhinolinings.com/download/108/liners-data-sheets/3688/tds-hardline-11-55.pdf</a></li>
+    <li>Rhino HardLine 21-55-120 TDS (Taber abrasion): <a href="https://rhinolinings.com/wp-content/uploads/2022/06/HardLine_21-55-120_TDS.pdf">rhinolinings.com/wp-content/uploads/2022/06/HardLine_21-55-120_TDS.pdf</a></li>
+    <li>Line-X, Making a bedliner indestructible (Platinum vs Standard data): <a href="https://linex.com/news/2015/08/06/bedliner-indestructible">linex.com/news/2015/08/06/bedliner-indestructible</a></li>
+    <li>ArmorThane polyurea guide (20 to 40 mils, two coats, cure times): <a href="https://armorthane.com/polyurea-guide/">armorthane.com/polyurea-guide/</a></li>
+    <li>LSi Online, Penn Guard polyurea now in smaller packages: <a href="https://lsionline.com/news/penn-guard-now-in-smaller-packages-n581k0">lsionline.com/news/penn-guard-now-in-smaller-packages-n581k0</a></li>
+    <li>VFI, speaker box coatings (PU as encapsulant, hybrids sprayed with texture): <a href="https://volatilefree.com/application/speaker-box-coatings/">volatilefree.com/application/speaker-box-coatings/</a></li>
+    <li>Durabak-18 outdoor UV TDS (aliphatic vs aromatic 1K liners): <a href="https://www.durabakcompany.com/pages/durabak-18-outdoor-uv-technical-data-sheet">durabakcompany.com/pages/durabak-18-outdoor-uv-technical-data-sheet</a></li>
+  </ol>
+
+  <h3>Safety and regulation</h3>
+  <ol start="25">
+    <li>3M isocyanates technical bulletin 2024 (supplied air for spraying): <a href="https://multimedia.3m.com/mws/media/2516912O/hmt-anz-isocyanates-technical-bulletin-2024.pdf">multimedia.3m.com/mws/media/2516912O/hmt-anz-isocyanates-technical-bulletin-2024.pdf</a></li>
+    <li>HSE MR2, safety in motor vehicle repair, isocyanate paints: <a href="https://www.hse.gov.uk/pubns/guidance/mr2.pdf">hse.gov.uk/pubns/guidance/mr2.pdf</a></li>
+    <li>HSE, isocyanate paints in bodyshops: <a href="https://www.hse.gov.uk/MVR/bodyshop/isocyanates.htm">hse.gov.uk/MVR/bodyshop/isocyanates.htm</a></li>
+    <li>Commission Regulation (EU) 2020/1149, diisocyanates training (REACH Annex XVII entry 74): <a href="https://www.legislation.gov.uk/eur/2020/1149/data.html">legislation.gov.uk/eur/2020/1149/data.html</a></li>
+    <li>NIOSH 96-111, preventing asthma and death from diisocyanate exposure: <a href="https://www.cdc.gov/niosh/docs/96-111/default.html">cdc.gov/niosh/docs/96-111/default.html</a></li>
+  </ol>
+
+  <h3>Manufacturer statements on cabinet finishes</h3>
+  <ol start="30">
+    <li>Funktion-One F132 product page ("ultra-durable black PU coating or RALcode water based finishes"): <a href="https://funktion-one.com/product/f132/">funktion-one.com/product/f132/</a></li>
+    <li>Funktion-One Evolution series brochure (black polyurea coating or classic violet): <a href="https://www.soundlightspain.com/wp-content/uploads/2020/03/Serie-Evolution_brochure.pdf">soundlightspain.com/.../Serie-Evolution_brochure.pdf</a></li>
+    <li>Turbosound Aspect service manual (Warnecke and Bohm water-based paint, no primer on bare wood): <a href="https://laundry.manualsonline.com/manuals/mfg/turbosound/lmsd6.html?p=91">laundry.manualsonline.com/manuals/mfg/turbosound/lmsd6.html?p=91</a></li>
+    <li>d&amp;b audiotechnik V10P architectural specification (PCP): <a href="https://www.dbaudio.com/assets/products/downloads/architectural-specifications/dbaudio-arch-specs-v10p-en.txt">dbaudio.com/.../dbaudio-arch-specs-v10p-en.txt</a></li>
+    <li>d&amp;b audiotechnik Custom Solutions brochure (polyurea plus RAL 9005 topcoat, WR, SWR): <a href="https://www.dbaudio.com/assets/products/downloads/brochures/dbaudio-brochure-custom-solutions.pdf">dbaudio.com/.../dbaudio-brochure-custom-solutions.pdf</a></li>
+    <li>L-Acoustics, Products Weather Protection (2K PU base, test methods): <a href="https://shop.ccisolutions.com/StoreFront/jsp/pdf/l-acoustics_products_weather_protection.pdf">shop.ccisolutions.com/.../l-acoustics_products_weather_protection.pdf</a></li>
+    <li>Adamson IS7px user manual (two-part polyurea inside and out, IP55): <a href="https://manuals.online/adamson/enclosure/is7px/user-manual/1k6ih">manuals.online/adamson/enclosure/is7px/user-manual/1k6ih</a></li>
+    <li>KV2 Audio weather protection overview (polyurea hard-coat, D4 glue): <a href="https://www.kv2audio.com/weather-protection-product-overview.html">kv2audio.com/weather-protection-product-overview.html</a></li>
+    <li>Danley Sound Labs, Extreme Weather loudspeakers (two polyurea coats plus 2K PU colour coat): <a href="https://www.danleysoundlabs.com/extreme-weather-loudspeakers/">danleysoundlabs.com/extreme-weather-loudspeakers/</a></li>
+    <li>CODA Audio AiRAY (birch, polyurea, IP54): <a href="https://codaaudio.com/speakers/airay/">codaaudio.com/speakers/airay/</a></li>
+    <li>RCF TT 20-CXA (special polyurea paint): <a href="https://www.rcf.it/en/products/product-detail/tt-20-cxa">rcf.it/en/products/product-detail/tt-20-cxa</a></li>
+    <li>Martin Audio TORUS T1215 (textured PU paint): <a href="https://martin-audio.com/products/loudspeakers/t1215">martin-audio.com/products/loudspeakers/t1215</a></li>
+    <li>Martin Audio CDD Marine specification (PU paint with UV topcoat, 1600 h UV): <a href="https://static.martin-audio.com/downloads/datasheets/CDD-Marine-Specification.pdf">static.martin-audio.com/downloads/datasheets/CDD-Marine-Specification.pdf</a></li>
+    <li>EAW knowledge base, paint used for RSX (roadcoat textured polyurethane, hard to blend): <a href="https://design.eaw.com/en/knowledge/paint-used-for-rsx-array-and-loudspeaker-products">design.eaw.com/en/knowledge/paint-used-for-rsx-array-and-loudspeaker-products</a></li>
+    <li>JBL AC26 array guide p. 30 (no epoxy on wooden cabinets, aliphatic DuraFlex top layer): <a href="https://www.manualowl.com/m/JBL/AC26/Manual/717474?page=30">manualowl.com/m/JBL/AC26/Manual/717474?page=30</a></li>
+    <li>JBL Standardized WR Configurations AE/PD/VLA (extra-thick DuraFlex, fibreglass, "simply painting is NOT acceptable"): <a href="https://goknight.com/content/documentation/JBL_Standardized_WR-Configs_AE-PD-VLA_Series_Mar21%20%281%29.pdf">goknight.com/.../JBL_Standardized_WR-Configs_AE-PD-VLA_Series_Mar21 (1).pdf</a></li>
+    <li>Harman, DuraFlex alternatives (truck bed liner as substitute): <a href="https://harman.helpjuice.com/general-jbl-inquiries/duraflex-alternatives">harman.helpjuice.com/general-jbl-inquiries/duraflex-alternatives</a></li>
+    <li>Meyer Sound weather protection (sealing primer, topcoat, one coat inside two outside): <a href="https://docs.meyersound.com/products/en/meyer-sound-weather-protection.html">docs.meyersound.com/products/en/meyer-sound-weather-protection.html</a></li>
+    <li>HK Audio LINEAR 7 preliminary sheet (Warnex acrylic coating): <a href="https://r2.gear4music.com/media/46/467452/download_467452.pdf">r2.gear4music.com/media/46/467452/download_467452.pdf</a></li>
+    <li>AVNetwork, Wharfedale Pro Tough-Tone polyurea finish: <a href="https://www.avnetwork.com/news/tough-tone-paint-to-be-rolled-out-across-all-wharfedale-pro-loudspeakers">avnetwork.com/news/tough-tone-paint-to-be-rolled-out-across-all-wharfedale-pro-loudspeakers</a></li>
+    <li>Fulcrum Acoustic WR enclosure construction (why plywood under a hard shell cracks): <a href="https://www.fulcrum-acoustic.com/wp-content/uploads/2021/10/Fulcrum-WR-Enclosure-Construction-v7.pdf">fulcrum-acoustic.com/.../Fulcrum-WR-Enclosure-Construction-v7.pdf</a></li>
+  </ol>
+
+  <h3>Builder and rental community practice</h3>
+  <ol start="51">
+    <li>Speakerplans, Funktion 1 paint? (OEM Warnex claim, 2007): <a href="https://forum.speakerplans.com/funktion-1-paint_topic18594.html">forum.speakerplans.com/funktion-1-paint_topic18594.html</a></li>
+    <li>Speakerplans, Most durable paint? (2K PU vs Warnex): <a href="https://forum.speakerplans.com/most-durable-paint_topic36683.html">forum.speakerplans.com/most-durable-paint_topic36683.html</a></li>
+    <li>Speakerplans, Heavy duty paint rather than Tuff Cab (Raptor review, "not touring grade"): <a href="https://forum.speakerplans.com/heavy-duty-paint-rather-than-tuff-cab_topic107268.html">forum.speakerplans.com/heavy-duty-paint-rather-than-tuff-cab_topic107268.html</a></li>
+    <li>Speakerplans, Tuff-Cab alternative? (Tuff Cab over PU flakes off): <a href="https://forum.speakerplans.com/tuffcab-alturnative_topic91956.html">forum.speakerplans.com/tuffcab-alturnative_topic91956.html</a></li>
+    <li>Speakerplans, Painting my cabs (cabinets stuck together, thinning for a cheap gun): <a href="https://forum.speakerplans.com/painting-my-cabs_topic76852.html">forum.speakerplans.com/painting-my-cabs_topic76852.html</a></li>
+    <li>Speakerplans, Re painting cabs (stripping old finishes): <a href="https://forum.speakerplans.com/re-painting-cabs_topic102998.html">forum.speakerplans.com/re-painting-cabs_topic102998.html</a></li>
+    <li>lautsprecherforum.eu, Warnex spritzen (pressure-cup gun, do not thin): <a href="https://www.lautsprecherforum.eu/viewtopic.php?f=29&amp;t=4529">lautsprecherforum.eu/viewtopic.php?f=29&amp;t=4529</a></li>
+    <li>lautsprecherforum.eu, Fragen zu Warnex (frozen paint, storage): <a href="https://www.lautsprecherforum.eu/viewtopic.php?t=7953">lautsprecherforum.eu/viewtopic.php?t=7953</a></li>
+    <li>paforum.de, Warnex die uns&auml;gliche Geschichte (no primer, no acrylic, filler and glue problems): <a href="https://paforum.de/forum/index.php?thread%2F120839-warnex-die-uns%C3%A4glichegeschichte%2F=">paforum.de/forum/index.php?thread/120839-warnex-die-unsäglichegeschichte/</a></li>
+    <li>diyAudio, DuraTex or other options (Line-X vs DuraTex, 2K PU sealer before Line-X): <a href="https://www.diyaudio.com/community/threads/duratex-or-other-options.419572/">diyaudio.com/community/threads/duratex-or-other-options.419572/</a></li>
+    <li>diyAudio, Where to find generic polyurea coating (shell delamination): <a href="https://www.diyaudio.com/community/threads/where-to-find-generic-polyurea-coating.386328/">diyaudio.com/community/threads/where-to-find-generic-polyurea-coating.386328/</a></li>
+    <li>Soundforums, Preparation for Line-X bedliner on my cabinets (shows every imperfection): <a href="https://soundforums.net/community/threads/preparation-for-line-x-bedliner-on-my-cabinets.13947/post-13947">soundforums.net/.../preparation-for-line-x-bedliner-on-my-cabinets.13947/</a></li>
+    <li>AVS Forum, Cabinet roundovers to protect edges (90-degree edges chip first): <a href="https://www.avsforum.com/threads/cabinet-roundovers-to-protect-edges-of-flatpack-cabinets.2994212/">avsforum.com/threads/cabinet-roundovers-to-protect-edges-of-flatpack-cabinets.2994212/</a></li>
+    <li>ProSoundWeb forums, Best paint for beat up wedges (sand no finer than 80 grit for touch-up): <a href="https://forums.prosoundweb.com/index.php?topic=174603.0">forums.prosoundweb.com/index.php?topic=174603.0</a></li>
+    <li>Show-Master (RU), Чем покрасить акустические системы? (polyurea strongest, 2K PU next, HIFIDECO vs Warnex): <a href="http://forum.show-master.ru/topic29468.html">forum.show-master.ru/topic29468.html</a></li>
+    <li>Bax-shop, Penn Elcom Warnex 1 L (roller technique, "original d&amp;b Warnex"): <a href="https://www.bax-shop.co.uk/warnex-paint-speaker-carpet/penn-elcom-warnex-speaker-cabinet-paint-black-1l">bax-shop.co.uk/.../penn-elcom-warnex-speaker-cabinet-paint-black-1l</a></li>
+    <li>Powder Coated Tough, evaluating mechanical performance (ASTM D3359 rating scale): <a href="https://www.powdercoatedtough.com/News/ID/1977/Technology-InterchangeEvaluating-the-Mechanical-Performance-of-Powder-Coatings">powdercoatedtough.com/News/ID/1977/...</a></li>
+  </ol>
+
+  <h3>Indonesia sourcing and climate (Section 12; marketplace listings seen 2026-11-19)</h3>
+  <ol start="68">
+    <li>Tokopedia, Vircan cat box speaker 1 kg (LENGKAP AJA): <a href="https://www.tokopedia.com/lengkapaja/vircan-cat-box-speaker-audio-1-kg-1730933922236237049">tokopedia.com/lengkapaja/vircan-cat-box-speaker-audio-1-kg-...</a></li>
+    <li>Shopee Indonesia, Caldera cat tekstur box speaker jet black (lapak195): <a href="https://sv.shopee.co.id/web/@lapak195/video/WESZmkRyCQBcvX4DAAAAAA==">sv.shopee.co.id/web/@lapak195/video/...</a></li>
+    <li>Tokopedia Shop, Prismatik texture paint 1.5 kg black: <a href="https://shop-id.tokopedia.com/pdp/speaker-kotak-prismatik-hitam-desain-unik-tahan-gores-1-5-kg/1729971480369333335">shop-id.tokopedia.com/pdp/speaker-kotak-prismatik-hitam-...-1-5-kg/...</a></li>
+    <li>Indana, Cat Texture Vircan, cat bertekstur untuk box speaker (application note): <a href="https://www.indana.co.id/cat-texture-vircan-cat-bertekstur-untuk-box-speaker-dan-estetika-rumah/">indana.co.id/cat-texture-vircan-cat-bertekstur-untuk-box-speaker-dan-estetika-rumah/</a></li>
+    <li>Avian Brands, Avitex Tekstur TX-100: <a href="https://en.avianbrands.com/produk/avitex-tekstur-tx100">en.avianbrands.com/produk/avitex-tekstur-tx100</a></li>
+    <li>Propan Raya, DURATEX 2K PU DRX 890 WB technical data sheet: <a href="https://www.propanraya.com/wp-content/uploads/2024/05/DURATEX-2K-PU-DRX-890-WB.pdf">propanraya.com/wp-content/uploads/2024/05/DURATEX-2K-PU-DRX-890-WB.pdf</a></li>
+    <li>Propan Raya, Cat Genteng TDS (max 80 % RH, 25 to 35 &deg;C): <a href="https://propanraya.com/wp-content/uploads/2023/12/PROPAN-CAT-GENTENG.pdf">propanraya.com/wp-content/uploads/2023/12/PROPAN-CAT-GENTENG.pdf</a></li>
+    <li>Jotun Hardtop XP application guide (RH, dew point, blushing): <a href="https://industrialcoatingsltd.com/cdn/shop/files/AG_3140_Hardtop_XP_Euk_GB.pdf.pdf">industrialcoatingsltd.com/cdn/shop/files/AG_3140_Hardtop_XP_Euk_GB.pdf.pdf</a></li>
+    <li>Jotun Hardtop AX (MCI tintable, 1,700+ colours): <a href="https://www.jotun.com/us-en/industries/products/hardtop-ax">jotun.com/us-en/industries/products/hardtop-ax</a></li>
+    <li>Tokopedia, Jotun Hardtop XP RAL 9005 5 L (jotunpaintos): <a href="https://www.tokopedia.com/jotunpaintos/jotun-hardtop-xp-ral-9005-jet-black-5-liter">tokopedia.com/jotunpaintos/jotun-hardtop-xp-ral-9005-jet-black-5-liter</a></li>
+    <li>Tokopedia, Jotun Hardtop AX RAL 7047 4.5 L set (kalopsiastores): <a href="https://www.tokopedia.com/kalopsiastores/jotun-hardtop-ax-ral-7047-telegrey-4-5-liter-cat-kapal-marine-paint-1731235721710896529">tokopedia.com/kalopsiastores/jotun-hardtop-ax-ral-7047-telegrey-4-5-liter-...</a></li>
+    <li>Indotrading, Sumber Jaya Paint Brothers (Jotun Multicolor, Nippon Colour Creations, Dulux Colour Solutions, Propan Multicolor Center tinting): <a href="https://en.indotrading.com/sumberjayapaintbrothers/misc/">en.indotrading.com/sumberjayapaintbrothers/misc/</a></li>
+    <li>Teknos, drying parameters for water-based coatings (55 to 85 % RH): <a href="https://www.teknos.com/globalassets/teknos.uk/industry/industrial-wood/drying-parameters-1.pdf">teknos.com/.../drying-parameters-1.pdf</a></li>
+    <li>PPG, adverse environmental conditions (exhaust-only ventilation in humid spaces): <a href="https://www.ppgpaints.com/Pro/Pro-Painting-Tips/How-To-Paint-Factory-Built-Housing/Adverse-Environmental-Conditions">ppgpaints.com/Pro/Pro-Painting-Tips/.../Adverse-Environmental-Conditions</a></li>
+    <li>Gridoto, U-POL Raptor launched in Indonesia by Qmax Army Indonesia: <a href="https://www.gridoto.com/read/221001313/perusahaan-cat-asal-inggris-ini-bikin-cat-basecoat-antigores-tahan-hujan-sampai-air-laut">gridoto.com/read/221001313/...</a></li>
+    <li>jasawaterproofing.id, polyurea coating (reactor machine required): <a href="https://jasawaterproofing.id/polyurea-coating/">jasawaterproofing.id/polyurea-coating/</a></li>
+    <li>Kimia Konstruksi, jasa polyurea coating: <a href="https://kimiakonstruksi.com/produk/jasa-polyurea-coating/">kimiakonstruksi.com/produk/jasa-polyurea-coating/</a></li>
+    <li>3M Indonesia, powered and supplied-air respiratory protection: <a href="https://www.3m.co.id/3M/en_ID/p/c/ppe/respiratory-protection/powered-supplied-air/">3m.co.id/3M/en_ID/p/c/ppe/respiratory-protection/powered-supplied-air/</a></li>
+    <li>Tokopedia, 3M 6200 half-mask set with 6001 cartridges (donnaso): <a href="https://www.tokopedia.com/donnaso/masker-3m-respirator-3m-6200-set-konstruksi-uap-panas-masker-gas-1">tokopedia.com/donnaso/masker-3m-respirator-3m-6200-set-...</a></li>
+    <li>Tokopedia search, kamprot rollers and texture paints: <a href="https://www.tokopedia.com/find/kamprot">tokopedia.com/find/kamprot</a></li>
+    <li>Tokopedia, WENXING air hopper texture gun 4/6/8 mm: <a href="https://www.tokopedia.com/ivonirastaaa/wenxing-air-hopper-spray-gun-paint-texture-tool-drywall-wall-painting-sprayer-with-3-nozzle">tokopedia.com/ivonirastaaa/wenxing-air-hopper-spray-gun-...</a></li>
+    <li>Tokopedia, Propan Impra Wood Filler WF-115 1 kg (wandapaints): <a href="https://www.tokopedia.com/wandapaints/impra-wood-filler-wf-115-jati-1-kg">tokopedia.com/wandapaints/impra-wood-filler-wf-115-jati-1-kg</a></li>
+    <li>Adam Hall Group appoints SVI as exclusive distributor in Indonesia (Systems Integration Asia): <a href="https://www.systemsintegrationasia.com/adam-hall-group-appoints-svi-as-exclusive-distributor-in-indonesia">systemsintegrationasia.com/adam-hall-group-appoints-svi-as-exclusive-distributor-in-indonesia</a></li>
+    <li>Penn Elcom official distributors page: <a href="https://www.penn-elcom.com/official-penn-elcom-distributors">penn-elcom.com/official-penn-elcom-distributors</a></li>
+    <li>LSi Online, Penn Elcom opens hub in Malaysia: <a href="https://lsionline.co.uk/news/penn-elcom-opens-hub-in-malaysia-mi1xh3">lsionline.co.uk/news/penn-elcom-opens-hub-in-malaysia-mi1xh3</a></li>
+    <li>DDTC News, import duty on consignments above USD 3 (PMK 199/2019): <a href="https://news.ddtc.co.id/berita/nasional/18686/pajak-barang-kiriman-di-atas-us3-berlaku-hari-ini-ini-perhitungannya">news.ddtc.co.id/berita/nasional/18686/...</a></li>
+    <li>ColisExpat, forwarding Thomann purchases to Indonesia: <a href="https://www.colisexpat.com/en/delivery-shipping/indonesia/thomann/">colisexpat.com/en/delivery-shipping/indonesia/thomann/</a></li>
+  </ol>
+</section>
+
+</body>
+</html>
