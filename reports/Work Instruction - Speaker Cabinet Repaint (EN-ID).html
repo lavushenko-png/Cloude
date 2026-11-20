@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Work Instruction: Speaker Cabinet Repaint (EN / ID)</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif; font-size: 10.2pt; line-height: 1.38; color: #1e2226; background: #fff; }
+  h1 { font-size: 26pt; line-height: 1.1; margin: 0 0 6px 0; font-weight: 700; letter-spacing: -0.01em; }
+  h2 { font-size: 15pt; margin: 0 0 10px 0; padding-bottom: 6px; border-bottom: 2.5px solid #383E42; break-after: avoid; }
+  h2 .num { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; background: #383E42; color: #fff; border-radius: 4px; font-size: 12pt; margin-right: 8px; padding: 0 6px; }
+  h3 { font-size: 11.5pt; margin: 14px 0 6px 0; break-after: avoid; }
+  p { margin: 0 0 7px 0; }
+  .page { break-before: page; }
+  .muted { color: #5c646c; }
+  .small { font-size: 8.6pt; }
+  .tag { display: inline-block; font-size: 7.6pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; background: #e9ecef; color: #383E42; vertical-align: middle; }
+  .tag.en { background: #383E42; color: #fff; }
+  .tag.id { background: #e0a100; color: #1e2226; }
+
+  /* cover */
+  .cover { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover-top { background: #383E42; color: #fff; padding: 26px 28px 24px 28px; border-radius: 6px; }
+  .cover-top .kicker { font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; opacity: .8; margin-bottom: 14px; }
+  .cover-top h1 { color: #fff; }
+  .cover-top .sub { font-size: 12pt; opacity: .92; margin-top: 10px; }
+  .cover-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .cover-card { border: 1.5px solid #cfd4d9; border-radius: 6px; padding: 14px 16px; }
+  .cover-card h3 { margin-top: 0; }
+  .swatch { display: flex; gap: 10px; align-items: stretch; }
+  .sw { flex: 1; border-radius: 5px; padding: 10px; color: #fff; min-height: 86px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .sw b { font-size: 11pt; }
+  .sw span { font-size: 8.5pt; opacity: .85; }
+  .cover-foot { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid #cfd4d9; padding-top: 10px; font-size: 9pt; color: #5c646c; }
+
+  /* layer diagram */
+  .layers { border: 1.5px solid #cfd4d9; border-radius: 6px; padding: 12px 14px; margin: 10px 0 12px 0; break-inside: avoid; }
+  .layer { display: grid; grid-template-columns: 34px 1fr 2.2fr; gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px dashed #dde1e5; }
+  .layer:last-child { border-bottom: none; }
+  .layer .bar { height: 22px; border-radius: 3px; }
+  .layer .name { font-weight: 700; }
+  .layer .desc { font-size: 9.2pt; color: #3b4248; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 12px 0; font-size: 9.2pt; }
+  th { background: #383E42; color: #fff; text-align: left; padding: 6px 7px; font-weight: 700; font-size: 8.8pt; }
+  td { padding: 6px 7px; border-bottom: 1px solid #dde1e5; vertical-align: top; }
+  tr:nth-child(even) td { background: #f5f6f7; }
+  tr { break-inside: avoid; }
+  thead { display: table-header-group; }
+  td a { color: #1f4e79; text-decoration: none; word-break: break-all; font-size: 8.2pt; }
+  .price { white-space: normal; }
+  .lnk { margin-top: 3px; font-size: 8pt; color: #1f4e79; word-break: break-all; }
+  .lnk a { font-size: 8pt; }
+
+  /* step cards */
+  .step { display: grid; grid-template-columns: 44px 1fr; gap: 12px; border: 1.5px solid #cfd4d9; border-left: 6px solid #383E42; border-radius: 6px; padding: 10px 12px 10px 10px; margin: 0 0 9px 0; break-inside: avoid; }
+  .step .n { width: 34px; height: 34px; border-radius: 50%; background: #383E42; color: #fff; font-weight: 700; font-size: 14pt; display: flex; align-items: center; justify-content: center; }
+  .step h4 { margin: 2px 0 5px 0; font-size: 11pt; }
+  .step ul { margin: 0 0 4px 18px; padding: 0; }
+  .step li { margin: 0 0 2px 0; }
+  .step .meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 5px; font-size: 8.6pt; color: #3b4248; }
+  .step .meta b { color: #383E42; }
+  .step.warn { border-left-color: #e0a100; }
+  .step.test { border-left-color: #1f7a4d; }
+  .step.test .n { background: #1f7a4d; }
+
+  /* callouts */
+  .box { border-radius: 6px; padding: 10px 13px; margin: 8px 0 10px 0; break-inside: avoid; }
+  .box.rule { background: #eef0f2; border-left: 5px solid #383E42; }
+  .box.warn { background: #fff6dc; border-left: 5px solid #e0a100; }
+  .box.ok { background: #e8f4ed; border-left: 5px solid #1f7a4d; }
+  .box b.t { display: block; font-size: 8.6pt; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .never li::marker { color: #b3261e; }
+  .always li::marker { color: #1f7a4d; }
+  ul.tight { margin: 0 0 6px 18px; padding: 0; }
+  ul.tight li { margin-bottom: 3px; }
+
+  /* checklist */
+  .chk { list-style: none; margin: 0; padding: 0; }
+  .chk li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px solid #dde1e5; break-inside: avoid; }
+  .chk li::before { content: ""; width: 14px; height: 14px; border: 1.6px solid #383E42; border-radius: 3px; margin-top: 2px; }
+  .sign td { height: 30px; }
+  .sign th:first-child, .sign td:first-child { width: 36%; }
+
+  .footer-note { font-size: 8.4pt; color: #5c646c; border-top: 1px solid #cfd4d9; padding-top: 6px; margin-top: 14px; }
+  .divider { height: 255mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .divider .big { font-size: 34pt; font-weight: 700; color: #383E42; }
+  .divider .sub { font-size: 14pt; color: #5c646c; margin-top: 8px; }
+  .divider .band { width: 60%; height: 10px; background: #e0a100; border-radius: 5px; margin: 26px 0; }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div>
+    <div class="cover-top">
+      <div class="kicker">Work instruction · Instruksi kerja</div>
+      <h1>Speaker Cabinet Repaint<br>Pengecatan Ulang Box Speaker</h1>
+      <div class="sub">2K epoxy primer + Jotun Hardtop XP RAL 7016, textured, matt<br>Epoxy primer 2K + Jotun Hardtop XP RAL 7016, tekstur, doff</div>
+    </div>
+
+    <div class="cover-grid">
+      <div class="cover-card">
+        <h3><span class="tag en">Part A · English</span></h3>
+        <p>For the supervising manager. Materials list with purchase links, step by step procedure, test panel, rules, supervision checklist and acceptance sheet.</p>
+      </div>
+      <div class="cover-card">
+        <h3><span class="tag id">Bagian B · Bahasa Indonesia</span></h3>
+        <p>Untuk pelaksana / tukang cat. Isi sama dengan Bagian A: daftar bahan, langkah kerja, panel contoh, aturan, dan lembar serah terima.</p>
+      </div>
+    </div>
+
+    <div class="cover-card" style="margin-top:14px;">
+      <h3>Target colour · Warna target</h3>
+      <div class="swatch">
+        <div class="sw" style="background:#383E42;"><b>RAL 7016</b><span>Anthracite Grey · primary / utama</span></div>
+        <div class="sw" style="background:#474A50;"><b>RAL 7024</b><span>Graphite Grey · alternative 1 / cadangan 1</span></div>
+        <div class="sw" style="background:#434750;"><b>RAL 7015</b><span>Slate Grey · alternative 2 / cadangan 2</span></div>
+      </div>
+      <p class="small muted" style="margin-top:8px;">Finish: matt (doff), spatter texture. Screen colours are approximate; approve the real colour on the test panel. · Hasil akhir: doff, tekstur bintik. Warna di layar hanya perkiraan; warna asli disetujui lewat panel contoh.</p>
+    </div>
+  </div>
+
+  <div class="cover-foot">
+    <div>Cabinets: plywood with old paint + fiberglass, both already sanded by owner<br>Box: kayu lapis dengan cat lama + fiberglass, keduanya sudah diamplas pemilik</div>
+    <div style="text-align:right;">Revision 1 · November 2026<br>Prices seen 20 Nov 2026, verify before ordering</div>
+  </div>
+</div>
+
+<!-- ================= PART A: ENGLISH ================= -->
+<div class="page">
+<h2><span class="num">A1</span>Job summary <span class="tag en">English</span></h2>
+
+<p><b>What we are doing.</b> Repainting two batches of professional loudspeaker cabinets in dark grey matt with a spatter texture, using the same system that touring loudspeaker brands use on wood: a two-component (2K) epoxy primer for adhesion and isolation, then a two-component aliphatic polyurethane topcoat (Jotun Hardtop XP) applied in two coats, the second one textured.</p>
+
+<p><b>Why this system.</b> Batch 1 is plywood with an unknown old paint. Batch 2 is fiberglass (or fiberglass-skinned) and also previously painted. Water-based "speaker paints" are made for bare timber and do not hold on gelcoat or on old paint. 2K epoxy primer bonds to both substrates and isolates the old paint; 2K polyurethane is what L-Acoustics, EAW and Martin Audio use, it is tough, flexible enough for wood, and does not chalk in sunlight.</p>
+
+<div class="layers">
+  <div class="layer"><div class="bar" style="background:#e0a100;"></div><div class="name">4. Topcoat, coat 2 (texture)</div><div class="desc">Jotun Hardtop XP RAL 7016, thick mix, hopper / texture gun, low pressure, spatter pattern. 2 to 4 h after coat 1.</div></div>
+  <div class="layer"><div class="bar" style="background:#4b5157;"></div><div class="name">3. Topcoat, coat 1 (smooth)</div><div class="desc">Jotun Hardtop XP RAL 7016, mixed as printed on can, Thinner No. 10, even wet coat.</div></div>
+  <div class="layer"><div class="bar" style="background:#9aa3ab;"></div><div class="name">2. Epoxy primer</div><div class="desc">Jotun Penguard Express (A:B = 4:1, Thinner No. 17). Old paint: mist coat, then full coat. Fiberglass: two full coats. Sand P240 next day.</div></div>
+  <div class="layer"><div class="bar" style="background:#d9c7a6;"></div><div class="name">1. Repair</div><div class="desc">Alfaglos 2K filler in chips, holes and fiberglass pinholes, sanded flush.</div></div>
+  <div class="layer"><div class="bar" style="background:#b98a5a;"></div><div class="name">0. Substrate</div><div class="desc">Old paint sanded to full matt (P120–P180) / fiberglass sanded to matt, degreased twice.</div></div>
+</div>
+
+<div class="two">
+  <div class="box rule"><b class="t">Non-negotiable</b>
+    <ul class="tight">
+      <li>Epoxy primer on every cabinet. No exceptions for "the old paint looks fine".</li>
+      <li>Two test panels (one per cabinet type) pass the tape test before any real cabinet is touched.</li>
+      <li>Mixing ratios measured with a graduated cup, never by eye.</li>
+      <li>Only Jotun Thinner No. 17 (primer) and No. 10 (topcoat).</li>
+    </ul>
+  </div>
+  <div class="box warn"><b class="t">Never</b>
+    <ul class="tight">
+      <li>No water-based paint, wall paint or wood stain anywhere in this system.</li>
+      <li>No spraying above 85 % relative humidity, in direct sun, or before rain.</li>
+      <li>No stacking or handling for 48 hours after the last coat; no hardware for 7 days.</li>
+      <li>No spraying 2K without a 3M 6200 mask with 6001 cartridges.</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- A2 materials -->
+<div class="page">
+<h2><span class="num">A2</span>Materials and tools <span class="tag en">English</span></h2>
+<p class="small muted">Links are Tokopedia / Blibli listings seen on 20 November 2026. Prices are indicative and must be re-checked. Any substitute product requires the owner's written approval before purchase.</p>
+
+<table>
+<thead><tr><th style="width:17%">Item</th><th style="width:40%">Product and where to buy</th><th style="width:31%">Use / mixing</th><th>Price (IDR)</th></tr></thead>
+<tbody>
+<tr><td><b>Epoxy primer</b> (main)</td><td>Jotun Penguard Express Grey, 5 L set (4 L A + 1 L B)<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintos/jotun-penguard-express-grey-5-liter-1733753637517952876">tokopedia.com/jotunpaintos/jotun-penguard-express-grey-5-liter</a></div></td><td>Isolates old paint, bonds to fiberglass. A:B = 4:1. Thinner No. 17.</td><td class="price">ask seller</td></tr>
+<tr><td><b>Epoxy primer</b> (small pack alternative)</td><td>Nippon nax 2200 2K Epoxy Primer Grey, 1 L set<div class="lnk"><a href="https://www.tokopedia.com/octa-forst/epoxy-nippon-paint-2k-primer-grey-nax-2200-1l-set-1731541837374981810">tokopedia.com/octa-forst/epoxy-nippon-paint-2k-primer-grey-nax-2200-1l-set</a></div></td><td>Same purpose. A:B = 4:1 (hardener included).</td><td class="price">126 000 to 204 000</td></tr>
+<tr><td><b>Topcoat</b></td><td>Jotun Hardtop XP RAL 7016 Anthracite Grey, 5 L set (4.55 L A + 0.45 L B)<div class="lnk"><a href="https://www.tokopedia.com/maxima-color/jotun-hardtop-xp-anthracite-grey-ral-7016-5-liter">tokopedia.com/maxima-color/jotun-hardtop-xp-anthracite-grey-ral-7016-5-liter</a></div></td><td>Colour and wear layer, 2 coats. Mix A:B exactly as printed on can. Thinner No. 10.</td><td class="price">789 300</td></tr>
+<tr><td><b>Topcoat</b> (second seller)</td><td>Jotun Hardtop XP RAL 7016, 5 L set<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintos/jotun-hardtop-xp-ral-7016-anthracite-grey-5-liter">tokopedia.com/jotunpaintos/jotun-hardtop-xp-ral-7016-anthracite-grey-5-liter</a></div></td><td>Same product.</td><td class="price">1 100 000</td></tr>
+<tr><td><b>Topcoat</b> (if RAL 7016 unavailable)</td><td>Jotun Hardtop XP RAL 7024 Graphite Grey, 5 L<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintstore/jotun-hardtop-xp-graphite-grey-ral-7024-5-liter">tokopedia.com/jotunpaintstore/jotun-hardtop-xp-graphite-grey-ral-7024-5-liter</a></div></td><td>Alternative shade, slightly darker. Owner approves first.</td><td class="price">902 000</td></tr>
+<tr><td><b>Thinner for topcoat</b></td><td>Jotun Thinner No. 10, 5 L<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintstore/jotun-thinner-no-10-5-ltr">tokopedia.com/jotunpaintstore/jotun-thinner-no-10-5-ltr</a></div></td><td>Only thinner allowed for Hardtop XP. Coat 1: per TDS. Coat 2: minimal.</td><td class="price">415 000 to 1 120 000</td></tr>
+<tr><td><b>Matting additive</b> (if topcoat is too glossy)</td><td>Propan Matting Solution MS-21, 1 L<div class="lnk"><a href="https://www.tokopedia.com/tokogadingsakti/propan-matting-solution-ms-21-obat-doff-untuk-cat-kayu-besi-1ltr">tokopedia.com/tokogadingsakti/propan-matting-solution-ms-21</a></div></td><td>Add to Hardtop XP: 20 % for matt, 30 % for dead matt. Stir in before thinner. Test on panel first.</td><td class="price">about 152 000</td></tr>
+<tr><td><b>2K filler</b></td><td>Alfaglos polyester filler 1 kg + hardener<div class="lnk"><a href="https://www.tokopedia.com/pemberidiskon/dempul-alfaglos-1kg-obat-dempul-besi-cat-mobil-sanpolac">tokopedia.com/pemberidiskon/dempul-alfaglos-1kg-obat</a></div></td><td>Chips, screw holes, fiberglass pinholes. 100:2 by weight.</td><td class="price">ask seller</td></tr>
+<tr><td><b>Degreaser</b></td><td>Autoglow Silicone Remover, 1 L<div class="lnk"><a href="https://www.tokopedia.com/catditon/silikon-silicon-remover-degreaser-autoglow-1-liter">tokopedia.com/catditon/silikon-silicon-remover-degreaser-autoglow-1-liter</a></div></td><td>Wipe before primer. Fiberglass: twice, clean cloth each time.</td><td class="price">71 000</td></tr>
+<tr><td><b>Abrasive</b></td><td>Sandpaper roll P120, P180, P240<div class="lnk"><a href="https://www.tokopedia.com/ud-33/amplas-meteran-roll-gulung-permeter-euro-biru-blue-murah-original-p180">tokopedia.com/ud-33/amplas-meteran-roll-p180</a></div></td><td>P120–P180 for old paint and fiberglass, P240 between primer and topcoat.</td><td class="price">about 11 000 / m</td></tr>
+<tr><td><b>Tack cloth</b></td><td>Tack cloth sheets<div class="lnk"><a href="https://www.tokopedia.com/totalsolution3m/tack-cloth-tag-rags-kain-pembersih-debu-dalam-proses-pengecatan">tokopedia.com/totalsolution3m/tack-cloth</a></div></td><td>Dust removal before each coat.</td><td class="price">9 500 / sheet</td></tr>
+<tr><td><b>Mixing cup</b></td><td>Graduated mixing cup 600 ml (2:1 / 3:1 / 4:1 scales)<div class="lnk"><a href="https://www.tokopedia.com/greg82/gelas-ukur-kalibrasi-cat-gelas-takar-pencampuran-cat">tokopedia.com/greg82/gelas-ukur-kalibrasi-cat</a></div></td><td>Mandatory for all 2K mixing.</td><td class="price">ask seller</td></tr>
+<tr><td><b>Masking</b></td><td>3M masking tape 24 mm<div class="lnk"><a href="https://www.tokopedia.com/lancarjayaelectrik/masking-tape-3m-biru-lakban-kertas-3m-biru-scotch-3m-24mm-x-50-blue">tokopedia.com/lancarjayaelectrik/masking-tape-3m</a></div></td><td>Connector plates, threads, handle pockets, grille frames.</td><td class="price">ask seller</td></tr>
+<tr><td><b>Spray gun</b></td><td>Gravity gun F-75 type, nozzle 2.0 to 2.5 mm<div class="lnk"><a href="https://www.tokopedia.com/okebosste/spray-gun-f-75-nichi">tokopedia.com/okebosste/spray-gun-f-75-nichi</a></div></td><td>Primer and topcoat coat 1.</td><td class="price">ask seller</td></tr>
+<tr><td><b>Texture gun</b></td><td>Hopper gun NRT-Pro H5000G (nozzles 4 / 6 / 8 mm)<div class="lnk"><a href="https://www.tokopedia.com/deskas/spray-gun-texture-nrt-pro-h5000g-alat-cat-semprot-tekstur-semen-hopper-gun-cat-vircan-resin-kamprot-1733691367774455626">tokopedia.com/deskas/spray-gun-texture-nrt-pro-h5000g</a></div></td><td>Topcoat coat 2, spatter texture at low pressure. Start with 4 mm nozzle.</td><td class="price">150 000 to 350 000</td></tr>
+<tr><td><b>Respirator</b></td><td>3M 6200 half mask + 6001 cartridges + 5N11 prefilters + 501 retainers<div class="lnk"><a href="https://www.tokopedia.com/3malvindo/masker-3m-komplit-6200-6001-filter-5n11-retainer-501">tokopedia.com/3malvindo/masker-3m-komplit-6200-6001</a></div></td><td>Worn by everyone in the spray area while 2K is sprayed. Replace cartridges when solvent smell appears.</td><td class="price">258 000 to 480 000</td></tr>
+<tr><td><b>Gloves, goggles</b></td><td>Chemical nitrile gloves, safety goggles<div class="lnk">any Tokopedia safety seller</div></td><td>Mixing and spraying.</td><td class="price">ask seller</td></tr>
+<tr><td><b>Router bit</b> (plywood batch only, if edges are sharp)</td><td>Round-over bit R10 (or R6.35)<div class="lnk"><a href="https://www.tokopedia.com/kmmteknik/benz-mata-router-corner-round-over-bit-1-4-x-3-4-r10-301-051-301-051">tokopedia.com/kmmteknik/benz-mata-router-round-over-r10</a></div></td><td>Round sharp plywood edges before sanding so the coating does not chip.</td><td class="price">ask seller</td></tr>
+</tbody>
+</table>
+
+<div class="box rule"><b class="t">Quantities for a batch of up to 8 medium cabinets (estimate)</b>
+Primer 5 L set, topcoat 5 L set, Thinner No. 10 5 L, Thinner No. 17 (ask seller for the small pack), matting additive 1 L, filler 1 kg, degreaser 1 L, sandpaper 3 m of each grit, 10 tack cloths. Material cost about IDR 2.5 to 3.5 million without tools and masks.</div>
+
+<div class="box warn"><b class="t">About the matt finish</b>
+Hardtop XP is sold glossy. The spatter texture itself reduces visible gloss a lot. If the test panel is still too glossy: either add Propan MS-21 at 20 to 30 % (test first, compatibility is not guaranteed by Jotun), or ask the Jotun dealer (Maxima Color Center, Jotun Paint Official) to tint a low-gloss grade (Hardtop XPL or Hardtop HB) to RAL 7016 through the MCI tinting system. The owner decides after seeing the panel.</div>
+</div>
+
+<!-- A3 procedure -->
+<div class="page">
+<h2><span class="num">A3</span>Step by step procedure <span class="tag en">English</span></h2>
+
+<div class="step"><div class="n">1</div><div>
+<h4>Inspect and identify the old paint</h4>
+<ul><li>Rub a hidden spot of old paint for 30 seconds with a cloth wet with nitro / lacquer thinner.</li>
+<li><b>Hard, nothing transfers:</b> old paint is 2K or polyurea. Keep it, sand and prime.</li>
+<li><b>Softens, wrinkles or colours the cloth:</b> old paint is 1K acrylic or nitro. Remove every loose or flaking area. Sound areas stay and get the mist coat in step 6.</li>
+<li>Fiberglass: tap the surface; a hollow sound means delamination, mark it for the owner.</li></ul>
+<div class="meta"><b>Check:</b> photo of the rub-test cloth sent to the owner.</div></div></div>
+
+<div class="step"><div class="n">2</div><div>
+<h4>Remove hardware, mask what stays</h4>
+<ul><li>Remove handles, corner protectors, grilles, connector plates, feet and pole cups where possible. Bag and label per cabinet.</li>
+<li>Mask threads, connector openings and anything that cannot be removed with 3M tape. Plug threaded inserts with tape or screws.</li></ul></div></div>
+
+<div class="step"><div class="n">3</div><div>
+<h4>Round sharp edges (plywood batch)</h4>
+<ul><li>If plywood edges are sharp, round them with the R10 (or R6.35) router bit, or by hand with P80 until the edge is a clear radius. Paint chips off sharp edges first.</li>
+<li>Fiberglass batch: do not route; just soften edges by hand with P120.</li></ul></div></div>
+
+<div class="step"><div class="n">4</div><div>
+<h4>Sand to full matt</h4>
+<ul><li>P120 then P180 over every surface until there is no glossy spot left. Feather the borders of removed old paint until you cannot feel a step with a fingernail.</li>
+<li>Fiberglass: sand to matt, do not sand through into loose glass fibres more than needed. Fibres that are exposed get two primer coats.</li></ul>
+<div class="meta"><b>Check:</b> hold the cabinet against the light; any shine means sand again.</div></div></div>
+
+<div class="step"><div class="n">5</div><div>
+<h4>Fill and degrease</h4>
+<ul><li>Fill chips, screw holes, cracks and fiberglass pinholes with Alfaglos (100:2 by weight). Let it cure, sand flush with P180.</li>
+<li>Cracks along fiberglass edges: open them with a knife, let dry, fill, sand.</li>
+<li>Wipe the whole cabinet with silicone remover. Fiberglass: twice, with a fresh cloth each time. Then do not touch the surface with bare hands.</li></ul></div></div>
+
+<div class="step"><div class="n">6</div><div>
+<h4>Epoxy primer</h4>
+<ul><li>Mix Penguard Express A:B = 4:1 in the graduated cup, add Thinner No. 17 per the can, stir 2 minutes, let stand per the can.</li>
+<li><b>Plywood with old paint:</b> first a light mist coat, wait 10 to 15 minutes, then one full coat.</li>
+<li><b>Fiberglass:</b> two full coats, 10 to 15 minutes between them (or per the can).</li>
+<li>Mixed primer must be used within the pot life printed on the can. Do not keep it for tomorrow.</li></ul>
+<div class="meta"><b>Dry:</b> overnight before sanding. <b>Check:</b> if the primer lifts or wrinkles the old paint on the test panel, strip that batch to bare wood and report.</div></div></div>
+
+<div class="step"><div class="n">7</div><div>
+<h4>Sand primer, remove dust</h4>
+<ul><li>Next day, sand the primer lightly with P240 to a uniform dull surface. Do not sand through to the substrate; if you do, spot-prime again.</li>
+<li>Blow off, then wipe with a tack cloth right before the topcoat.</li></ul>
+<div class="meta"><b>Window:</b> apply the topcoat within the recoat window printed on the primer can; if exceeded, sand again with P240.</div></div></div>
+
+<div class="step"><div class="n">8</div><div>
+<h4>Topcoat, coat 1 (smooth)</h4>
+<ul><li>Mix Hardtop XP RAL 7016 A:B exactly as printed on the can, in the graduated cup. Add Thinner No. 10 per the can. If the owner approved matting additive, stir MS-21 into component A before the thinner.</li>
+<li>Spray one even wet coat with the F-75 gun, nozzle 2.0 to 2.5 mm, overlapping passes, including all edges and handle pockets.</li></ul>
+<div class="meta"><b>Pot life:</b> as printed on the can; discard leftovers after it. <b>Check:</b> no runs, no dry spray.</div></div></div>
+
+<div class="step"><div class="n">9</div><div>
+<h4>Topcoat, coat 2 (spatter texture)</h4>
+<ul><li>2 to 4 hours after coat 1 (surface tacky-dry, not wet). Mix a fresh batch with as little thinner as the gun will pass.</li>
+<li>Load the hopper gun, 4 mm nozzle first, air pressure low (start about 2 bar) and distance 40 to 60 cm, so the paint lands as separate droplets. Adjust pressure and nozzle on cardboard until the texture matches the approved test panel.</li>
+<li>Cover all faces evenly; give edges and corners one extra pass.</li></ul>
+<div class="meta"><b>Check:</b> texture even, no bare patches, edges fully covered.</div></div></div>
+
+<div class="step"><div class="n">10</div><div>
+<h4>Cure</h4>
+<ul><li>Leave cabinets standing on battens, not touching each other, out of sun and rain, with air moving.</li>
+<li>48 hours: no handling, no stacking, no tape on the surface. 7 days: full hardness; only then fit handles, corners, grilles and connector plates.</li></ul></div></div>
+
+<div class="step"><div class="n">11</div><div>
+<h4>Reassemble and hand over</h4>
+<ul><li>Remove masking carefully (score the edge with a knife if the film bridges the tape). Clean threads. Refit hardware with the labelled bags.</li>
+<li>Fill in the acceptance sheet (A6) for each cabinet, photograph each cabinet from 4 sides, send to the owner.</li></ul></div></div>
+</div>
+
+<!-- A4 test panel -->
+<div style="margin-top:14px;">
+<h2><span class="num">A4</span>Test panels and adhesion test <span class="tag en">English</span></h2>
+
+<div class="step test"><div class="n">T1</div><div>
+<h4>Make two test panels before touching any cabinet</h4>
+<ul><li>Panel 1: a piece of the plywood batch's old painted surface (an offcut, the back panel of one cabinet, or the area under a handle).</li>
+<li>Panel 2: a piece of the fiberglass batch (a hidden area, for example the bottom or under a handle).</li>
+<li>Run the complete system on both panels: steps 4 to 9, including the texture coat.</li></ul></div></div>
+
+<div class="step test"><div class="n">T2</div><div>
+<h4>Wait 48 hours, then test adhesion (tape test)</h4>
+<ul><li>With a sharp knife, cut a grid of 6 by 6 lines, 2 mm apart, through the coating down to the substrate.</li>
+<li>Press strong tape firmly over the grid, rub it down, wait 1 minute, pull it off fast at a low angle.</li>
+<li><b>Pass:</b> nothing or only tiny flakes at the line crossings come off. <b>Fail:</b> whole squares lift, or the coating comes off in a sheet.</li>
+<li>Fiberglass panel additionally: wet cloth on the surface for 24 hours, then repeat the tape test. Must still pass.</li></ul></div></div>
+
+<div class="step test"><div class="n">T3</div><div>
+<h4>Scuff test and visual approval</h4>
+<ul><li>Drag a key or a coin across the panel with firm pressure 20 times. Scuffs are acceptable, chips down to primer or substrate are not.</li>
+<li>Send photos of both panels in daylight to the owner: colour, gloss level, texture size. The owner approves or asks for changes (more matting additive, finer or coarser texture).</li></ul>
+<div class="meta"><b>Rule:</b> no real cabinet is sanded, primed or painted before the owner has approved both panels in writing (message is enough).</div></div></div>
+
+<div class="box ok"><b class="t">If a panel fails</b>
+Old-paint panel fails: the old paint must be stripped to bare wood on that whole batch, then primed as bare wood (two primer coats). Fiberglass panel fails: degrease again more carefully, sand again with P120, use two primer coats, make a new panel. Report both cases to the owner before continuing.</div>
+
+<h3>Weather and workplace rules</h3>
+<table>
+<thead><tr><th style="width:30%">Condition</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td>Relative humidity</td><td>Spray only below 85 % RH. Keep a cheap hygrometer in the shop. In the rainy season spray in the late morning, not in the evening.</td></tr>
+<tr><td>Temperature</td><td>Surface must not be hot to the touch. Work in shade, never in direct sun. Avoid spraying when rain is expected within 4 hours.</td></tr>
+<tr><td>Dust</td><td>Wet the floor, stop sanding in the room before spraying, tack cloth right before each coat.</td></tr>
+<tr><td>Ventilation and safety</td><td>Spray outdoors under a roof or in a room with an exhaust fan. Everyone in the area wears the 3M 6200 mask with 6001 cartridges, goggles and nitrile gloves. No smoking, no open flame near thinner.</td></tr>
+<tr><td>Mixing</td><td>Graduated cup, ratio as printed on the can, stir 2 minutes, respect induction time and pot life. Never add hardener "a bit more to dry faster".</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- A5 checklist -->
+<div class="page">
+<h2><span class="num">A5</span>Supervisor checklist <span class="tag en">English</span></h2>
+<p class="muted small">Tick each line before allowing the next stage. A missing photo means the stage is repeated on the next cabinet in front of the manager.</p>
+
+<h3>Before work starts</h3>
+<ul class="chk">
+<li>All materials from table A2 are on site and match the brand names; no substitutes without the owner's approval.</li>
+<li>Graduated mixing cups, hygrometer, 3M 6200 masks with 6001 cartridges, nitrile gloves and goggles are present.</li>
+<li>Rub-test done on the old paint; photo of the cloth sent to the owner.</li>
+<li>Two test panels made with the full system.</li>
+<li>48 hours later: both panels pass the tape test; fiberglass panel also passes after 24 h wet cloth; photos sent.</li>
+<li>Owner has approved colour, gloss and texture in writing.</li>
+</ul>
+
+<h3>During work (per cabinet)</h3>
+<ul class="chk">
+<li>Hardware removed, bagged and labelled; threads and connector plates masked.</li>
+<li>Plywood edges rounded; whole surface matt with no shiny spots; filler flush.</li>
+<li>Degreased with silicone remover (fiberglass twice); nobody touched the surface afterwards.</li>
+<li>Primer mixed 4:1 in the cup; mist coat on old paint; two coats on fiberglass; photo sent.</li>
+<li>Primer sanded P240 next day, dust removed, topcoat applied within the recoat window.</li>
+<li>Topcoat mixed per can with Thinner No. 10 only; coat 1 smooth; photo sent.</li>
+<li>Coat 2 textured 2 to 4 hours later; texture matches the approved panel; edges covered; photo sent.</li>
+<li>Humidity below 85 %, shade, no rain expected; masks worn by everyone in the spray area.</li>
+</ul>
+
+<h3>After work</h3>
+<ul class="chk">
+<li>No cabinet touched, stacked or taped for 48 hours.</li>
+<li>Hardware fitted only after 7 days.</li>
+<li>Acceptance sheet A6 filled in per cabinet, 4 photos per cabinet sent.</li>
+<li>Leftover paint and hardener labelled with opening date and stored closed, out of sun.</li>
+</ul>
+</div>
+
+<!-- A6 acceptance -->
+<div class="page">
+<h2><span class="num">A6</span>Acceptance sheet per cabinet <span class="tag en">English</span></h2>
+<p class="small muted">One row per cabinet. Fill in before the cabinet leaves the shop.</p>
+<table class="sign">
+<thead><tr><th>Cabinet ID / description</th><th>Type (plywood / fiberglass)</th><th>Primer date</th><th>Topcoat date</th><th>Hardware date (≥ 7 d)</th><th>Checked by</th><th>OK?</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<h3>Acceptance criteria for "OK"</h3>
+<ul class="tight">
+<li>Texture even on all faces, no bare or thin patches, edges and corners fully covered.</li>
+<li>No runs, no dust nibs larger than a pinhead, no dry spray.</li>
+<li>Colour and gloss match the approved test panel in daylight.</li>
+<li>Masked areas clean: connector plates, threads, handle pockets, grille frames.</li>
+<li>Coin scuff on the bottom edge: no chip to primer or substrate.</li>
+<li>Hardware refitted straight and tight, nothing missing from the labelled bags.</li>
+</ul>
+
+<table class="sign" style="margin-top:14px;">
+<thead><tr><th>Role</th><th>Name</th><th>Signature</th><th>Date</th></tr></thead>
+<tbody>
+<tr><td>Painter</td><td></td><td></td><td></td></tr>
+<tr><td>Supervising manager</td><td></td><td></td><td></td></tr>
+<tr><td>Owner</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class="footer-note">This instruction summarises a research report on how professional loudspeaker manufacturers (Funktion-One, d&amp;b audiotechnik, L-Acoustics, JBL, Martin Audio, EAW and others) finish their cabinets. Product data (mixing ratios, pot life, recoat windows) must always be taken from the technical data sheet of the exact product purchased; where this document and the can disagree, the can wins.</div>
+</div>
+
+<!-- ================= DIVIDER ================= -->
+<div class="page divider">
+  <div class="big">Bagian B</div>
+  <div class="band"></div>
+  <div class="sub">Instruksi Kerja · Bahasa Indonesia<br>untuk pelaksana / tukang cat</div>
+</div>
+
+<!-- ================= PART B: BAHASA INDONESIA ================= -->
+<div class="page">
+<h2><span class="num">B1</span>Ringkasan pekerjaan <span class="tag id">Bahasa Indonesia</span></h2>
+
+<p><b>Apa yang dikerjakan.</b> Mengecat ulang dua kelompok box speaker profesional dengan warna abu-abu gelap doff dan tekstur bintik (kamprot), memakai sistem yang sama dengan pabrik speaker touring: epoxy primer dua komponen (2K) untuk daya rekat dan untuk mengunci cat lama, lalu cat polyurethane dua komponen Jotun Hardtop XP dalam dua lapis, lapis kedua bertekstur.</p>
+
+<p><b>Kenapa sistem ini.</b> Kelompok 1 adalah box kayu lapis dengan cat lama yang tidak diketahui jenisnya. Kelompok 2 adalah box fiberglass (atau kayu berlapis fiberglass) yang juga pernah dicat. Cat speaker berbahan air dibuat untuk kayu telanjang dan tidak menempel di gelcoat fiberglass atau di atas cat lama. Epoxy primer 2K menempel di kedua jenis permukaan dan mengunci cat lama; polyurethane 2K adalah cat yang dipakai L-Acoustics, EAW dan Martin Audio: kuat, cukup lentur untuk kayu, dan tidak kapur kena matahari.</p>
+
+<div class="layers">
+  <div class="layer"><div class="bar" style="background:#e0a100;"></div><div class="name">4. Cat akhir, lapis 2 (tekstur)</div><div class="desc">Jotun Hardtop XP RAL 7016, campuran kental, hopper gun / alat kamprot, tekanan rendah, pola bintik. 2 sampai 4 jam setelah lapis 1.</div></div>
+  <div class="layer"><div class="bar" style="background:#4b5157;"></div><div class="name">3. Cat akhir, lapis 1 (rata)</div><div class="desc">Jotun Hardtop XP RAL 7016, takaran sesuai kaleng, Thinner No. 10, satu lapis basah yang rata.</div></div>
+  <div class="layer"><div class="bar" style="background:#9aa3ab;"></div><div class="name">2. Epoxy primer</div><div class="desc">Jotun Penguard Express (A:B = 4:1, Thinner No. 17). Cat lama: lapis kabut dulu, lalu lapis penuh. Fiberglass: dua lapis penuh. Amplas P240 besoknya.</div></div>
+  <div class="layer"><div class="bar" style="background:#d9c7a6;"></div><div class="name">1. Perbaikan</div><div class="desc">Dempul Alfaglos 2K di bagian gompal, lubang dan pori fiberglass, diamplas rata.</div></div>
+  <div class="layer"><div class="bar" style="background:#b98a5a;"></div><div class="name">0. Permukaan dasar</div><div class="desc">Cat lama diamplas sampai kusam penuh (P120–P180) / fiberglass diamplas kusam, dilap anti-silikon dua kali.</div></div>
+</div>
+
+<div class="two">
+  <div class="box rule"><b class="t">Wajib, tidak bisa ditawar</b>
+    <ul class="tight">
+      <li>Epoxy primer di semua box. Tidak ada pengecualian karena "cat lamanya masih bagus".</li>
+      <li>Dua panel contoh (satu per jenis box) harus lulus tes lakban sebelum box asli disentuh.</li>
+      <li>Takaran campuran diukur pakai gelas ukur, bukan kira-kira.</li>
+      <li>Thinner hanya Jotun No. 17 (primer) dan No. 10 (cat akhir).</li>
+    </ul>
+  </div>
+  <div class="box warn"><b class="t">Dilarang</b>
+    <ul class="tight">
+      <li>Tidak boleh ada cat water-based, cat tembok atau politur di sistem ini.</li>
+      <li>Tidak boleh menyemprot kalau kelembapan di atas 85 %, di bawah matahari langsung, atau mau hujan.</li>
+      <li>Tidak boleh ditumpuk atau dipegang 48 jam setelah lapis terakhir; aksesori baru dipasang setelah 7 hari.</li>
+      <li>Tidak boleh menyemprot cat 2K tanpa masker 3M 6200 dengan filter 6001.</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- B2 materials -->
+<div class="page">
+<h2><span class="num">B2</span>Bahan dan alat <span class="tag id">Bahasa Indonesia</span></h2>
+<p class="small muted">Link adalah listing Tokopedia / Blibli yang dilihat 20 November 2026. Harga hanya perkiraan dan harus dicek ulang. Produk pengganti apa pun harus disetujui pemilik secara tertulis sebelum dibeli.</p>
+
+<table>
+<thead><tr><th style="width:17%">Barang</th><th style="width:40%">Produk dan tempat beli</th><th style="width:31%">Fungsi / takaran</th><th>Harga (Rp)</th></tr></thead>
+<tbody>
+<tr><td><b>Epoxy primer</b> (utama)</td><td>Jotun Penguard Express Grey, set 5 L (4 L A + 1 L B)<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintos/jotun-penguard-express-grey-5-liter-1733753637517952876">tokopedia.com/jotunpaintos/jotun-penguard-express-grey-5-liter</a></div></td><td>Mengunci cat lama, merekat di fiberglass. A:B = 4:1. Thinner No. 17.</td><td class="price">tanya penjual</td></tr>
+<tr><td><b>Epoxy primer</b> (kemasan kecil)</td><td>Nippon nax 2200 2K Epoxy Primer Grey, set 1 L<div class="lnk"><a href="https://www.tokopedia.com/octa-forst/epoxy-nippon-paint-2k-primer-grey-nax-2200-1l-set-1731541837374981810">tokopedia.com/octa-forst/epoxy-nippon-paint-2k-primer-grey-nax-2200-1l-set</a></div></td><td>Fungsi sama. A:B = 4:1 (hardener sudah termasuk).</td><td class="price">126.000 s/d 204.000</td></tr>
+<tr><td><b>Cat akhir</b></td><td>Jotun Hardtop XP RAL 7016 Anthracite Grey, set 5 L (4,55 L A + 0,45 L B)<div class="lnk"><a href="https://www.tokopedia.com/maxima-color/jotun-hardtop-xp-anthracite-grey-ral-7016-5-liter">tokopedia.com/maxima-color/jotun-hardtop-xp-anthracite-grey-ral-7016-5-liter</a></div></td><td>Warna dan lapisan tahan gores, 2 lapis. Takaran A:B persis seperti di kaleng. Thinner No. 10.</td><td class="price">789.300</td></tr>
+<tr><td><b>Cat akhir</b> (penjual kedua)</td><td>Jotun Hardtop XP RAL 7016, set 5 L<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintos/jotun-hardtop-xp-ral-7016-anthracite-grey-5-liter">tokopedia.com/jotunpaintos/jotun-hardtop-xp-ral-7016-anthracite-grey-5-liter</a></div></td><td>Produk sama.</td><td class="price">1.100.000</td></tr>
+<tr><td><b>Cat akhir</b> (kalau RAL 7016 kosong)</td><td>Jotun Hardtop XP RAL 7024 Graphite Grey, 5 L<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintstore/jotun-hardtop-xp-graphite-grey-ral-7024-5-liter">tokopedia.com/jotunpaintstore/jotun-hardtop-xp-graphite-grey-ral-7024-5-liter</a></div></td><td>Warna cadangan, sedikit lebih gelap. Harus disetujui pemilik dulu.</td><td class="price">902.000</td></tr>
+<tr><td><b>Thinner cat akhir</b></td><td>Jotun Thinner No. 10, 5 L<div class="lnk"><a href="https://www.tokopedia.com/jotunpaintstore/jotun-thinner-no-10-5-ltr">tokopedia.com/jotunpaintstore/jotun-thinner-no-10-5-ltr</a></div></td><td>Satu-satunya thinner yang boleh untuk Hardtop XP. Lapis 1: sesuai TDS. Lapis 2: sesedikit mungkin.</td><td class="price">415.000 s/d 1.120.000</td></tr>
+<tr><td><b>Obat doff</b> (kalau cat masih terlalu mengkilap)</td><td>Propan Matting Solution MS-21, 1 L<div class="lnk"><a href="https://www.tokopedia.com/tokogadingsakti/propan-matting-solution-ms-21-obat-doff-untuk-cat-kayu-besi-1ltr">tokopedia.com/tokogadingsakti/propan-matting-solution-ms-21</a></div></td><td>Dicampur ke Hardtop XP: 20 % untuk doff, 30 % untuk dead matt. Diaduk sebelum thinner. Tes di panel dulu.</td><td class="price">sekitar 152.000</td></tr>
+<tr><td><b>Dempul 2K</b></td><td>Dempul Alfaglos 1 kg + obat<div class="lnk"><a href="https://www.tokopedia.com/pemberidiskon/dempul-alfaglos-1kg-obat-dempul-besi-cat-mobil-sanpolac">tokopedia.com/pemberidiskon/dempul-alfaglos-1kg-obat</a></div></td><td>Gompal, lubang sekrup, pori fiberglass. 100:2 berat.</td><td class="price">tanya penjual</td></tr>
+<tr><td><b>Pembersih lemak</b></td><td>Autoglow Silicone Remover, 1 L<div class="lnk"><a href="https://www.tokopedia.com/catditon/silikon-silicon-remover-degreaser-autoglow-1-liter">tokopedia.com/catditon/silikon-silicon-remover-degreaser-autoglow-1-liter</a></div></td><td>Dilap sebelum primer. Fiberglass: dua kali, lap bersih tiap kali.</td><td class="price">71.000</td></tr>
+<tr><td><b>Amplas</b></td><td>Amplas roll P120, P180, P240<div class="lnk"><a href="https://www.tokopedia.com/ud-33/amplas-meteran-roll-gulung-permeter-euro-biru-blue-murah-original-p180">tokopedia.com/ud-33/amplas-meteran-roll-p180</a></div></td><td>P120–P180 untuk cat lama dan fiberglass, P240 antara primer dan cat akhir.</td><td class="price">sekitar 11.000 / m</td></tr>
+<tr><td><b>Tack cloth</b></td><td>Kain tack cloth<div class="lnk"><a href="https://www.tokopedia.com/totalsolution3m/tack-cloth-tag-rags-kain-pembersih-debu-dalam-proses-pengecatan">tokopedia.com/totalsolution3m/tack-cloth</a></div></td><td>Membersihkan debu sebelum tiap lapis.</td><td class="price">9.500 / lembar</td></tr>
+<tr><td><b>Gelas ukur</b></td><td>Gelas ukur cat 600 ml (skala 2:1 / 3:1 / 4:1)<div class="lnk"><a href="https://www.tokopedia.com/greg82/gelas-ukur-kalibrasi-cat-gelas-takar-pencampuran-cat">tokopedia.com/greg82/gelas-ukur-kalibrasi-cat</a></div></td><td>Wajib untuk semua campuran 2K.</td><td class="price">tanya penjual</td></tr>
+<tr><td><b>Lakban kertas</b></td><td>Masking tape 3M 24 mm<div class="lnk"><a href="https://www.tokopedia.com/lancarjayaelectrik/masking-tape-3m-biru-lakban-kertas-3m-biru-scotch-3m-24mm-x-50-blue">tokopedia.com/lancarjayaelectrik/masking-tape-3m</a></div></td><td>Plat konektor, drat, lubang handle, bingkai grill.</td><td class="price">tanya penjual</td></tr>
+<tr><td><b>Spray gun</b></td><td>Spray gun tabung atas tipe F-75, nozzle 2,0 s/d 2,5 mm<div class="lnk"><a href="https://www.tokopedia.com/okebosste/spray-gun-f-75-nichi">tokopedia.com/okebosste/spray-gun-f-75-nichi</a></div></td><td>Primer dan cat akhir lapis 1.</td><td class="price">tanya penjual</td></tr>
+<tr><td><b>Alat tekstur</b></td><td>Hopper gun NRT-Pro H5000G (nozzle 4 / 6 / 8 mm)<div class="lnk"><a href="https://www.tokopedia.com/deskas/spray-gun-texture-nrt-pro-h5000g-alat-cat-semprot-tekstur-semen-hopper-gun-cat-vircan-resin-kamprot-1733691367774455626">tokopedia.com/deskas/spray-gun-texture-nrt-pro-h5000g</a></div></td><td>Cat akhir lapis 2, tekstur bintik tekanan rendah. Mulai dengan nozzle 4 mm.</td><td class="price">150.000 s/d 350.000</td></tr>
+<tr><td><b>Masker</b></td><td>3M 6200 + filter 6001 + prefilter 5N11 + tutup 501<div class="lnk"><a href="https://www.tokopedia.com/3malvindo/masker-3m-komplit-6200-6001-filter-5n11-retainer-501">tokopedia.com/3malvindo/masker-3m-komplit-6200-6001</a></div></td><td>Dipakai semua orang di area semprot selama cat 2K disemprot. Ganti filter kalau bau thinner mulai tembus.</td><td class="price">258.000 s/d 480.000</td></tr>
+<tr><td><b>Sarung tangan, kacamata</b></td><td>Sarung tangan nitril kimia, kacamata safety<div class="lnk">penjual safety di Tokopedia</div></td><td>Saat mencampur dan menyemprot.</td><td class="price">tanya penjual</td></tr>
+<tr><td><b>Mata router</b> (hanya box kayu, kalau sudutnya tajam)</td><td>Round-over bit R10 (atau R6,35)<div class="lnk"><a href="https://www.tokopedia.com/kmmteknik/benz-mata-router-corner-round-over-bit-1-4-x-3-4-r10-301-051-301-051">tokopedia.com/kmmteknik/benz-mata-router-round-over-r10</a></div></td><td>Membulatkan sudut kayu lapis yang tajam sebelum diamplas supaya cat tidak gompal.</td><td class="price">tanya penjual</td></tr>
+</tbody>
+</table>
+
+<div class="box rule"><b class="t">Kebutuhan untuk satu batch sampai 8 box ukuran sedang (perkiraan)</b>
+Primer set 5 L, cat akhir set 5 L, Thinner No. 10 5 L, Thinner No. 17 (tanya kemasan kecil), obat doff 1 L, dempul 1 kg, anti-silikon 1 L, amplas 3 m tiap grit, 10 lembar tack cloth. Biaya bahan sekitar Rp 2,5 s/d 3,5 juta di luar alat dan masker.</div>
+
+<div class="box warn"><b class="t">Soal hasil doff</b>
+Hardtop XP dijual dalam versi mengkilap. Tekstur bintik sendiri sudah banyak mengurangi kilap. Kalau panel contoh masih terlalu mengkilap: tambahkan Propan MS-21 20 s/d 30 % (tes dulu, Jotun tidak menjamin kecocokannya), atau minta dealer Jotun (Maxima Color Center, Jotun Paint Official) menintingkan jenis low-gloss (Hardtop XPL atau Hardtop HB) ke RAL 7016 lewat sistem tinting MCI. Pemilik yang memutuskan setelah melihat panel.</div>
+</div>
+
+<!-- B3 procedure -->
+<div class="page">
+<h2><span class="num">B3</span>Langkah kerja <span class="tag id">Bahasa Indonesia</span></h2>
+
+<div class="step"><div class="n">1</div><div>
+<h4>Periksa dan kenali cat lama</h4>
+<ul><li>Gosok satu titik tersembunyi cat lama selama 30 detik pakai lap yang dibasahi thinner nitro / thinner A.</li>
+<li><b>Keras, tidak ada yang menempel di lap:</b> cat lama jenis 2K atau polyurea. Dipertahankan, diamplas, lalu diprimer.</li>
+<li><b>Melunak, keriput, atau warnanya pindah ke lap:</b> cat lama jenis akrilik 1K atau nitro. Buang semua bagian yang terkelupas atau rapuh. Bagian yang masih kuat dipertahankan dan dapat lapis kabut di langkah 6.</li>
+<li>Fiberglass: ketuk permukaannya; bunyi kopong berarti terkelupas dari dalam, tandai dan laporkan ke pemilik.</li></ul>
+<div class="meta"><b>Cek:</b> foto lap hasil tes gosok dikirim ke pemilik.</div></div></div>
+
+<div class="step"><div class="n">2</div><div>
+<h4>Lepas aksesori, tutup yang tidak bisa dilepas</h4>
+<ul><li>Lepas handle, pelindung sudut, grill, plat konektor, kaki dan dudukan tiang bila bisa. Masukkan kantong dan beri label per box.</li>
+<li>Tutup drat, lubang konektor dan semua yang tidak bisa dilepas dengan lakban 3M. Sumbat drat dengan lakban atau sekrup.</li></ul></div></div>
+
+<div class="step"><div class="n">3</div><div>
+<h4>Bulatkan sudut tajam (box kayu)</h4>
+<ul><li>Kalau sudut kayu lapis tajam, bulatkan dengan mata router R10 (atau R6,35), atau manual dengan amplas P80 sampai sudutnya jelas melengkung. Cat paling dulu gompal di sudut tajam.</li>
+<li>Box fiberglass: jangan dirouter; cukup dihaluskan sudutnya dengan P120.</li></ul></div></div>
+
+<div class="step"><div class="n">4</div><div>
+<h4>Amplas sampai kusam penuh</h4>
+<ul><li>P120 lalu P180 di semua permukaan sampai tidak ada titik mengkilap sama sekali. Batas cat lama yang dibuang dihaluskan sampai tidak terasa ada undakan dengan kuku.</li>
+<li>Fiberglass: amplas sampai kusam, jangan terlalu dalam sampai serat kaca lepas. Serat yang terbuka nanti dapat dua lapis primer.</li></ul>
+<div class="meta"><b>Cek:</b> lihat box melawan cahaya; kalau ada yang berkilau, amplas lagi.</div></div></div>
+
+<div class="step"><div class="n">5</div><div>
+<h4>Dempul dan bersihkan lemak</h4>
+<ul><li>Dempul bagian gompal, lubang sekrup, retak dan pori fiberglass dengan Alfaglos (100:2 berat). Tunggu kering, amplas rata dengan P180.</li>
+<li>Retak di sepanjang sudut fiberglass: buka dengan cutter, keringkan, dempul, amplas.</li>
+<li>Lap seluruh box dengan silicone remover. Fiberglass: dua kali, ganti lap bersih tiap kali. Setelah itu jangan pegang permukaan dengan tangan kosong.</li></ul></div></div>
+
+<div class="step"><div class="n">6</div><div>
+<h4>Epoxy primer</h4>
+<ul><li>Campur Penguard Express A:B = 4:1 di gelas ukur, tambah Thinner No. 17 sesuai kaleng, aduk 2 menit, diamkan sesuai kaleng.</li>
+<li><b>Kayu dengan cat lama:</b> semprot dulu lapis kabut tipis, tunggu 10 s/d 15 menit, lalu satu lapis penuh.</li>
+<li><b>Fiberglass:</b> dua lapis penuh, jarak 10 s/d 15 menit (atau sesuai kaleng).</li>
+<li>Primer yang sudah dicampur harus habis dalam pot life yang tertulis di kaleng. Jangan disimpan untuk besok.</li></ul>
+<div class="meta"><b>Kering:</b> semalam sebelum diamplas. <b>Cek:</b> kalau primer mengangkat atau mengeriputkan cat lama di panel contoh, cat lama di batch itu harus dikupas sampai kayu dan dilaporkan.</div></div></div>
+
+<div class="step"><div class="n">7</div><div>
+<h4>Amplas primer, bersihkan debu</h4>
+<ul><li>Besoknya, amplas primer tipis dengan P240 sampai rata dan kusam. Jangan sampai tembus ke dasar; kalau tembus, primer ulang di titik itu.</li>
+<li>Tiup debunya, lalu lap dengan tack cloth tepat sebelum cat akhir.</li></ul>
+<div class="meta"><b>Batas waktu:</b> cat akhir harus naik dalam jendela recoat yang tertulis di kaleng primer; kalau lewat, amplas lagi dengan P240.</div></div></div>
+
+<div class="step"><div class="n">8</div><div>
+<h4>Cat akhir, lapis 1 (rata)</h4>
+<ul><li>Campur Hardtop XP RAL 7016 A:B persis seperti di kaleng, di gelas ukur. Tambah Thinner No. 10 sesuai kaleng. Kalau pemilik menyetujui obat doff, aduk MS-21 ke komponen A sebelum thinner.</li>
+<li>Semprot satu lapis basah yang rata dengan spray gun F-75, nozzle 2,0 s/d 2,5 mm, jalur saling tumpang tindih, termasuk semua sudut dan lubang handle.</li></ul>
+<div class="meta"><b>Pot life:</b> sesuai kaleng; sisa campuran dibuang setelah lewat. <b>Cek:</b> tidak meleleh, tidak kering kasar.</div></div></div>
+
+<div class="step"><div class="n">9</div><div>
+<h4>Cat akhir, lapis 2 (tekstur bintik)</h4>
+<ul><li>2 s/d 4 jam setelah lapis 1 (permukaan sudah tidak basah, masih sedikit lengket). Campur adonan baru dengan thinner sesedikit mungkin selama masih bisa keluar dari alat.</li>
+<li>Isi hopper gun, nozzle 4 mm dulu, tekanan angin rendah (mulai sekitar 2 bar), jarak 40 s/d 60 cm, supaya cat jatuh sebagai butiran terpisah. Setel tekanan dan nozzle di kardus sampai teksturnya sama dengan panel contoh yang disetujui.</li>
+<li>Tutup semua sisi secara merata; sudut dan pojok diberi satu lintasan tambahan.</li></ul>
+<div class="meta"><b>Cek:</b> tekstur rata, tidak ada bagian kosong, sudut tertutup penuh.</div></div></div>
+
+<div class="step"><div class="n">10</div><div>
+<h4>Pengeringan</h4>
+<ul><li>Box dibiarkan berdiri di atas balok kayu, tidak saling bersentuhan, terlindung dari matahari dan hujan, dengan aliran udara.</li>
+<li>48 jam: tidak boleh dipegang, ditumpuk, atau ditempel lakban. 7 hari: baru keras penuh; setelah itu baru pasang handle, sudut, grill dan plat konektor.</li></ul></div></div>
+
+<div class="step"><div class="n">11</div><div>
+<h4>Pasang kembali dan serah terima</h4>
+<ul><li>Lepas lakban pelan-pelan (iris tepi dengan cutter kalau lapisan cat menyambung ke lakban). Bersihkan drat. Pasang kembali aksesori sesuai kantong berlabel.</li>
+<li>Isi lembar serah terima (B6) untuk tiap box, foto tiap box dari 4 sisi, kirim ke pemilik.</li></ul></div></div>
+</div>
+
+<!-- B4 test panel -->
+<div style="margin-top:14px;">
+<h2><span class="num">B4</span>Panel contoh dan tes daya rekat <span class="tag id">Bahasa Indonesia</span></h2>
+
+<div class="step test"><div class="n">T1</div><div>
+<h4>Buat dua panel contoh sebelum menyentuh box</h4>
+<ul><li>Panel 1: potongan permukaan cat lama dari batch kayu (sisa potongan, panel belakang satu box, atau area di bawah handle).</li>
+<li>Panel 2: potongan dari batch fiberglass (area tersembunyi, misalnya bagian bawah atau di bawah handle).</li>
+<li>Kerjakan sistem lengkap di kedua panel: langkah 4 s/d 9, termasuk lapis tekstur.</li></ul></div></div>
+
+<div class="step test"><div class="n">T2</div><div>
+<h4>Tunggu 48 jam, lalu tes daya rekat (tes lakban)</h4>
+<ul><li>Dengan cutter tajam, gores kotak-kotak 6 × 6 garis, jarak 2 mm, tembus cat sampai ke dasar.</li>
+<li>Tempel lakban kuat di atas kotak-kotak, gosok sampai rapat, tunggu 1 menit, tarik cepat dengan sudut rendah.</li>
+<li><b>Lulus:</b> tidak ada yang terangkat, atau hanya serpihan sangat kecil di persilangan garis. <b>Gagal:</b> kotak utuh ikut terangkat, atau cat lepas selembar.</li>
+<li>Panel fiberglass tambahan: tempel lap basah di permukaan 24 jam, lalu ulangi tes lakban. Harus tetap lulus.</li></ul></div></div>
+
+<div class="step test"><div class="n">T3</div><div>
+<h4>Tes gores dan persetujuan visual</h4>
+<ul><li>Gores panel dengan kunci atau koin, ditekan kuat, 20 kali. Baret boleh, gompal sampai ke primer atau dasar tidak boleh.</li>
+<li>Kirim foto kedua panel di bawah cahaya siang ke pemilik: warna, tingkat kilap, ukuran tekstur. Pemilik menyetujui atau minta diubah (obat doff ditambah, tekstur lebih halus atau lebih kasar).</li></ul>
+<div class="meta"><b>Aturan:</b> tidak ada box asli yang boleh diamplas, diprimer atau dicat sebelum pemilik menyetujui kedua panel secara tertulis (pesan WA cukup).</div></div></div>
+
+<div class="box ok"><b class="t">Kalau panel gagal</b>
+Panel cat lama gagal: cat lama di seluruh batch itu harus dikupas sampai kayu, lalu diprimer seperti kayu telanjang (dua lapis primer). Panel fiberglass gagal: bersihkan lemak lagi lebih teliti, amplas ulang P120, pakai dua lapis primer, buat panel baru. Kedua kasus dilaporkan ke pemilik sebelum lanjut.</div>
+
+<h3>Aturan cuaca dan tempat kerja</h3>
+<table>
+<thead><tr><th style="width:30%">Kondisi</th><th>Aturan</th></tr></thead>
+<tbody>
+<tr><td>Kelembapan udara</td><td>Semprot hanya di bawah 85 % RH. Sediakan hygrometer murah di bengkel. Musim hujan: semprot menjelang siang, bukan sore.</td></tr>
+<tr><td>Suhu</td><td>Permukaan tidak boleh panas kalau dipegang. Kerja di tempat teduh, jangan pernah di bawah matahari langsung. Jangan menyemprot kalau diperkirakan hujan dalam 4 jam.</td></tr>
+<tr><td>Debu</td><td>Basahi lantai, hentikan pengamplasan di ruangan sebelum menyemprot, tack cloth tepat sebelum tiap lapis.</td></tr>
+<tr><td>Ventilasi dan keselamatan</td><td>Semprot di luar di bawah atap atau di ruangan dengan exhaust fan. Semua orang di area memakai masker 3M 6200 dengan filter 6001, kacamata dan sarung tangan nitril. Dilarang merokok dan api terbuka dekat thinner.</td></tr>
+<tr><td>Pencampuran</td><td>Gelas ukur, takaran sesuai kaleng, aduk 2 menit, patuhi waktu diam dan pot life. Jangan pernah menambah hardener "sedikit lebih supaya cepat kering".</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- B5 checklist -->
+<div class="page">
+<h2><span class="num">B5</span>Daftar periksa pengawas <span class="tag id">Bahasa Indonesia</span></h2>
+<p class="muted small">Centang tiap baris sebelum mengizinkan tahap berikutnya. Kalau foto tidak ada, tahap itu diulang di box berikutnya di depan pengawas.</p>
+
+<h3>Sebelum mulai</h3>
+<ul class="chk">
+<li>Semua bahan dari tabel B2 ada di lokasi dan sesuai merek; tidak ada pengganti tanpa persetujuan pemilik.</li>
+<li>Gelas ukur, hygrometer, masker 3M 6200 dengan filter 6001, sarung tangan nitril dan kacamata tersedia.</li>
+<li>Tes gosok cat lama sudah dilakukan; foto lap dikirim ke pemilik.</li>
+<li>Dua panel contoh dibuat dengan sistem lengkap.</li>
+<li>48 jam kemudian: kedua panel lulus tes lakban; panel fiberglass juga lulus setelah 24 jam lap basah; foto dikirim.</li>
+<li>Pemilik sudah menyetujui warna, kilap dan tekstur secara tertulis.</li>
+</ul>
+
+<h3>Selama pengerjaan (per box)</h3>
+<ul class="chk">
+<li>Aksesori dilepas, dikantongi dan diberi label; drat dan plat konektor ditutup lakban.</li>
+<li>Sudut kayu dibulatkan; seluruh permukaan kusam tanpa titik mengkilap; dempul rata.</li>
+<li>Dilap silicone remover (fiberglass dua kali); tidak ada yang menyentuh permukaan setelahnya.</li>
+<li>Primer dicampur 4:1 di gelas ukur; lapis kabut di cat lama; dua lapis di fiberglass; foto dikirim.</li>
+<li>Primer diamplas P240 besoknya, debu dibersihkan, cat akhir naik dalam jendela recoat.</li>
+<li>Cat akhir dicampur sesuai kaleng dengan Thinner No. 10 saja; lapis 1 rata; foto dikirim.</li>
+<li>Lapis 2 tekstur 2 s/d 4 jam kemudian; tekstur sama dengan panel yang disetujui; sudut tertutup; foto dikirim.</li>
+<li>Kelembapan di bawah 85 %, teduh, tidak akan hujan; masker dipakai semua orang di area semprot.</li>
+</ul>
+
+<h3>Setelah selesai</h3>
+<ul class="chk">
+<li>Tidak ada box yang dipegang, ditumpuk atau ditempel lakban selama 48 jam.</li>
+<li>Aksesori dipasang hanya setelah 7 hari.</li>
+<li>Lembar serah terima B6 diisi per box, 4 foto per box dikirim.</li>
+<li>Sisa cat dan hardener diberi label tanggal buka, disimpan tertutup rapat, jauh dari matahari.</li>
+</ul>
+</div>
+
+<!-- B6 acceptance -->
+<div class="page">
+<h2><span class="num">B6</span>Lembar serah terima per box <span class="tag id">Bahasa Indonesia</span></h2>
+<p class="small muted">Satu baris per box. Diisi sebelum box keluar dari bengkel.</p>
+<table class="sign">
+<thead><tr><th>ID / keterangan box</th><th>Jenis (kayu / fiberglass)</th><th>Tanggal primer</th><th>Tanggal cat akhir</th><th>Tanggal pasang aksesori (≥ 7 hari)</th><th>Diperiksa oleh</th><th>OK?</th></tr></thead>
+<tbody>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<h3>Syarat dinyatakan "OK"</h3>
+<ul class="tight">
+<li>Tekstur rata di semua sisi, tidak ada bagian kosong atau tipis, sudut dan pojok tertutup penuh.</li>
+<li>Tidak ada lelehan, tidak ada bintik debu lebih besar dari kepala jarum, tidak ada semprotan kering kasar.</li>
+<li>Warna dan kilap sama dengan panel contoh yang disetujui, dilihat di cahaya siang.</li>
+<li>Area yang ditutup lakban bersih: plat konektor, drat, lubang handle, bingkai grill.</li>
+<li>Tes gores koin di tepi bawah: tidak gompal sampai primer atau dasar.</li>
+<li>Aksesori terpasang lurus dan kencang, tidak ada yang hilang dari kantong berlabel.</li>
+</ul>
+
+<table class="sign" style="margin-top:14px;">
+<thead><tr><th>Peran</th><th>Nama</th><th>Tanda tangan</th><th>Tanggal</th></tr></thead>
+<tbody>
+<tr><td>Tukang cat</td><td></td><td></td><td></td></tr>
+<tr><td>Pengawas / manajer</td><td></td><td></td><td></td></tr>
+<tr><td>Pemilik</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class="footer-note">Instruksi ini merangkum laporan riset tentang cara pabrik speaker profesional (Funktion-One, d&amp;b audiotechnik, L-Acoustics, JBL, Martin Audio, EAW dan lainnya) melapisi box mereka. Data produk (takaran, pot life, jendela recoat) selalu diambil dari lembar data teknis produk yang benar-benar dibeli; kalau dokumen ini berbeda dengan kaleng, ikuti kaleng.</div>
+</div>
+
+</body>
+</html>
